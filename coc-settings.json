@@ -26,5 +26,5 @@
     "git.splitWindowCommand": "above sp",
     "rpc.checkIdle": true,
     "rpc.detailsIdling": "Idling",
-    "rpc.problemsText": "- {count} reasons to end it all"
+    "rpc.problemsText": "- {count} problems found"
 }
