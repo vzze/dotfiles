@@ -116,5 +116,6 @@ autocmd User CocGitStatusChange call s:update_git_status()
 " CocInstall coc-pairs
 " CocInstall coc-json this and tsserver just work
 " CocInstall coc-tsserver
+" CocInstall coc-powershell
 " pip3 install jedi
 " scoop install universal-ctags
