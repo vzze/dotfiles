@@ -26,6 +26,7 @@ Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plug 'mhinz/vim-startify'
 Plug 'powerline/fonts'
+Plug 'https://github.com/renerocksai/calendar-vim'
 
 call plug#end()
 
@@ -37,6 +38,7 @@ nmap <F4> :TagbarToggle<CR>
 
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
+
 nnoremap tn :tabnew<CR>
 nnoremap td :tabclose<CR>
 
@@ -45,6 +47,16 @@ nnoremap src :CocCommand clangd.switchSourceHeader<CR>
 nnoremap git :CocCommand git.browserOpen<CR>
 nnoremap gtc :CocCommand git.chunkInfo<CR>
 
+nnoremap cal :CalendarH<CR>
+nnoremap caL :Calendar<CR>
+
+nnoremap EX :E . <Bar> :NERDTreeRefreshRoot<CR>
+nnoremap ex :e . <Bar> :NERDTreeRefreshRoot<CR>
+
+nnoremap TEX :tabnew <Bar> :E . <Bar> :NERDTreeRefreshRoot<CR>
+nnoremap tex :tabnew <Bar> :e . <Bar> :NERDTreeRefreshRoot<CR>
+
+nnoremap term :terminal Powershell.exe<CR>
 nnoremap ttn :tabnew <Bar> :terminal Powershell.exe<CR>
 tnoremap <Esc> <C-\><C-n>
 
