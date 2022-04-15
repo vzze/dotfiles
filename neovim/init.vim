@@ -29,7 +29,6 @@ Plug 'powerline/fonts'
 Plug 'https://github.com/renerocksai/calendar-vim'
 Plug 'https://github.com/yamatsum/nvim-cursorline'
 Plug 'https://github.com/sbdchd/neoformat'
-Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
 
 call plug#end()
 
