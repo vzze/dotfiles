@@ -27,6 +27,9 @@ Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple c
 Plug 'mhinz/vim-startify'
 Plug 'powerline/fonts'
 Plug 'https://github.com/renerocksai/calendar-vim'
+Plug 'https://github.com/yamatsum/nvim-cursorline'
+Plug 'https://github.com/sbdchd/neoformat'
+Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
 
 call plug#end()
 
@@ -112,6 +115,8 @@ autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 autocmd vimenter * hi DiffAdd ctermbg=NONE guibg=NONE
 autocmd vimenter * hi Pmenu guibg=NONE ctermbg=NONE ctermfg=3 guifg=3
+autocmd vimenter * hi CursorLineNr cterm=NONE
+autocmd vimenter * hi CursorLine NONE
 
 function! s:update_git_status()
     let g:airline_section_b="%{get(g:,'coc_git_status','')}"
