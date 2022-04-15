@@ -388,6 +388,10 @@ function calc {
     Start-Process ms-calculator:
 }
 
+function isadmin {
+    Write-Output ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
+}
+
 Set-Alias winfetch pwshfetch-test-1
 
 Set-Alias time Get-Date
