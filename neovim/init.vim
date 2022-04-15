@@ -26,7 +26,6 @@ Plug 'mhinz/vim-startify'
 Plug 'powerline/fonts'
 Plug 'https://github.com/renerocksai/calendar-vim'
 Plug 'https://github.com/yamatsum/nvim-cursorline'
-Plug 'https://github.com/sbdchd/neoformat'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 
 call plug#end()
@@ -64,7 +63,7 @@ tnoremap <Esc> <C-\><C-n>
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -78,37 +77,37 @@ let g:loaded_perl_provider=0
 let g:loaded_ruby_provider=0
 
 let g:startify_custom_header = [
-	\ '                                    ',
-	\ '              @99o..                ',
-	\ '              `99   o               ',
-	\ '               99.aad9.             ',
-	\ '        "bad9999999999P             ',
-	\ '               99                   ',
-	\ '             od99o.                 ',
-	\ '            99 99 9o        .o      ',
-	\ '            `9999999     ,// `a     ',
-	\ "          .ooP`99P'   .o%    ,@9.   ",
-	\ '       .''       .oaadObooooa9999   ',
-	\ "   . ~  .oad999999999999999999P'    ",
-	\ "  \"soo999999999999999P\"'            ",
-	\ '       ,.oaa99aooo.                 ',
-	\ '     .  ,o9999999999.   o@@o        ',
-	\ "     o o99'        `99   @@@        ",
-	\ "     `99'       ,oda9'   \"'         ",
-	\ '               0   a999o.           ',
-	\ '               `.ao" `999,          ',
-	\ '                      `999;         ',
-	\ '                       999          ',
-	\ "         o            ,99'          ",
-	\ '          `9a,       ,9F            ',
-	\ '            "*bo. ,g9"              ',
-	\ ]
+            \ '                                    ',
+            \ '              @99o..                ',
+            \ '              `99   o               ',
+            \ '               99.aad9.             ',
+            \ '        "bad9999999999P             ',
+            \ '               99                   ',
+            \ '             od99o.                 ',
+            \ '            99 99 9o        .o      ',
+            \ '            `9999999     ,// `a     ',
+            \ "          .ooP`99P'   .o%    ,@9.   ",
+            \ '       .''       .oaadObooooa9999   ',
+            \ "   . ~  .oad999999999999999999P'    ",
+            \ "  \"soo999999999999999P\"'            ",
+            \ '       ,.oaa99aooo.                 ',
+            \ '     .  ,o9999999999.   o@@o        ',
+            \ "     o o99'        `99   @@@        ",
+            \ "     `99'       ,oda9'   \"'         ",
+            \ '               0   a999o.           ',
+            \ '               `.ao" `999,          ',
+            \ '                      `999;         ',
+            \ '                       999          ',
+            \ "         o            ,99'          ",
+            \ '          `9a,       ,9F            ',
+            \ '            "*bo. ,g9"              ',
+            \ ]
 
 let g:airline_theme='purify'
 
 :colorscheme default
 
-autocmd vimenter * hi SignColumn ctermbg=NONE 
+autocmd vimenter * hi SignColumn ctermbg=NONE
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 autocmd vimenter * hi DiffAdd ctermbg=NONE guibg=NONE
@@ -120,11 +119,6 @@ autocmd vimenter * hi Keyword cterm=italic ctermfg=11 gui=italic guifg=11
 
 autocmd vimenter * TSUpdateSync
 autocmd vimenter * TSEnable highlight
-
-augroup fmt
-    autocmd!
-    autocmd BufWritePre * undojoin | Neoformat
-augroup END
 
 function! s:update_all()
     :PlugUpgrade
