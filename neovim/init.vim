@@ -120,15 +120,6 @@ autocmd vimenter * hi Keyword cterm=italic ctermfg=11 gui=italic guifg=11
 autocmd vimenter * TSUpdateSync
 autocmd vimenter * TSEnable highlight
 
-function! s:update_all()
-    :PlugUpgrade
-    :PlugUpdate
-    :CocUpdateSync
-    :TSUpdateSync
-endfunction
-
-command -nargs=0 UpdateAll call s:update_all()
-
 function! s:high()
     :TSToggle highlight
 endfunction
