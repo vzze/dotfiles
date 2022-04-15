@@ -18,10 +18,8 @@ Plug 'https://github.com/tpope/vim-surround' " ysw
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
-Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
 Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
-Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plug 'mhinz/vim-startify'
@@ -120,17 +118,28 @@ autocmd vimenter * hi CursorLine NONE
 autocmd vimenter * hi Type cterm=italic ctermfg=121 gui=italic guifg=#60ff60
 autocmd vimenter * hi Keyword cterm=italic ctermfg=11 gui=italic guifg=11
 
-autocmd vimenter * TSUpdate all
+autocmd vimenter * TSUpdateSync
 autocmd vimenter * TSEnable highlight
+
+augroup fmt
+    autocmd!
+    autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 function! s:update_all()
     :PlugUpgrade
     :PlugUpdate
-    :CocUpdate
-    :TSUpdate all
+    :CocUpdateSync
+    :TSUpdateSync
 endfunction
 
 command -nargs=0 UpdateAll call s:update_all()
+
+function! s:high()
+    :TSToggle highlight
+endfunction
+
+command -nargs=0 High call s:high()
 
 function! s:update_git_status()
     let g:airline_section_b="%{get(g:,'coc_git_status','')}"
