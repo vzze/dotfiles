@@ -14,24 +14,20 @@
 
 call plug#begin('~/AppData/Local/nvim/plugged')
 
-Plug 'https://github.com/tpope/vim-surround' " ysw
-Plug 'https://github.com/preservim/nerdtree' " NerdTree
-Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
-Plug 'https://github.com/vim-airline/vim-airline' " Status bar
-Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
-Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
-Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
-Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-commentary' " For Commenting gcc & gc
+Plug 'vim-airline/vim-airline'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'neoclide/coc.nvim'
+Plug 'terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plug 'mhinz/vim-startify'
 Plug 'powerline/fonts'
-Plug 'https://github.com/renerocksai/calendar-vim'
-Plug 'https://github.com/yamatsum/nvim-cursorline'
-Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
+Plug 'renerocksai/calendar-vim'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 call plug#end()
 
-nnoremap <C-t> :NERDTreeRefreshRoot<CR>
-nnoremap <C-f> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeToggle <Bar> :NERDTreeRefreshRoot<CR>
 nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
 
 nmap <F4> :TagbarToggle<CR>
@@ -49,12 +45,6 @@ nnoremap gtc :CocCommand git.chunkInfo<CR>
 
 nnoremap cal :CalendarH<CR>
 nnoremap caL :Calendar<CR>
-
-nnoremap EX :E . <Bar> :NERDTreeRefreshRoot<CR>
-nnoremap ex :e . <Bar> :NERDTreeRefreshRoot<CR>
-
-nnoremap TEX :tabnew <Bar> :E . <Bar> :NERDTreeRefreshRoot<CR>
-nnoremap tex :tabnew <Bar> :e . <Bar> :NERDTreeRefreshRoot<CR>
 
 nnoremap term :terminal Powershell.exe<CR>
 nnoremap ttn :tabnew <Bar> :terminal Powershell.exe<CR>
