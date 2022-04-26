@@ -110,6 +110,9 @@ autocmd vimenter * hi Keyword cterm=italic ctermfg=11 gui=italic guifg=11
 autocmd vimenter * TSUpdateSync
 autocmd vimenter * TSEnable highlight
 
+" disables auto commenting
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 function! s:high()
     :TSToggle highlight
 endfunction
