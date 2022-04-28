@@ -119,6 +119,18 @@ endfunction
 
 command -nargs=0 High call s:high()
 
+function! Multiple_cursors_before()
+    if exists(':CocDisable')==2
+        exe 'CocDisable'
+    endif
+endfunction
+
+function! Multiple_cursors_after()
+    if exists(':CocEnable')==2
+        exe 'CocEnable'
+    endif
+endfunction
+
 function! s:update_git_status()
     let g:airline_section_b="%{get(g:,'coc_git_status','')}"
 endfunction
