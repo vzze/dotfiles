@@ -1,5 +1,7 @@
 {
-    "clangd.path": "C:\\Users\\Edi\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\14.0.0\\clangd_14.0.0\\bin\\clangd.exe",
+        "clangd.path": "C:\\Users\\Edi\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\14.0.3\\clangd_14.0.3\\bin\\clangd.exe",
+    "clangd.inlayHints.enable": true,
+    "clangd.inlayHints.sep": "| ",
     "coc.preferences.formatOnType": true,
     "diagnostic.virtualTextCurrentLineOnly": false,
     "diagnostic.virtualText": true,
