@@ -21,12 +21,6 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "red",
-          "style": "plain",
-          "template": " % ",
-          "type": "root"
-        },
-        {
           "style": "plain",
           "template": "<lightYellow>{{ .UserName }}</> <darkGray>@</> <lightGreen>{{ .HostName }}</> ",
           "type": "session"
