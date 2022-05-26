@@ -1,5 +1,8 @@
 {
-        "clangd.path": "C:\\Users\\Edi\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\14.0.3\\clangd_14.0.3\\bin\\clangd.exe",
+    "clangd.path": "C:\\Users\\Edi\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\14.0.3\\clangd_14.0.3\\bin\\clangd.exe",
+    "clangd.fallbackFlags": [
+        "-std=c++20"
+    ],
     "clangd.inlayHints.enable": true,
     "clangd.inlayHints.sep": "| ",
     "coc.preferences.formatOnType": true,
@@ -12,7 +15,7 @@
     "git.enableGlobalStatus": true,
     "git.enableGutters": true,
     "git.realtimeGutters": true,
-    "git.addedSign.text": "+",  
+    "git.addedSign.text": "+",
     "git.changedSign.text": "~",
     "git.removedSign.text": "_",
     "git.topRemovedSign.text": "-",
@@ -25,8 +28,5 @@
     "git.conflict.current.hlGroup": "DiffAdd",
     "git.changeRemovedSign.hlGroup": "DiffAdd",
     "git.addGBlameToBufferVar": true,
-    "git.splitWindowCommand": "above sp",
-    "rpc.checkIdle": true,
-    "rpc.detailsIdling": "Idling",
-    "rpc.problemsText": "- {count} problems found"
+    "git.splitWindowCommand": "above sp"
 }

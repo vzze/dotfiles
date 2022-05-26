@@ -24,13 +24,24 @@ Plug 'mhinz/vim-startify'
 Plug 'powerline/fonts'
 Plug 'renerocksai/calendar-vim'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'folke/zen-mode.nvim'
 
 call plug#end()
+
+lua << EOF
+    require("zen-mode").setup {
+        window = {
+            backdrop = 1,
+            width = 1,
+            height = 1
+        }
+    }
+EOF
 
 nnoremap <C-f> :NERDTreeToggle <Bar> :NERDTreeRefreshRoot<CR>
 nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
 
-nmap <F4> :TagbarToggle<CR>
+nmap <F4> :ZenMode<CR>
 
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
