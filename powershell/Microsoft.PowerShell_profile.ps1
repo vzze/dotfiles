@@ -1,3 +1,5 @@
+Import-Module Terminal-Icons
+
 oh-my-posh init pwsh --config D:\CB\Configs\powershell\ys.omp.json | Invoke-Expression
 
 Set-Alias winfetch pwshfetch-test-1
