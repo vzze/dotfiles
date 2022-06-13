@@ -1,4 +1,5 @@
 {
+    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": 
     [
@@ -28,6 +29,7 @@
             "keys": "alt+shift+d"
         }
     ],
+    "alwaysOnTop": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -40,9 +42,9 @@
         "list": 
         [
             {
-                "acrylicOpacity": 0.5,
                 "colorScheme": "FCC0FF_V2",
-                "commandline": "powershell.exe",
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "elevate": true,
                 "font": 
                 {
                     "face": "Cartograph CF"
@@ -50,65 +52,47 @@
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell",
+                "opacity": 50,
                 "padding": "8",
                 "startingDirectory": "D:",
                 "useAcrylic": true
             },
             {
-                "acrylicOpacity": 0.5,
-                "colorScheme": "Monokai Pro",
-                "commandline": "cmd.exe",
+                "colorScheme": "FCC0FF_V2",
                 "font": 
                 {
-                    "face": "CaskaydiaCove Nerd Font Mono"
+                    "face": "Cartograph CF"
                 },
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt",
+                "opacity": 50,
                 "useAcrylic": true
             },
             {
-                "acrylicOpacity": 0.5,
-                "colorScheme": "Monokai Pro",
+                "colorScheme": "FCC0FF_V2",
                 "font": 
                 {
-                    "face": "CaskaydiaCove Nerd Font Mono"
+                    "face": "Cartograph CF"
                 },
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
                 "hidden": false,
                 "name": "Azure Cloud Shell",
+                "opacity": 50,
                 "source": "Windows.Terminal.Azure",
                 "useAcrylic": true
             },
             {
-                "acrylicOpacity": 0.5,
-                "colorScheme": "Monokai Pro",
-                "commandline": "D:/Msys64/msys2_shell.cmd -defterm -here -no-start -mingw64",
-                "font": 
-                {
-                    "face": "Lucida Console",
-                    "size": 9
-                },
-                "guid": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
-                "icon": "D:/Msys64/mingw64.ico",
-                "name": "MINGW64 / MSYS2",
-                "startingDirectory": "D:/Msys64/home/%USERNAME%",
-                "useAcrylic": true
+                "guid": "{c9077e30-8c4b-5ca4-9dcc-f8dd8e31ea60}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "acrylicOpacity": 0.5,
-                "colorScheme": "Monokai Pro",
-                "commandline": "D:/Msys64/msys2_shell.cmd -defterm -here -no-start -mingw32",
-                "font": 
-                {
-                    "face": "Lucida Console",
-                    "size": 9
-                },
-                "guid": "{2d51fdc4-a03b-4efe-81bc-722b7f6f3820}",
-                "icon": "D:/Msys64/mingw32.ico",
-                "name": "MINGW32 / MSYS2",
-                "startingDirectory": "D:/Msys64/home/%USERNAME%",
-                "useAcrylic": true
+                "guid": "{3fa45aed-f903-5a1b-8d8a-43d1a3e3edda}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
@@ -437,6 +421,29 @@
             "yellow": "#C4A000"
         },
         {
+            "background": "#300A24",
+            "black": "#171421",
+            "blue": "#0037DA",
+            "brightBlack": "#767676",
+            "brightBlue": "#08458F",
+            "brightCyan": "#2C9FB3",
+            "brightGreen": "#26A269",
+            "brightPurple": "#A347BA",
+            "brightRed": "#C01C28",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#A2734C",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#3A96DD",
+            "foreground": "#FFFFFF",
+            "green": "#26A269",
+            "name": "Ubuntu-22.04-ColorScheme",
+            "purple": "#881798",
+            "red": "#C21A23",
+            "selectionBackground": "#FFFFFF",
+            "white": "#CCCCCC",
+            "yellow": "#A2734C"
+        },
+        {
             "background": "#000000",
             "black": "#000000",
             "blue": "#000080",
@@ -459,5 +466,6 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ]
+    ],
+    "useAcrylicInTabRow": true
 }
