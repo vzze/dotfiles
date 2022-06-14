@@ -1,73 +1,80 @@
 {
-  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "blocks": [
-    {
-      "alignment": "left",
-      "segments": [
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [
         {
-          "foreground": "white",
-          "properties": {
-            "fetch_version": false
-          },
-          "style": "plain",
-          "template": "({{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }})",
-          "type": "python"
+            "alignment": "left",
+            "segments": [
+                {
+                    "foreground": "white",
+                    "properties": {
+                        "fetch_version": false
+                    },
+                    "style": "plain",
+                    "template": "({{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }})",
+                    "type": "python"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "style": "plain",
+                    "template": "<lightYellow>{{ .UserName }}</> <darkGray>@</> <lightGreen>{{ .HostName }}</> ",
+                    "type": "session"
+                },
+                {
+                    "foreground": "lightCyan",
+                    "properties": {
+                        "style": "full"
+                    },
+                    "style": "plain",
+                    "template": "<darkGray>: </>{{ .Path }} ",
+                    "type": "path"
+                },
+                {
+                    "foreground": "red",
+                    "style": "plain",
+                    "template": " C:{{ if gt .Code 0 }}{{ .Code }}{{ end }} ",
+                    "type": "exit"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "right",
+            "newline": false,
+            "segments": [
+                {
+                    "style": "plain",
+                    "template": "<white>git:</>{{ .HEAD }} ",
+                    "type": "git"
+                },
+                {
+                    "foreground": "darkGray",
+                    "style": "plain",
+                    "template": "[{{ .CurrentDate | date .Format }}]",
+                    "type": "time"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "foreground": "lightRed",
+                    "style": "plain",
+                    "template": "7>",
+                    "type": "text"
+                }
+            ],
+            "type": "prompt"
         }
-      ],
-      "type": "prompt"
-    },
-    {
-      "alignment": "left",
-      "newline": true,
-      "segments": [
-        {
-          "style": "plain",
-          "template": "<lightYellow>{{ .UserName }}</> <darkGray>@</> <lightGreen>{{ .HostName }}</> ",
-          "type": "session"
-        },
-        {
-          "foreground": "lightCyan",
-          "properties": {
-            "style": "full"
-          },
-          "style": "plain",
-          "template": "<darkGray>in </>{{ .Path }} ",
-          "type": "path"
-        },
-        {
-          "style": "plain",
-          "template": "<darkGray>on</> <white>git:</>{{ .HEAD }} ",
-          "type": "git"
-        },
-        {
-          "foreground": "darkGray",
-          "style": "plain",
-          "template": "[{{ .CurrentDate | date .Format }}]",
-          "type": "time"
-        },
-        {
-          "foreground": "red",
-          "style": "plain",
-          "template": " C:{{ if gt .Code 0 }}{{ .Code }}{{ end }} ",
-          "type": "exit"
-        }
-      ],
-      "type": "prompt"
-    },
-    {
-      "alignment": "left",
-      "newline": true,
-      "segments": [
-        {
-          "foreground": "lightRed",
-          "style": "plain",
-          "template": "7>",
-          "type": "text"
-        }
-      ],
-      "type": "prompt"
-    }
-  ],
-  "final_space": true,
-  "version": 2
+    ],
+    "final_space": true,
+    "version": 2
 }
