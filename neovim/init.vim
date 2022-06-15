@@ -33,7 +33,7 @@ lua << EOF
             backdrop = 1,
             width = 1,
             height = 1
-        }
+        },
     }
 EOF
 
@@ -54,7 +54,6 @@ nnoremap git :CocCommand git.browserOpen<CR>
 nnoremap gtc :CocCommand git.chunkInfo<CR>
 
 nnoremap cal :CalendarH<CR>
-nnoremap caL :Calendar<CR>
 
 nnoremap term :terminal Powershell.exe<CR>
 nnoremap ttn :tabnew <Bar> :terminal Powershell.exe<CR>
