@@ -20,10 +20,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'neoclide/coc.nvim'
 Plug 'terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
-Plug 'mhinz/vim-startify'
-Plug 'renerocksai/calendar-vim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'folke/zen-mode.nvim'
+Plug 'tpope/vim-surround'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'goolord/alpha-nvim'
+Plug '/tpope/vim-repeat'
 
 call plug#end()
 
@@ -35,6 +39,51 @@ lua << EOF
             height = 1
         },
     }
+
+    local dashboard = require("alpha.themes.dashboard")
+
+    dashboard.section.header.val = {
+         [[    `-'`                                ~;    ]],
+         [[     ~~~-`                           'x#@x    ]],
+         [[$####x~~~~;&###########W###########8NW@@#&###$]],
+         [[%%<ua8x"~~~~;a88888888$#&88888888NN#@@@$a8&a&%]],
+         [[%@+~~"*au"~~~~oN888888$W8888888&o%@@@$NNN8%W&%]],
+         [[%@&*~~~~:uo:~"<~+N8888$W88888&N%*$@8aa8#@@Wo@%]],
+         [[%#&8u"~~~~~+x<+~~~<N88$W888&N%@@*aaN$@@@@%a&@%]],
+         [[%x~:<**;~~~~*<x+~~~~<N$W8&N%@@#&ax*@@@@8aa&8&x]],
+         [[%@u~~~~:++:~+~~;o*"~~~+8o$@@%&a&#Nx@$No8#@@%8%]],
+         [[%#NN;~~~~~+u*<~~~:ou";a$+W$Na&W@@ooxa$@@@@&a@%]],
+         [[%#~;*u*;~~~+~+*;~~~+&#@&uNa&W@W8xNN*#@@$&x&&o%]],
+         [[%@o"~~~:<;;:<~~:++o#@@$Nao8@#&o8#@oa$ax8$@@8$%]],
+         [[%@NN;~~~~~*;*<~~~<#@%aa8W*Naa$@@#xuuxW@@@WNa@%]],
+         [[%W88$&+~~~:<~~<+;*WN&8W@NNa%@W8aN$Wo8@@#&&##@%]],
+         [[%W;~~";**+:<:~~~"uaN#@$aau&%Nx8W@@ax%8aa&$%$x%]],
+         [[%@&o"~~~~~<oo+"~~a8@%aa%%uox%@@@%&xoa$W@@@$x@%]],
+         [[%@&88o<~~~~*~"+u*x#Nx%@8o&uN@$&xN8&uW@@W$N&&@%]],
+         [[%@&+"";<<<<;<~~~"uo8@8x8#N*&x&8W@Woa$NxN88&u@%]],
+         [[%@&8x:~~~~~ouu+:~oW%xN##&axNW@@%8aox$W@@@8N&@%]],
+         [[%@&888x<~~~:<~:+ooNx%$NN&Nu%8&xN8$o&@@#8N88&@%]],
+         [[%@&8x"~:<<<;+<~~~u8$xN$@8axa&$W@Wxu8axN8$xN&@%]],
+         [[%@&888u"~~~~<*;;+uo&#$$NNuo@@%$Nxxa%@@@$N88&@%]],
+         [[%@&8888xou*;"+"~<o8&x&8#a*Nxx&$W8u%$8&aa888&@%]],
+         [[%@&8888&<~~:++a+uo&$%$&xoN%@W$$NaoN8$$a&888&@%]],
+         [[&@#%88888a*:~~;<o8NxN$8xu8axa88*a@@$&N8888$#@&]],
+         [[ `:o$W#$8xuuu*<ua$%$8axN&$W@%8x*xxxNNN$#W$x;' ]],
+         [[     ':o$W8u~~<o&xN8$8uxNaaNx*&@@@#$$$x;'     ]],
+         [[         ';x$&N8%#$8&NxN&88NoxxxxNu;'         ]],
+         [[            -ox*N#%$88$W&8$%W%*..-'           ]],
+         [[          `.'    .<a%WW@W#a<.      ```        ]]
+    }
+
+    dashboard.section.buttons.val = {
+        dashboard.button("e", "New File", ":ene <BAR> startinsert <CR>"),
+        dashboard.button("SPC f f", "Find File"),
+        dashboard.button("SPC f g", "Find Word"),
+        dashboard.button("SPC c", "Config", ":e ~/Appdata/Local/nvim/init.vim <CR>"),
+        dashboard.button("q", "Quit", ":qa<CR>")
+    }
+
+    require("alpha").setup(dashboard.config)
 EOF
 
 nnoremap <C-f> :NERDTreeToggle <Bar> :NERDTreeRefreshRoot<CR>
@@ -53,8 +102,6 @@ nnoremap src :CocCommand clangd.switchSourceHeader<CR>
 nnoremap git :CocCommand git.browserOpen<CR>
 nnoremap gtc :CocCommand git.chunkInfo<CR>
 
-nnoremap cal :CalendarH<CR>
-
 nnoremap term :terminal Powershell.exe<CR>
 nnoremap ttn :tabnew <Bar> :terminal Powershell.exe<CR>
 tnoremap <Esc> <C-\><C-n>
@@ -63,6 +110,11 @@ inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1
@@ -74,33 +126,6 @@ let g:python3_host_prog="C:/Users/Edi/scoop/apps/python/current/python.exe"
 let g:python_host_prog="C:/Users/Edi/scoop/apps/python/current/python.exe"
 let g:loaded_perl_provider=0
 let g:loaded_ruby_provider=0
-
-let g:startify_custom_header = [
-            \ '                                    ',
-            \ '              @99o..                ',
-            \ '              `99   o               ',
-            \ '               99.aad9.             ',
-            \ '        "bad9999999999P             ',
-            \ '               99                   ',
-            \ '             od99o.                 ',
-            \ '            99 99 9o        .o      ',
-            \ '            `9999999     ,// `a     ',
-            \ "          .ooP`99P'   .o%    ,@9.   ",
-            \ '       .''       .oaadObooooa9999   ',
-            \ "   . ~  .oad999999999999999999P'    ",
-            \ "  \"soo999999999999999P\"'            ",
-            \ '       ,.oaa99aooo.                 ',
-            \ '     .  ,o9999999999.   o@@o        ',
-            \ "     o o99'        `99   @@@        ",
-            \ "     `99'       ,oda9'   \"'         ",
-            \ '               0   a999o.           ',
-            \ '               `.ao" `999,          ',
-            \ '                      `999;         ',
-            \ '                       999          ',
-            \ "         o            ,99'          ",
-            \ '          `9a,       ,9F            ',
-            \ '            "*bo. ,g9"              ',
-            \ ]
 
 let g:airline_theme='purify'
 
@@ -121,6 +146,9 @@ autocmd vimenter * TSEnable highlight
 
 " disables auto commenting
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
+autocmd User AlphaReady set laststatus=0 | autocmd BufUnload <buffer> set laststatus=2
 
 function! s:high()
     :TSToggle highlight
