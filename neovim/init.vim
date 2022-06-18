@@ -79,8 +79,7 @@ lua << EOF
         dashboard.button("e", "New File", ":ene <BAR> startinsert <CR>"),
         dashboard.button("SPC f f", "Find File"),
         dashboard.button("SPC f g", "Find Word"),
-        dashboard.button("SPC c", "Config", ":e ~/Appdata/Local/nvim/init.vim <CR>"),
-        dashboard.button("q", "Quit", ":qa<CR>")
+        dashboard.button("SPC c", "Config", ":e ~/Appdata/Local/nvim/init.vim <CR>")
     }
 
     require("alpha").setup(dashboard.config)
@@ -141,7 +140,6 @@ autocmd vimenter * hi CursorLine NONE
 autocmd vimenter * hi Type cterm=italic ctermfg=121 gui=italic guifg=#60ff60
 autocmd vimenter * hi Keyword cterm=italic ctermfg=11 gui=italic guifg=11
 
-autocmd vimenter * TSUpdateSync
 autocmd vimenter * TSEnable highlight
 
 " disables auto commenting
