@@ -27,9 +27,6 @@
                 },
                 {
                     "foreground": "lightCyan",
-                    "properties": {
-                        "style": "full"
-                    },
                     "style": "plain",
                     "template": "<darkGray>: </>{{ .Path }} ",
                     "type": "path"
