@@ -27,11 +27,19 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'goolord/alpha-nvim'
-Plug '/tpope/vim-repeat'
+Plug 'tpope/vim-repeat'
+Plug 'lewis6991/impatient.nvim'
+Plug 'xiyaowong/nvim-cursorword'
+Plug 'max-0406/autoclose.nvim'
+Plug 'mcauley-penney/tidy.nvim'
 
 call plug#end()
 
 lua << EOF
+    require("impatient")
+
+    require("tidy").setup()
+
     require("zen-mode").setup {
         window = {
             backdrop = 1,
