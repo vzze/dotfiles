@@ -29,8 +29,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'goolord/alpha-nvim'
 Plug 'tpope/vim-repeat'
 Plug 'lewis6991/impatient.nvim'
-Plug 'max-0406/autoclose.nvim'
 Plug 'mcauley-penney/tidy.nvim'
+Plug 'windwp/nvim-autopairs'
 
 call plug#end()
 
@@ -38,6 +38,10 @@ lua << EOF
     require("impatient")
 
     require("tidy").setup()
+
+    require("nvim-autopairs").setup({
+
+    })
 
     require("zen-mode").setup {
         window = {
