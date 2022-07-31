@@ -7,13 +7,18 @@
     ],
     "clangd.inlayHints.enable": true,
     "clangd.inlayHints.sep": "| ",
+
     "coc.preferences.formatOnType": true,
+
+    "suggest.virtualText": true,
+
     "diagnostic.virtualTextCurrentLineOnly": false,
     "diagnostic.virtualText": true,
     "diagnostic.hintSign": "h",
     "diagnostic.errorSign": "!",
     "diagnostic.warningSign": ">>",
     "diagnostic.infoSign": "?",
+
     "git.enableGlobalStatus": true,
     "git.enableGutters": true,
     "git.realtimeGutters": true,

@@ -112,10 +112,19 @@ nnoremap term :terminal Powershell.exe<CR>
 nnoremap ttn :tabnew <Bar> :terminal Powershell.exe<CR>
 tnoremap <Esc> <C-\><C-n>
 
-inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
+inoremap <silent><expr> <TAB>
+            \ coc#pum#visible() ? coc#_select_confirm() :
+            \ coc#expandableOrJumpable() ?
+            \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 function! ShowDocs()
     if CocAction('hasProvider', 'hover')
@@ -153,9 +162,11 @@ autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 autocmd vimenter * hi DiffAdd ctermbg=NONE guibg=NONE
 autocmd vimenter * hi Pmenu guibg=NONE ctermbg=NONE ctermfg=3 guifg=3
 autocmd vimenter * hi CursorLineNr cterm=NONE
-autocmd vimenter * hi CursorLine NONE
+autocmd vimenter * hi CursorLine cterm=NONE ctermbg=NONE ctermfg=121 guifg=121
 autocmd vimenter * hi Type cterm=italic ctermfg=121 gui=italic guifg=121
 autocmd vimenter * hi Keyword cterm=italic ctermfg=11 gui=italic guifg=11
+autocmd vimenter * hi PreProc cterm=italic ctermfg=12 gui=italic guifg=12
+autocmd vimenter * hi CocWarningSign ctermfg=3 guifg=3
 
 autocmd vimenter * TSEnable highlight
 
