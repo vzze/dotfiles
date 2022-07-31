@@ -29,7 +29,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'goolord/alpha-nvim'
 Plug 'tpope/vim-repeat'
 Plug 'lewis6991/impatient.nvim'
-Plug 'xiyaowong/nvim-cursorword'
 Plug 'max-0406/autoclose.nvim'
 Plug 'mcauley-penney/tidy.nvim'
 
@@ -118,6 +117,16 @@ inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+function! ShowDocs()
+    if CocAction('hasProvider', 'hover')
+        call CocActionAsync('doHover')
+    else
+        call feedkeys('K', 'in')
+    endif
+endfunction
+
+nnoremap <silent> K :call ShowDocs() <CR>
+
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
@@ -145,7 +154,7 @@ autocmd vimenter * hi DiffAdd ctermbg=NONE guibg=NONE
 autocmd vimenter * hi Pmenu guibg=NONE ctermbg=NONE ctermfg=3 guifg=3
 autocmd vimenter * hi CursorLineNr cterm=NONE
 autocmd vimenter * hi CursorLine NONE
-autocmd vimenter * hi Type cterm=italic ctermfg=121 gui=italic guifg=#60ff60
+autocmd vimenter * hi Type cterm=italic ctermfg=121 gui=italic guifg=121
 autocmd vimenter * hi Keyword cterm=italic ctermfg=11 gui=italic guifg=11
 
 autocmd vimenter * TSEnable highlight
