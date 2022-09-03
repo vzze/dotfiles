@@ -12,6 +12,10 @@
 
     "suggest.virtualText": true,
 
+    "pairs.alwaysPairCharacters": [ "(", "[", "{", "<", "'", "\"", "`"],
+    "pairs.enableBackspace": true,
+    "pairs.enableCharacters": [ "(", "[", "{", "<", "'", "\"", "`" ],
+
     "diagnostic.virtualTextCurrentLineOnly": false,
     "diagnostic.virtualText": true,
     "diagnostic.hintSign": "h",
