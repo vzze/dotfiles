@@ -1,3 +1,8 @@
+" TSInstall all
+" CocInstall coc-git coc-python coc-clangd coc-pairs coc-json coc-tsserver coc-powershell
+" pip3 install jedi
+" scoop install universal-ctags
+
 :set number
 :set relativenumber
 :set autoindent
@@ -11,6 +16,11 @@
 :set clipboard+=unnamedplus
 :set signcolumn=yes
 :set completeopt-=preview
+:set nobackup
+:set nowritebackup
+:set updatetime=300
+
+:colorscheme default
 
 call plug#begin('~/AppData/Local/nvim/plugged')
 
@@ -20,7 +30,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'neoclide/coc.nvim'
 Plug 'terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'folke/zen-mode.nvim'
 Plug 'tpope/vim-surround'
 Plug 'nvim-lua/plenary.nvim'
@@ -30,7 +40,10 @@ Plug 'goolord/alpha-nvim'
 Plug 'tpope/vim-repeat'
 Plug 'lewis6991/impatient.nvim'
 Plug 'mcauley-penney/tidy.nvim'
-Plug 'windwp/nvim-autopairs'
+Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+Plug 'folke/twilight.nvim'
+Plug 'beauwilliams/focus.nvim'
+Plug 'NMAC427/guess-indent.nvim'
 
 call plug#end()
 
@@ -39,10 +52,6 @@ lua << EOF
 
     require("tidy").setup()
 
-    require("nvim-autopairs").setup({
-
-    })
-
     require("zen-mode").setup {
         window = {
             backdrop = 1,
@@ -50,6 +59,17 @@ lua << EOF
             height = 1
         },
     }
+
+    require("twilight").setup {}
+
+    require("focus").setup()
+
+    require('guess-indent').setup {}
+
+    vim.api.nvim_set_keymap('n', '<leader>h', ':FocusSplitLeft<CR>', { silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>j', ':FocusSplitDown<CR>', { silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>k', ':FocusSplitUp<CR>', { silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>l', ':FocusSplitRight<CR>', { silent = true })
 
     local dashboard = require("alpha.themes.dashboard")
 
@@ -85,6 +105,203 @@ lua << EOF
              [[         ';x$&N8%#$8&NxN&88NoxxxxNu;'         ]],
              [[            -ox*N#%$88$W&8$%W%*..-'           ]],
              [[          `.'    .<a%WW@W#a<.      ```        ]]
+        },
+        {
+            [[                                                            ]],
+            [[                             `     .'                       ]],
+            [[        `                             '`'`       ``         ]],
+            [[       -`      ' `                         ```    .'        ]],
+            [[      -~`   '"`                             `'.'  `-`       ]],
+            [[     `-:`''``  `                       ` ```'''`-'`..`      ]],
+            [[     .::~~.'````       ``'.'''.''''           ..~~:;;`      ]],
+            [[   `-<<:~`                `.~"".'`               `-""~'     ]],
+            [[  "~~-:``                `'`   `.'                `'"":~    ]],
+            [[`''`'''                          ```               `-.~-;'  ]],
+            [[   `` -                            ``              `` `' `  ]],
+            [[   .  '.                                            `  '   .]],
+            [[  `.   ``                             `                .    ]],
+            [[  `'                                   `               `    ]],
+            [[   .              `                     '              '    ]],
+            [[   .`       `    ``                     ``             '    ]],
+            [[   .`        '``'-                      `'''`          -    ]],
+            [[    `           -"-`                    -:`'          ``    ]],
+            [[                 `'``                 '`.-           `      ]],
+            [[     ''           `                     ``          ``      ]],
+            [[      ``                                           `        ]],
+            [[       `.`                             `                    ]],
+            [[                                                 `          ]],
+            [[           `'`                                `             ]],
+            [[              `''    ```           `'    '``''              ]],
+            [[                .'.'```'`'     '''```..`-~`                 ]],
+            [[                     `..`-:;".;""-'`'``                     ]],
+            [[                      `'"~~-'-::"'`                         ]],
+            [[                  `'''.'        `-` `'.`                    ]],
+            [[                                                            ]]
+        },
+        {
+            [[                                                    ]],
+            [[                                    `               ]],
+            [[                                   `-               ]],
+            [[                                   ."               ]],
+            [[               .-'`'``' `'.     ` `-;`              ]],
+            [[          `'`-..--~;~~-''.'````''~-":'`             ]],
+            [[        `.~:";":<-~"~~``        `'~+o;~''`          ]],
+            [[       `.":;"."".'''`'            `"+-"";-`         ]],
+            [[    ```'-":"....`                  -+'``':~:'       ]],
+            [[  `.""~;:..``                      -;``` `.~"'      ]],
+            [[  '-";<"~-.                        ~:`     `-~`     ]],
+            [[ ``~*-.'``                         ~;       `''`    ]],
+            [[`'-;<.``                           :;`      ``''.'  ]],
+            [[ `.;;.`                           ';<`       ``~:-` ]],
+            [[ `.;-`                            .;:'`      -~.:~` ]],
+            [[  ``                              -<"~'      `''--' ]],
+            [[ `'~`                             '"".`       `~-.~']],
+            [[ `';"`                            '";-`       `."-~']],
+            [[ `.'.`                            ."~'        `~<-'`]],
+            [[  '.'.                            `-.`        '..''`]],
+            [[   '''`                            ``         -.'`  ]],
+            [[   `'```                           `        `-<-`   ]],
+            [[    `~~.`                         `.'     `--"'`    ]],
+            [[     `';~'`                        `     `'.-'`     ]],
+            [[     `..~~.`                            .~-'`       ]],
+            [[        `':::.'`                  '.-''-"~`         ]],
+            [[           `':"+.`'''       '~.'.~:~--~-"'          ]],
+            [[              `'"..-:~"-"''.~~;"~:~:~~'``           ]],
+            [[                `  ``''.'...~."~~-..```             ]],
+            [[                            `   ``                  ]]
+        },
+        {
+            [[                        `.                         ]],
+            [[                        ';                         ]],
+            [[                       `.-`                        ]],
+            [[                      `'~+'`                       ]],
+            [[                     `':ux;'``                     ]],
+            [[                 `.:;<xN$%xo~<;``                  ]],
+            [[               `'.;.:~<"NN~;..:'':''`              ]],
+            [[            `.``` ````'.<u.`    `'``````           ]],
+            [[       `''''``         `;+'           ````         ]],
+            [[     `.~:'`            `"-`             ```        ]],
+            [[    `"-:'`             `-;`                        ]],
+            [[   `"+:'                :`                  ```    ]],
+            [[  `';'`                 '`                  `..`   ]],
+            [[  `:'`                  `                   `.;.`  ]],
+            [[ `~;'`                  ``                   .;:'` ]],
+            [[`'~:'`                  ``                   `:;:' ]],
+            [[`:":`                   ``                   `.+*' ]],
+            [[';x~`                    `                   `'+*'`]],
+            [['-x-:`                  ``                   ':~+.`]],
+            [[`.-;'                   `                    ';<;` ]],
+            [[ `.;'                   '`                  ``:;'  ]],
+            [[   .``                  :'                   `'`   ]],
+            [[   `''                  '.                  .'     ]],
+            [[     `'`                ':                 `'      ]],
+            [[      `.'`             `;"               '.        ]],
+            [[       `.';:'``        `-+'         ``  ``         ]],
+            [[         `'~""~;.'`````.**.````'``';;'`            ]],
+            [[           `':-<++<"---"ao-;--;--;::-.             ]],
+            [[              `';:-;~+oo%Nxo+~:'```                ]],
+            [[                   ``'.-N*;.```                    ]],
+            [[                       '~-`                        ]],
+            [[                        ..                         ]]
+        },
+        {
+            [[                                                  ]],
+            [[                   `          `                   ]],
+            [[                    ``      ''                    ]],
+            [[                 ```':.    `::.`                  ]],
+            [[              ```.-;;;'    `...:...''``           ]],
+            [[           ``.'.:.'''`        ```.'.''.```        ]],
+            [[       ```''..`                     ``'..'``      ]],
+            [[      `':.'`                          `''..''`    ]],
+            [[   ` `''.'`                               `...`   ]],
+            [[    `''`                                   `.:'`  ]],
+            [[   `.'`                                     `.''` ]],
+            [[  `.'                    ``                  '.''`]],
+            [[  `'                     .'                  `.::']],
+            [[ `'`                    `:'                   ``'`]],
+            [[``'                     ';.                     ` ]],
+            [[ `'`                    '..                    `' ]],
+            [[ ```                     ::`                   `. ]],
+            [[  ```                    ..                   `.' ]],
+            [[  `''`                   ''                   ''' ]],
+            [[   `'.`                  ''                   `:` ]],
+            [[    '''                  `'                  `'`  ]],
+            [[    `':`                  `                `..`   ]],
+            [[     `'.'``                              ''.'     ]],
+            [[      ``''.``                           '.'`      ]],
+            [[        `'''.:.```                ` ''':''`       ]],
+            [[         ````''..:'```        ``'''..''``         ]],
+            [[             ```':;:..'     `..:.`````            ]],
+            [[                   ``''`    ..'`                  ]],
+            [[                     ``     ``                    ]],
+            [[                    `         `                   ]]
+        },
+        {
+            [[                                                  ]],
+            [[               `                                  ]],
+            [[               ''    ```                          ]],
+            [[             ``..``';<+-~;.''``                   ]],
+            [[         `''.~-----~+~:..:~---;;.'                ]],
+            [[       ``'.<u+<---~-:'``  ````'.''''`             ]],
+            [[       `':~u";."-.``                 `.:``        ]],
+            [[     ```'..-"-'+-'                    `.;*'       ]],
+            [[  ``'.;:..:;.``:.`                      '-~'      ]],
+            [[ ``';"".```    ''                         '''     ]],
+            [[ ``'~*"`       .:                          ``.``  ]],
+            [[ ``'.+--'`     ..                            ;;'  ]],
+            [[  ``.'-;`      '.                            .-`` ]],
+            [[ ``::'.`       '`                            '".'`]],
+            [[':"+:`         ``                            `:<'`]],
+            [[':<"~;`         `                            `-+:`]],
+            [[ ':"~-:'                                      '-` ]],
+            [[ ``'':~'       ``                             '.' ]],
+            [[   `.''`       `'                            `''  ]],
+            [[ ``';;`        ':                           `~~'` ]],
+            [[  `:"~;`       ''                           `.: ` ]],
+            [[  '.-<~-:''`` `'`                          `.;'   ]],
+            [[  `'':;~<~"~:'':.`                      `''':.    ]],
+            [[    ``'..'':~;.:;.`                   '~-;;:.     ]],
+            [[        `````'.:-;''''``      `:;:.`''.'`         ]],
+            [[             ``.~;'-<+--.``'`..~;;;;::`           ]],
+            [[               .'``''`."~;:''.'```````            ]],
+            [[               ``     ``````                      ]],
+            [[               `                                  ]],
+            [[                                                  ]]
+        },
+        {
+            [[             `                                      ]],
+            [[             '`                                     ]],
+            [[             ;'                                     ]],
+            [[             ;'                ``                   ]],
+            [[             +:    ``'';.`.:'.::'```                ]],
+            [[            '*;``'.~";.;.-";--+~.;:'''`` '` `       ]],
+            [[           `.+~:.'.-:;;;:'':--:.:--""~:'.:.''`      ]],
+            [[         ''.-*":;.''''````````'`'``':<ou<~~;:'``    ]],
+            [[      `''.''.~"'```   `    ``       `':<**""+":``   ]],
+            [[     '.-.'``'~-'           `          `';<<+oo<;'   ]],
+            [[  ``';<:`````--`                       `'.;;uN*":`` ]],
+            [[ `'.;;;'`   `::                          `'.~ao+-'' ]],
+            [[ `;~o*:`     '.                           `.;+ax":.`]],
+            [[`:<o<:`      '`                            `.~oo+";']],
+            [[`;uN".       ``                            `';"a*--.]],
+            [['<xN":       `                              `;<a+"<.]],
+            [[`;<*~'       `                               .-+&+;`]],
+            [[`."u;'       `                              `';oo~.`]],
+            [[`'-o;'       `                              ``;ux;' ]],
+            [[ `'o~.`      `                             ``'.~".` ]],
+            [[  `-x;`      '`                           ':'':;:`  ]],
+            [[  `'~".`     .`                       `'`:<+:---'`  ]],
+            [[   `';.'`    :`                      '''`';..;<"'   ]],
+            [[    `'.;'````;'                        `.-~'..-;`   ]],
+            [[     `'.;.'`'".`                     `';-~~-.``     ]],
+            [[      ``..:'.+-`                ````..;;;;':'       ]],
+            [[       ```.~;u".'`      `'``;.'''..-~:''``          ]],
+            [[          ``.~~...':.:;~.;~.;*~;~.:'``              ]],
+            [[            '":```':~'.;-~.'..'.'```                ]],
+            [[            `;;`  ``````'``` ````                   ]],
+            [[             .'       `                             ]],
+            [[             .`                                     ]],
+            [[             '                                      ]]
         },
         {
             [[                      ``                     ]],
@@ -130,15 +347,17 @@ lua << EOF
         dashboard.button("SPC c", "Config", ":e ~/Appdata/Local/nvim/init.vim <CR>")
     }
 
+    dashboard.section.header.opts.hl = "LineNr"
+
     require("alpha").setup(dashboard.config)
 EOF
+
+nmap <F4> :ZenMode<CR>
 
 nnoremap <C-f> :NERDTreeToggle <Bar> :NERDTreeRefreshRoot<CR>
 nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
 
-nmap <F4> :ZenMode<CR>
-
-nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Left>  :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
 nnoremap tn :tabnew<CR>
@@ -153,75 +372,77 @@ nnoremap term :terminal Powershell.exe<CR>
 nnoremap ttn :tabnew <Bar> :terminal Powershell.exe<CR>
 tnoremap <Esc> <C-\><C-n>
 
+nnoremap <silent> K :call ShowDocs() <CR>
+
+nnoremap <leader> ff <cmd>Telescope find_files<CR>
+nnoremap <leader> fg <cmd>Telescope live_grep<CR>
+nnoremap <leader> fb <cmd>Telescope buffers<CR>
+nnoremap <leader> fh <cmd>Telescope help_tags<CR>
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 inoremap <silent><expr> <TAB>
             \ coc#pum#visible() ? coc#_select_confirm() :
             \ coc#expandableOrJumpable() ?
             \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
+            \ CheckBackSpace() ? "\<TAB>" :
             \ coc#refresh()
-
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
 let g:coc_snippet_next = '<tab>'
 
-function! ShowDocs()
-    if CocAction('hasProvider', 'hover')
-        call CocActionAsync('doHover')
-    else
-        call feedkeys('K', 'in')
-    endif
-endfunction
-
-nnoremap <silent> K :call ShowDocs() <CR>
-
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
 let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='purify'
+let g:airline_section_b = "%{get(g:,'coc_git_status','')}"
 
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
 
 let g:python3_host_prog="C:/Users/Edi/scoop/apps/python/current/python.exe"
 let g:python_host_prog="C:/Users/Edi/scoop/apps/python/current/python.exe"
+
 let g:loaded_perl_provider=0
 let g:loaded_ruby_provider=0
 
-let g:airline_theme='purify'
-
-:colorscheme default
+let g:registers_return_symbol = "\\n"
+let g:registers_tab_symbol = "\t"
+let g:registers_show_empty_registers = 0
+let g:registers_paste_in_normal_mode = 1
 
 autocmd vimenter * hi SignColumn ctermbg=NONE
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 autocmd vimenter * hi DiffAdd ctermbg=NONE guibg=NONE
+
 autocmd vimenter * hi Pmenu guibg=NONE ctermbg=NONE ctermfg=3 guifg=3
+autocmd vimenter * hi PmenuSel guibg=NONE ctermbg=NONE ctermfg=121 guifg=121
+autocmd vimenter * hi CocMenuSel guibg=NONE ctermbg=NONE ctermfg=121 guifg=121
+
 autocmd vimenter * hi CursorLineNr cterm=NONE
-autocmd vimenter * hi CursorLine cterm=NONE ctermbg=NONE ctermfg=121 guifg=121
+autocmd vimenter * hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guifg=NONE
+
 autocmd vimenter * hi Type cterm=italic ctermfg=121 gui=italic guifg=121
 autocmd vimenter * hi Keyword cterm=italic ctermfg=11 gui=italic guifg=11
 autocmd vimenter * hi PreProc cterm=italic ctermfg=12 gui=italic guifg=12
-autocmd vimenter * hi CocWarningSign ctermfg=3 guifg=3
+
+autocmd vimenter * hi Twilight ctermfg=8
 
 autocmd vimenter * TSEnable highlight
 
-" disables auto commenting
+autocmd User CocGitStatusChange call Update_git_status()
+
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
 autocmd User AlphaReady set laststatus=0 | autocmd BufUnload <buffer> set laststatus=2
+autocmd User AlphaReady set noruler | autocmd BufUnload <buffer> set ruler
 
-function! s:high()
+function! High()
     :TSToggle highlight
 endfunction
 
-command -nargs=0 High call s:high()
+command -nargs=0 High call High()
 
 function! Multiple_cursors_before()
     if exists(':CocDisable')==2
@@ -235,22 +456,19 @@ function! Multiple_cursors_after()
     endif
 endfunction
 
-function! s:update_git_status()
+function! Update_git_status()
     let g:airline_section_b="%{get(g:,'coc_git_status','')}"
 endfunction
 
-let g:airline_section_b = "%{get(g:,'coc_git_status','')}"
+function! CheckBackSpace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-autocmd User CocGitStatusChange call s:update_git_status()
-
-" TSInstall all
-" CocInstall coc-discord-rpc
-" CocInstall coc-git
-" CocInstall coc-python needs jedi
-" CocInstall coc-clangd also setup path
-" CocInstall coc-pairs
-" CocInstall coc-json this and tsserver just work
-" CocInstall coc-tsserver
-" CocInstall coc-powershell
-" pip3 install jedi
-" scoop install universal-ctags
+function! ShowDocs()
+    if CocAction('hasProvider', 'hover')
+        call CocActionAsync('doHover')
+    else
+        call feedkeys('K', 'in')
+    endif
+endfunction
