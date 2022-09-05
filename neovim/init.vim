@@ -44,6 +44,7 @@ Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
 Plug 'folke/twilight.nvim'
 Plug 'beauwilliams/focus.nvim'
 Plug 'NMAC427/guess-indent.nvim'
+Plug 'kg8m/vim-simple-align'
 
 call plug#end()
 
