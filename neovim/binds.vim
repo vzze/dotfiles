@@ -1,8 +1,8 @@
 nmap <F4> :ZenMode<CR>
 
-nnoremap file :FocusSplitLeft cmd :Dirbuf <Bar> :DirbufSync<CR>
+nnoremap file :Dirbuf <Bar> :DirbufSync<CR>
 
-nnoremap <C-h>  :tabprevious<CR>
+nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
 
 nnoremap tn :tabnew<CR>

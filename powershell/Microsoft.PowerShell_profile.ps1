@@ -2,10 +2,21 @@ oh-my-posh init pwsh --config D:\CB\Configs\powershell\ys.omp.json | Invoke-Expr
 
 Set-Alias time Get-Date
 
-function _todo {
+function todo {
     Get-Content -Path "D:/CB/todo.md"
 }
 
 $TODO = "D:/CB/todo.md"
 
-Set-Alias -Name todo -Value _todo
+function touch {
+    Param(
+       [Parameter(Mandatory=$true)]
+       [string]$Path
+    )
+
+    if (Test-Path -LiteralPath $Path) {
+        (Get-Item -Path $Path).LastWriteTime = Get-Date
+    } else {
+        New-Item -Force -Type File -Path $Path
+    }
+}
