@@ -1,8 +1,3 @@
-" TSInstall all
-" CocInstall coc-git coc-python coc-clangd coc-pairs coc-json coc-tsserver coc-powershell
-" pip3 install jedi
-" scoop install universal-ctags
-
 :runtime settings.vim
 :runtime plugins.vim
 :runtime lua/plugins.lua
