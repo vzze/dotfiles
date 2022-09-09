@@ -23,5 +23,7 @@ Plug 'NMAC427/guess-indent.nvim'
 Plug 'kg8m/vim-simple-align'
 Plug 'preservim/tagbar'
 Plug 'yamatsum/nvim-cursorline'
+Plug 'jghauser/mkdir.nvim'
+Plug 'max397574/better-escape.nvim'
 
 call plug#end()

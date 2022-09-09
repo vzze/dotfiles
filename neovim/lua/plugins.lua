@@ -27,6 +27,13 @@ require("twilight").setup {}
 
 require("focus").setup {}
 
+require("better_escape").setup {
+    mapping = {"jk", "jj"},
+    timeout = vim.o.timeoutlen,
+    clear_empty_lines = false,
+    keys = "<Esc>",
+}
+
 require('guess-indent').setup {}
 
 local dashboard = require("alpha.themes.dashboard")

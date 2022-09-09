@@ -5,8 +5,7 @@
 
 :runtime settings.vim
 :runtime plugins.vim
-:runtime plugins.lua
-:runtime dashboard.lua
+:runtime lua/plugins.lua
 :runtime binds.vim
 :runtime globals.vim
 :runtime autocmd.vim

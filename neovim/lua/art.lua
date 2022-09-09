@@ -1,4 +1,4 @@
-return {
+local art = {
     {
         [[    `-'`                                ~;    ]],
         [[     ~~~-`                           'x#@x    ]],
@@ -261,3 +261,5 @@ return {
         [[                      `                      ]]
     }
 }
+
+return art;
