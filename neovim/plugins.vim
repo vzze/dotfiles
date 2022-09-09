@@ -1,6 +1,6 @@
 call plug#begin('~/AppData/Local/nvim/plugged')
 
-Plug 'preservim/nerdtree'
+Plug 'elihunter173/dirbuf.nvim'
 Plug 'tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'vim-airline/vim-airline'
 Plug 'rafi/awesome-vim-colorschemes'

@@ -34,6 +34,13 @@ require("better_escape").setup {
     keys = "<Esc>",
 }
 
+require("dirbuf").setup {
+    hash_padding = 2,
+    show_hidden = true,
+    sort_order = "default",
+    write_cmd = "DirbufSync",
+}
+
 require('guess-indent').setup {}
 
 local dashboard = require("alpha.themes.dashboard")

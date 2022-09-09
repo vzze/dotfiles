@@ -1,6 +1,6 @@
 nmap <F4> :ZenMode<CR>
 
-nnoremap file :NERDTreeToggle <Bar> :NERDTreeRefreshRoot<CR>
+nnoremap file :FocusSplitLeft cmd :Dirbuf <Bar> :DirbufSync<CR>
 
 nnoremap <C-h>  :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
