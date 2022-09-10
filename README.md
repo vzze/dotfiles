@@ -23,6 +23,7 @@ Packages
     7zip
     cloc
     dark
+    fd
     ffmpeg
     fzf
     gcc
