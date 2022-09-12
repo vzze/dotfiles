@@ -2,16 +2,30 @@
 ```
 junegunn/vim-plug
 TSInstall all
-CocInstall coc-clangd coc-git coc-json coc-pairs coc-powershell coc-python coc-rls coc-snippets coc-tsserver
+coc-clangd
+coc-git
+coc-json
+coc-pairs
+coc-powershell
+coc-python
+coc-rls
+coc-snippets
+coc-tsserver
 ```
 ### NPM
 ```
-npm install neovim -g
-npm install yarn -g
+neovim -g
+yarn -g
 ```
 ### pip3
 ```
-pip3 install jedi
+greenlet   1.1.2
+jedi       0.18.1
+msgpack    1.0.3
+parso      0.8.3
+pip        22.2.2
+pynvim     0.4.3
+setuptools 63.2.0
 ```
 ### scoop
 ```
