@@ -15,6 +15,7 @@
 :set hlsearch
 :set nowritebackup
 :set updatetime=300
+:set syntax="OFF"
 :set fillchars+=vert:\ " Whitespace at the end
 
 :colorscheme default
