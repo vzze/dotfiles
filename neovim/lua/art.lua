@@ -262,4 +262,4 @@ local art = {
     }
 }
 
-return art;
+return art

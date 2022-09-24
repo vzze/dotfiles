@@ -16,7 +16,7 @@ Plug 'goolord/alpha-nvim'
 Plug 'tpope/vim-repeat'
 Plug 'lewis6991/impatient.nvim'
 Plug 'mcauley-penney/tidy.nvim'
-Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+Plug 'folke/which-key.nvim'
 Plug 'folke/twilight.nvim'
 Plug 'beauwilliams/focus.nvim'
 Plug 'NMAC427/guess-indent.nvim'

@@ -43,6 +43,24 @@ require("dirbuf").setup {
 
 require('guess-indent').setup {}
 
+local wk = require("which-key")
+
+local mappings = require("mappings")
+
+wk.register(mappings.normal, { mode = "n", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
+wk.register(mappings.visual, { mode = "v", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
+wk.register(mappings.insert, { mode = "i", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
+wk.register(mappings.termin, { mode = "t", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
+
+wk.setup {
+    icons = {
+        breadcrumb = ">>",
+        separator = "->",
+        group = "+",
+    },
+    triggers_blacklist = {}
+};
+
 local dashboard = require("alpha.themes.dashboard")
 local LogoTable = require("art")
 

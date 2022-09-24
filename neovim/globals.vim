@@ -18,7 +18,7 @@ let g:python_host_prog="C:/Users/Edi/scoop/apps/python/current/python.exe"
 let g:loaded_perl_provider=0
 let g:loaded_ruby_provider=0
 
-let g:registers_return_symbol = "\\n"
-let g:registers_tab_symbol = "\t"
-let g:registers_show_empty_registers = 0
-let g:registers_paste_in_normal_mode = 1
+" let g:registers_return_symbol = "\\n"
+" let g:registers_tab_symbol = "\t"
+" let g:registers_show_empty_registers = 0
+" let g:registers_paste_in_normal_mode = 1
