@@ -11,6 +11,7 @@ coc-python
 coc-rls
 coc-snippets
 coc-tsserver
+coc-sumneko-lua
 ```
 ### NPM
 ```
