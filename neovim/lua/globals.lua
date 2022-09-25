@@ -5,7 +5,7 @@ gset("coc_snippet_next"                       , '<tab>'                         
 gset("airline_powerline_fonts"                , 0                                                   )
 gset("airline#extensions#tabline#enabled"     , 1                                                   )
 gset("airline_theme"                          , 'purify'                                            )
-gset("airline_section_b"                      , "\"%{get(g:,'coc_git_status','')}\""                )
+gset("airline_section_b"                      , "%{get(g:,'coc_git_status','')}"                    )
 
 gset("airline#extensions#tagbar#enabled"      , 1                                                   )
 gset("airline#extensions#tagbar#searchmethod" , 'scoped-stl'                                        )

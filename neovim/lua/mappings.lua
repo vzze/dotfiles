@@ -11,7 +11,7 @@ M.normal = {
     ["<C-l>"]      = { ":tabnext<CR>"                               , "Next Tab"              },
     ["src"]        = { ":CocCommand clangd.switchSourceHeader<CR>"  , "Switch CC and HH"      },
     ["git"]        = { ":CocCommand git.browserOpen<CR>"            , "Git Info Location"     },
-    ["gtc"]        = { ":CocCommand clangd.switchSourceHeader<CR>"  , "Git Chunk Info"        },
+    ["gtc"]        = { ":CocCommand git.chunkInfo<CR>"  , "Git Chunk Info"                    },
 
     ["t"]          = { name = "+tabs"                                                         },
     ["tn"]         = { ":tabnew<CR>"                                , "New Tab"               },
@@ -19,7 +19,7 @@ M.normal = {
     ["te"]         = { ":terminal Powershell.exe<CR>"               , "Open Terminal"         },
     ["ti"]         = { ":tabnew <Bar> :terminal Powershell.exe<CR>" , "New Tab Open Terminal" },
 
-    ["K"]          = { ":call v:lua.ShowDocs()<CR>"                       , "Shows Docs"            },
+    ["K"]          = { ":call v:lua.ShowDocs()<CR>"                       , "Shows Docs"      },
 
     ["<leader>f"]  = { name = "+file"                                                         },
     ["<leader>ff"] = { "<cmd>Telescope find_files<CR>"              , "Find Files"            },
