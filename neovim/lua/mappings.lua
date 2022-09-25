@@ -19,7 +19,7 @@ M.normal = {
     ["te"]         = { ":terminal Powershell.exe<CR>"               , "Open Terminal"         },
     ["ti"]         = { ":tabnew <Bar> :terminal Powershell.exe<CR>" , "New Tab Open Terminal" },
 
-    ["K"]          = { ":call ShowDocs()<CR>"                       , "Shows Docs"            },
+    ["K"]          = { ":call v:lua.ShowDocs()<CR>"                       , "Shows Docs"            },
 
     ["<leader>f"]  = { name = "+file"                                                         },
     ["<leader>ff"] = { "<cmd>Telescope find_files<CR>"              , "Find Files"            },
@@ -52,9 +52,9 @@ M.visual = {
 }
 
 M.insert = {
-    ["<CR>"]    = { es_str("coc#pum#visible() ? coc#pum#confirm() : \"\\<C-g>u\\<CR>\\<c-r>=coc#on_enter()\\<CR>\"") , "Report Enter" , expr = true },
-    ["<TAB>"]   = { es_str("coc#pum#visible() ? coc#pum#next(1) : CheckBackSpace() ? \"\\<Tab>\" : coc#refresh()")   , "Report Tab"   , expr = true },
-    ["<S-TAB>"] = { es_str("coc#pum#visible() ? coc#pum#prev(1) : \"\\<C-h>\"")                                      , "Report S-Tab" , expr = true }
+    ["<CR>"]    = { es_str("coc#pum#visible() ? coc#pum#confirm() : \"\\<C-g>u\\<CR>\\<c-r>=coc#on_enter()\\<CR>\"")       , "Report Enter" , expr = true },
+    ["<TAB>"]   = { es_str("coc#pum#visible() ? coc#pum#next(1) : v:lua.CheckBackSpace() ? \"\\<Tab>\" : coc#refresh()")   , "Report Tab"   , expr = true },
+    ["<S-TAB>"] = { es_str("coc#pum#visible() ? coc#pum#prev(1) : \"\\<C-h>\"")                                            , "Report S-Tab" , expr = true }
 }
 
 M.termin = {

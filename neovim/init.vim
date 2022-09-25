@@ -1,6 +1,6 @@
-:runtime settings.vim
-:runtime plugins.vim
+:runtime lua/settings.lua
 :runtime lua/plugins.lua
-:runtime globals.vim
-:runtime autocmd.vim
-:runtime functions.vim
+:runtime lua/setup.lua
+:runtime lua/globals.lua
+:runtime lua/autocmd.lua
+:runtime lua/functions.lua
