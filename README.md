@@ -39,7 +39,6 @@ Packages
     cloc
     dark
     fd
-    ffmpeg
     fzf
     gcc
     gdb
@@ -53,6 +52,5 @@ Packages
     topgrade
     universal-ctags
     vcredist2015
-    winfetch
-    youtube-dl
+    vcredist2022
 ```

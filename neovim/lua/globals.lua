@@ -13,8 +13,5 @@ gset("airline#extensions#tagbar#flags"        , 'fs'                            
 
 gset("cursorword_disable_at_startup"          , false                                               )
 
-gset("python3_host_prog"                      , "C:/Users/Edi/scoop/apps/python/current/python.exe" )
-gset("python_host_prog"                       , "C:/Users/Edi/scoop/apps/python/current/python.exe" )
-
 gset("loaded_perl_provider"                   , 0                                                   )
 gset("loaded_ruby_provider"                   , 0                                                   )
