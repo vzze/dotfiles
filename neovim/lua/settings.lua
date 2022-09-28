@@ -33,6 +33,7 @@ vim.cmd([[autocmd vimenter * hi PmenuSel guibg=NONE ctermbg=NONE ctermfg=121 gui
 vim.cmd([[autocmd vimenter * hi CocFloating guibg=NONE ctermbg=NONE ctermfg=3 guifg=3]])
 vim.cmd([[autocmd vimenter * hi CocMenuSel guibg=NONE ctermbg=NONE ctermfg=121 guifg=121]])
 
+vim.cmd([[autocmd vimenter * hi CursorWord cterm=underline gui=underline]])
 vim.cmd([[autocmd vimenter * hi CursorLineNr cterm=NONE]])
 vim.cmd([[autocmd vimenter * hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guifg=NONE]])
 
