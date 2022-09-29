@@ -5,50 +5,55 @@ local function es_str(str)
 end
 
 M.normal = {
-    ["<leader>z"]  = { ":ZenMode<CR>"                               , "Zen Mode"              },
-    ["<leader>fs"] = { ":Dirbuf <Bar> :DirbufSync<CR>"              , "File Editor"           },
-    ["<C-h>"]      = { ":tabprevious<CR>"                           , "Previous Tab"          },
-    ["<C-l>"]      = { ":tabnext<CR>"                               , "Next Tab"              },
-    ["src"]        = { ":CocCommand clangd.switchSourceHeader<CR>"  , "Switch CC and HH"      },
-    ["git"]        = { ":CocCommand git.browserOpen<CR>"            , "Git Info Location"     },
-    ["gtc"]        = { ":CocCommand git.chunkInfo<CR>"  , "Git Chunk Info"                    },
+    ["t"]           = { name = "+tabs"                                                         },
+    ["th"]          = { ":tabprevious<CR>"                           , "Previous Tab"          },
+    ["tl"]          = { ":tabnext<CR>"                               , "Next Tab"              },
+    ["tn"]          = { ":tabnew<CR>"                                , "New Tab"               },
+    ["td"]          = { ":tabclose<CR>"                              , "Close Tab"             },
+    ["te"]          = { "<cmd>lua require(\"FTerm\").toggle()<CR>"   , "Terminal"              },
+    ["ts"]          = { ":Dirbuf <Bar> :DirbufSync<CR>"              , "File Editor"           },
 
-    ["t"]          = { name = "+tabs"                                                         },
-    ["tn"]         = { ":tabnew<CR>"                                , "New Tab"               },
-    ["td"]         = { ":tabclose<CR>"                              , "Close Tab"             },
-    ["te"]         = { ":terminal Powershell.exe<CR>"               , "Open Terminal"         },
-    ["ti"]         = { ":tabnew <Bar> :terminal Powershell.exe<CR>" , "New Tab Open Terminal" },
 
-    ["K"]          = { ":call v:lua.ShowDocs()<CR>"                       , "Shows Docs"      },
+    ["<leader>t"]   = { name = "+telescope"                                                    },
+    ["<leader>tf"]  = { "<cmd>Telescope find_files<CR>"              , "Find Files"            },
+    ["<leader>tg"]  = { "<cmd>Telescope live_grep<CR>"               , "Grep Time"             },
+    ["<leader>tb"]  = { "<cmd>Telescope buffers<CR>"                 , "Find Buffers"          },
+    ["<leader>th"]  = { "<cmd>Telescope help_tags<CR>"               , "Help Tags"             },
 
-    ["<leader>f"]  = { name = "+file"                                                         },
-    ["<leader>ff"] = { "<cmd>Telescope find_files<CR>"              , "Find Files"            },
-    ["<leader>fg"] = { "<cmd>Telescope live_grep<CR>"               , "Grep Time"             },
-    ["<leader>fb"] = { "<cmd>Telescope buffers<CR>"                 , "Find Buffers"          },
-    ["<leader>fh"] = { "<cmd>Telescope help_tags<CR>"               , "Help Tags"             },
+    ["<leader>u"]   = { name = "+util"                                                         },
+    ["<leader>ud"]  = { ":call v:lua.ShowDocs()<CR>"                 , "Shows Docs"            },
 
-    ["s"]          = { name = "+splits"                                                       },
-    ["sh"]         = { "<cmd>FocusSplitLeft<CR>"                    , "Split Left"            },
-    ["sj"]         = { "<cmd>FocusSplitDown<CR>"                    , "Split Down"            },
-    ["sk"]         = { "<cmd>FocusSplitUp<CR>"                      , "Split Up"              },
-    ["sl"]         = { "<cmd>FocusSplitRight<CR>"                   , "Split Right"           },
+    ["<leader>ug"]  = { name = "+Git"                                                          },
+    ["<leader>ugt"] = { ":CocCommand git.browserOpen<CR>"            , "Git Info Location"     },
+    ["<leader>ugc"] = { ":CocCommand git.chunkInfo<CR>"              , "Git Chunk Info"        },
 
-    ["gcc"]        = { "<Plug>CommentaryLine"                       , "Comment Line"          },
-    ["gc"]         = { "<Plug>Commentary"                           , "Comment"               },
+    ["<leader>uz"]  = { ":ZenMode<CR>"                               , "Zen Mode"              },
 
-    ["cs"]         = { "<Plug>Csurround"                            , "Add Delimiters"        },
-    ["ds"]         = { "<Plug>Dsurround"                            , "Remove Delimiters"     },
+    ["s"]           = { name = "+splits"                                                       },
+    ["sq"]          = { ":quit<CR>"                                  , "Quit Current Window"   },
+    ["sh"]          = { "<cmd>FocusSplitLeft<CR>"                    , "Split Left"            },
+    ["sj"]          = { "<cmd>FocusSplitDown<CR>"                    , "Split Down"            },
+    ["sk"]          = { "<cmd>FocusSplitUp<CR>"                      , "Split Up"              },
+    ["sl"]          = { "<cmd>FocusSplitRight<CR>"                   , "Split Right"           },
+    ["sr"]          = { name = "+Switch CC and HH"                                             },
+    ["src"]         = { ":CocCommand clangd.switchSourceHeader<CR>"  , "Switch CC and HH"      },
 
-    ["ys"]         = { "<Plug>Ysurround"                            , "iw Text Object"        },
-    ["yss"]        = { "<Plug>Yssurround"                           , "Surround Entire Line"  },
+    ["gcc"]         = { "<Plug>CommentaryLine"                       , "Comment Line"          },
+    ["gc"]          = { "<Plug>Commentary"                           , "Comment"               },
 
-    ["yS"]         = { "<Plug>YSurround"                            , "iw Text Object"        },
-    ["ySS"]        = { "<Plug>YSsurround"                           , "Surround Entire Line"  },
-    ["ySs"]        = { "<Plug>YSsurround"                           , "Surround Entire Line"  },
+    ["cs"]          = { "<Plug>Csurround"                            , "Add Delimiters"        },
+    ["ds"]          = { "<Plug>Dsurround"                            , "Remove Delimiters"     },
+
+    ["ys"]          = { "<Plug>Ysurround"                            , "iw Text Object"        },
+    ["yss"]         = { "<Plug>Yssurround"                           , "Surround Entire Line"  },
+
+    ["yS"]          = { "<Plug>YSurround"                            , "iw Text Object"        },
+    ["ySS"]         = { "<Plug>YSsurround"                           , "Surround Entire Line"  },
+    ["ySs"]         = { "<Plug>YSsurround"                           , "Surround Entire Line"  },
 }
 
 M.visual = {
-    ["gc"]         = { "<Plug>Commentary"                           , "Comment"               }
+    ["gc"]          = { "<Plug>Commentary"                           , "Comment"               }
 }
 
 M.insert = {
@@ -58,7 +63,7 @@ M.insert = {
 }
 
 M.termin = {
-    ["<Esc>"]      = { es_str("<C-\\><C-n>")                        , "Term Normal Mode"      }
+    ["<Esc>"]       = { es_str("<C-\\><C-n>")                        , "Term Normal Mode"      }
 }
 
 return M;

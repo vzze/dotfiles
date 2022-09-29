@@ -41,6 +41,7 @@ Packages
     gdb
     gh
     git
+    gsudo
     neovim
     nodejs
     oh-my-posh

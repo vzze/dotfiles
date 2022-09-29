@@ -21,46 +21,48 @@ Plug 'mcauley-penney/tidy.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'folke/twilight.nvim'
 Plug 'beauwilliams/focus.nvim'
-Plug 'NMAC427/guess-indent.nvim'
 Plug 'kg8m/vim-simple-align'
 Plug 'preservim/tagbar'
 Plug 'xiyaowong/nvim-cursorword'
 Plug 'jghauser/mkdir.nvim'
 Plug 'max397574/better-escape.nvim'
+Plug 'numToStr/FTerm.nvim'
 
 vim.call("plug#end")
 
 require("impatient")
 
-require("tidy").setup {}
+require("tidy").setup({})
 
-require("zen-mode").setup {
+require("zen-mode").setup({
     window = {
         backdrop = 1,
         width = 1,
         height = 1
     },
-}
+})
 
-require("twilight").setup {}
+require("twilight").setup({})
 
-require("focus").setup {}
+require("focus").setup({})
 
-require("better_escape").setup {
+require("better_escape").setup({
     mapping = {"jk", "jj"},
     timeout = vim.o.timeoutlen,
     clear_empty_lines = false,
     keys = "<Esc>",
-}
+})
 
-require("dirbuf").setup {
+require("dirbuf").setup({
     hash_padding = 2,
     show_hidden = true,
     sort_order = "default",
     write_cmd = "DirbufSync",
-}
+})
 
-require('guess-indent').setup {}
+require("FTerm").setup({
+    cmd = "Powershell.exe"
+})
 
 local wk = require("which-key")
 
@@ -71,14 +73,14 @@ wk.register(mappings.visual, { mode = "v", prefix = "", buffer = nil, silent = t
 wk.register(mappings.insert, { mode = "i", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
 wk.register(mappings.termin, { mode = "t", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
 
-wk.setup {
+wk.setup({
     icons = {
         breadcrumb = ">>",
         separator = "->",
         group = "+",
     },
     triggers_blacklist = {}
-};
+})
 
 local dashboard = require("alpha.themes.dashboard")
 local LogoTable = require("art")
