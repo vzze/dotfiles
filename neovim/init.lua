@@ -1,1 +1,1 @@
-require("lua/main").setup()
+require("main").setup()
