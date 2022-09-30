@@ -1,4 +1,5 @@
-local art = {
+local M = {}
+M.art = {
     {
         [[    `-'`                                ~;    ]],
         [[     ~~~-`                           'x#@x    ]],
@@ -262,4 +263,21 @@ local art = {
     }
 }
 
-return art
+M.setup = function()
+    local dashboard = require("alpha.themes.dashboard")
+
+    math.randomseed(os.time())
+    dashboard.section.header.val = M.art[math.random(#M.art)]
+
+    dashboard.section.buttons.val = {
+        dashboard.button("e", "New File", ":ene <BAR> startinsert <CR>"),
+        dashboard.button("SPC f f", "Find File"),
+        dashboard.button("SPC f g", "Find Word"),
+    }
+
+    dashboard.section.header.opts.hl = "LineNr"
+
+    require("alpha").setup(dashboard.config)
+end
+
+return M;

@@ -1,17 +1,23 @@
-local gset = vim.api.nvim_set_var
+local M = {}
 
-gset("coc_snippet_next"                       , '<tab>'                                             )
+M.setup = function()
+    local gset = vim.api.nvim_set_var
 
-gset("airline_powerline_fonts"                , 0                                                   )
-gset("airline#extensions#tabline#enabled"     , 1                                                   )
-gset("airline_theme"                          , 'purify'                                            )
-gset("airline_section_b"                      , "%{get(g:,'coc_git_status','')}"                    )
+    gset("coc_snippet_next"                       , '<tab>'                          )
 
-gset("airline#extensions#tagbar#enabled"      , 1                                                   )
-gset("airline#extensions#tagbar#searchmethod" , 'scoped-stl'                                        )
-gset("airline#extensions#tagbar#flags"        , 'fs'                                                )
+    gset("airline_powerline_fonts"                , 0                                )
+    gset("airline#extensions#tabline#enabled"     , 1                                )
+    gset("airline_theme"                          , 'purify'                         )
+    gset("airline_section_b"                      , "%{get(g:,'coc_git_status','')}" )
 
-gset("cursorword_disable_at_startup"          , false                                               )
+    gset("airline#extensions#tagbar#enabled"      , 1                                )
+    gset("airline#extensions#tagbar#searchmethod" , 'scoped-stl'                     )
+    gset("airline#extensions#tagbar#flags"        , 'fs'                             )
 
-gset("loaded_perl_provider"                   , 0                                                   )
-gset("loaded_ruby_provider"                   , 0                                                   )
+    gset("cursorword_disable_at_startup"          , false                            )
+
+    gset("loaded_perl_provider"                   , 0                                )
+    gset("loaded_ruby_provider"                   , 0                                )
+end
+
+return M

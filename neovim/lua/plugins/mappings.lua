@@ -13,7 +13,6 @@ M.normal = {
     ["te"]          = { "<cmd>lua require(\"FTerm\").toggle()<CR>"   , "Terminal"              },
     ["ts"]          = { ":Dirbuf <Bar> :DirbufSync<CR>"              , "File Editor"           },
 
-
     ["<leader>t"]   = { name = "+telescope"                                                    },
     ["<leader>tf"]  = { "<cmd>Telescope find_files<CR>"              , "Find Files"            },
     ["<leader>tg"]  = { "<cmd>Telescope live_grep<CR>"               , "Grep Time"             },
@@ -65,5 +64,30 @@ M.insert = {
 M.termin = {
     ["<Esc>"]       = { es_str("<C-\\><C-n>")                        , "Term Normal Mode"      }
 }
+
+M.setup = function()
+    require("better_escape").setup({
+        mapping = {"jk", "jj"},
+        timeout = vim.o.timeoutlen,
+        clear_empty_lines = false,
+        keys = "<Esc>",
+    })
+
+    local wk = require("which-key")
+
+    wk.register(M.normal, { mode = "n", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
+    wk.register(M.visual, { mode = "v", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
+    wk.register(M.insert, { mode = "i", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
+    wk.register(M.termin, { mode = "t", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
+
+    wk.setup({
+        icons = {
+            breadcrumb = ">>",
+            separator = "->",
+            group = "+",
+        },
+        triggers_blacklist = {}
+    })
+end
 
 return M;
