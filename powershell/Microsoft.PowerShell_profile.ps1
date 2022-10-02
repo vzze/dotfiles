@@ -8,6 +8,8 @@ function todo {
 
 $TODO = "D:/CB/todo.md"
 
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+
 function touch {
     Param(
        [Parameter(Mandatory=$true)]

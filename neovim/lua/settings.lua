@@ -1,28 +1,26 @@
 local M = {}
 
 M.setup = function()
-    local o = vim.o
-
-    o.number = true
-    o.relativenumber = true
-    o.expandtab = true
-    o.tabstop = 8
-    o.shiftwidth = 4
-    o.smarttab = true
-    o.softtabstop = 1
-    o.mouse = 'a'
-    o.encoding = "UTF-8"
-    o.clipboard = o.clipboard .. "unnamedplus"
-    o.signcolumn = "yes"
-    o.completeopt = "menu,preview"
-    o.hlsearch = true
-    o.updatetime = 300
-    o.timeoutlen = 500
-    o.backup = false
-    o.ruler = false
-    o.writebackup = false
-    o.fillchars = "vert: "
-    o.cmdheight = "0"
+    vim.o.number = true
+    vim.o.relativenumber = true
+    vim.o.expandtab = true
+    vim.o.tabstop = 8
+    vim.o.shiftwidth = 4
+    vim.o.smarttab = true
+    vim.o.softtabstop = 1
+    vim.o.mouse = 'a'
+    vim.o.encoding = "UTF-8"
+    vim.o.clipboard = vim.o.clipboard .. "unnamedplus"
+    vim.o.signcolumn = "yes"
+    vim.o.completeopt = "menu,preview"
+    vim.o.hlsearch = true
+    vim.o.updatetime = 300
+    vim.o.timeoutlen = 500
+    vim.o.backup = false
+    vim.o.ruler = false
+    vim.o.writebackup = false
+    vim.o.fillchars = "vert: "
+    vim.o.cmdheight = "0"
 
     vim.cmd("colorscheme default")
 
