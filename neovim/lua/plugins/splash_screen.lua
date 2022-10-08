@@ -271,8 +271,8 @@ M.setup = function()
 
     dashboard.section.buttons.val = {
         dashboard.button("e", "New File", ":ene <BAR> startinsert <CR>"),
-        dashboard.button("SPC f f", "Find File"),
-        dashboard.button("SPC f g", "Find Word"),
+        dashboard.button("SPC t f", "Find File"),
+        dashboard.button("SPC t g", "Find Word"),
     }
 
     dashboard.section.header.opts.hl = "LineNr"

@@ -35,20 +35,6 @@ M.setup = function()
 
     require("impatient")
 
-    require("tidy").setup({})
-
-    require("zen-mode").setup({
-        window = {
-            backdrop = 1,
-            width = 1,
-            height = 1
-        },
-    })
-
-    require("twilight").setup({})
-
-    require("focus").setup({})
-
     require("dirbuf").setup({
         hash_padding = 2,
         show_hidden = true,
@@ -56,9 +42,12 @@ M.setup = function()
         write_cmd = "DirbufSync",
     })
 
-    require("FTerm").setup({
-        cmd = "Powershell.exe"
-    })
+    require("tidy").setup({})
+    require("zen-mode").setup({ window = { backdrop = 1, width = 1, height = 1 } })
+    require("twilight").setup({})
+    require("focus").setup({})
+
+    require("FTerm").setup({ cmd = "Powershell.exe" })
 
     require("plugins/mappings").setup()
     require("plugins/splash_screen").setup()

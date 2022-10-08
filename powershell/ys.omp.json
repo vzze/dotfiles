@@ -3,21 +3,6 @@
     "blocks": [
         {
             "alignment": "left",
-            "segments": [
-                {
-                    "foreground": "white",
-                    "properties": {
-                        "fetch_version": false
-                    },
-                    "style": "plain",
-                    "template": "({{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }})",
-                    "type": "python"
-                }
-            ],
-            "type": "prompt"
-        },
-        {
-            "alignment": "left",
             "newline": true,
             "segments": [
                 {

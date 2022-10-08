@@ -14,11 +14,12 @@ function UpdateGitStatus()
     vim.g.airline_section_b = "%{get(g:,'coc_git_status','')}"
 end
 
-function CheckBackSpace()
-    local col = vim.fn.col('.') - 1
-    local ln  = vim.fn.getline(".")
-    return col == 0 or string.find(tostring(ln), "%s")
-end
+vim.cmd([[
+function! CheckBackSpace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+]])
 
 function ShowDocs()
     if vim.fn.CocAction('hasProvider', 'hover') then

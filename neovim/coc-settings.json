@@ -6,9 +6,10 @@
         "-Wconversion",
         "--target=x86_64-w64-mingw32"
     ],
-    "clangd.inlayHints.enable": true,
-    "clangd.inlayHints.sep": "| ",
+
     "clangd.enabled": true,
+    "clangd.inlayHints.sep": "| ",
+    "clangd.inlayHints.enable": true,
 
     "sumneko-lua.enableNvimLuaDev": true,
     "sumneko-lua.enable": true,
@@ -25,10 +26,12 @@
         }
     ],
 
-    "coc.preferences.formatOnType": true,
+    "coc.preferences.formatOnType": false,
     "coc.preferences.bracketEnterImprove": true,
 
     "suggest.virtualText": true,
+
+    "inlayHint.enable": false,
 
     "pairs.alwaysPairCharacters": [ "(", "[", "{", "<", "'", "\"", "`"],
     "pairs.enableBackspace": true,
