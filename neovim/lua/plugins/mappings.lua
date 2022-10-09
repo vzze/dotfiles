@@ -16,7 +16,6 @@ M.normal = {
     ["<leader>th"]  = { "<cmd>Telescope help_tags<CR>"               , "Help Tags"             },
 
     ["<leader>u"]   = { name = "+util"                                                         },
-    ["<leader>ud"]  = { ":call v:lua.ShowDocs()<CR>"                 , "Shows Docs"            },
 
     ["<leader>ug"]  = { name = "+git"                                                          },
     ["<leader>ugt"] = { ":CocCommand git.browserOpen<CR>"            , "Git Info Location"     },
@@ -25,12 +24,16 @@ M.normal = {
     ["<leader>uz"]  = { ":ZenMode<CR>"                               , "Zen Mode"              },
 
     ["<leader>c"]   = { name = "+code"                                                         },
+    ["<leader>co"]  = { ":call v:lua.ShowDocs()<CR>"                 , "Shows Docs"            },
     ["<leader>cn"]  = { "<Plug>(coc-diagnostic-prev)"                , "Diagnostic Prev"       },
     ["<leader>cm"]  = { "<Plug>(coc-diagnostic-next)"                , "Diagnostic Next"       },
     ["<leader>cd"]  = { "<Plug>(coc-definition)"                     , "Code Definition"       },
     ["<leader>cy"]  = { "<Plug>(coc-type-definition)"                , "Code Type Def"         },
     ["<leader>ci"]  = { "<Plug>(coc-implementation)"                 , "Code Impl"             },
     ["<leader>cr"]  = { "<Plug>(coc-references)"                     , "Code Ref"              },
+    ["<leader>ca"]  = { "<Plug>(coc-codeaction)"                     , "Code Action"           },
+    ["<leader>cf"]  = { "<Plug>(coc-fix-current)"                    , "Auto Fix"              },
+    ["<leader>cl"]  = { "<Plug>(coc-codelens-action)"                , "Code Lens"             },
 
     ["s"]           = { name = "+splits"                                                       },
     ["sq"]          = { ":quit<CR>"                                  , "Quit Current Window"   },
@@ -60,13 +63,13 @@ M.visual = {
 }
 
 M.insert = {
-    ["<CR>"]    = { [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]] , "Report Enter" , expr = true },
-    ["<TAB>"]   = { 'coc#pum#visible() ? coc#pum#next(1) : CheckBackSpace() ? "<TAB>" : coc#refresh()'   , "Report Tab"   , expr = true },
-    ["<S-TAB>"] = { [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]]                                   , "Report S-Tab" , expr = true }
+    ["<CR>"]    = { [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]]     , "Report Enter" , expr = true },
+    ["<TAB>"]   = { 'coc#pum#visible() ? coc#pum#next(1) : v:lua.CheckBackSpace() ? "<TAB>" : coc#refresh()' , "Report Tab"   , expr = true },
+    ["<S-TAB>"] = { [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]]                                       , "Report S-Tab" , expr = true }
 }
 
 M.termin = {
-    ["jj"]       = { vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, true, true)                     , "Term Normal Mode"           }
+    ["jj"]       = { vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, true, true) , "Term Normal Mode" }
 }
 
 M.setup = function()

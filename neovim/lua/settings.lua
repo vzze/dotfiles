@@ -1,6 +1,25 @@
 local M = {}
 
-M.setup = function()
+M.globals = function()
+    local gset = vim.api.nvim_set_var
+
+    gset("airline_powerline_fonts"                , 0                                )
+    gset("airline#extensions#tabline#enabled"     , 1                                )
+    gset("airline#extensions#coc#enabled"         , 1                                )
+    gset("airline_theme"                          , 'purify'                         )
+    gset("airline_section_b"                      , "%{get(g:,'coc_git_status','')}" )
+
+    gset("airline#extensions#tagbar#enabled"      , 1                                )
+    gset("airline#extensions#tagbar#searchmethod" , 'scoped-stl'                     )
+    gset("airline#extensions#tagbar#flags"        , 'fs'                             )
+
+    gset("cursorword_disable_at_startup"          , false                            )
+
+    gset("loaded_perl_provider"                   , 0                                )
+    gset("loaded_ruby_provider"                   , 0                                )
+end
+
+M.settings = function()
     vim.o.number = true
     vim.o.relativenumber = true
     vim.o.expandtab = true
@@ -23,11 +42,14 @@ M.setup = function()
     vim.o.cmdheight = "0"
 
     vim.cmd("colorscheme default")
+end
 
+M.autocmd = function()
     vim.cmd([[autocmd vimenter * hi Pmenu guibg=NONE ctermbg=NONE ctermfg=3 guifg=3]])
     vim.cmd([[autocmd vimenter * hi PmenuSel guibg=NONE ctermbg=NONE ctermfg=121 guifg=121]])
     vim.cmd([[autocmd vimenter * hi CocFloating guibg=NONE ctermbg=NONE ctermfg=3 guifg=3]])
     vim.cmd([[autocmd vimenter * hi CocMenuSel guibg=NONE ctermbg=NONE ctermfg=121 guifg=121]])
+    vim.cmd([[autocmd vimenter * hi CocInlayHint guibg=NONE ctermbg=NONE ctermfg=11 guifg=11]])
     vim.cmd([[autocmd vimenter * hi Conceal guibg=NONE ctermbg=NONE ctermfg=1 guifg=1]])
     vim.cmd([[autocmd vimenter * hi MatchParen guibg=NONE ctermbg=NONE ctermfg=15 guifg=15]])
 
@@ -63,6 +85,12 @@ M.setup = function()
     vim.cmd([[autocmd User AlphaReady set laststatus=0 | autocmd BufUnload <buffer> set laststatus=2]])
     vim.cmd([[autocmd User MultipleCursorsPre call v:lua.MultipleCursorsBefore()]])
     vim.cmd([[autocmd User MultipleCursorsPost call v:lua.MultipleCursorsAfter()]])
+end
+
+M.setup = function()
+    M.globals()
+    M.settings()
+    M.autocmd()
 end
 
 return M

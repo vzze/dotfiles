@@ -13,8 +13,6 @@
 
     "sumneko-lua.enableNvimLuaDev": true,
     "sumneko-lua.enable": true,
-    "sumneko-lua.inlayHints.typeHintsPrefix": "<< ",
-    "sumneko-lua.inlayHints.paramHintsPrefix": ">> ",
     "sumneko-lua.prompt": true,
 
     "java.format.enabled": false,
@@ -31,7 +29,12 @@
 
     "suggest.virtualText": true,
 
-    "inlayHint.enable": false,
+    "inlayHint.enable": true,
+    "inlayHint.subSeparator": " ",
+    "inlayHint.typeSeparator": "",
+    "inlayHint.enableParameter": true,
+    "inlayHint.parameterSeparator": "",
+    "inlayHint.refreshOnInsertMode": false,
 
     "pairs.alwaysPairCharacters": [ "(", "[", "{", "<", "'", "\"", "`"],
     "pairs.enableBackspace": true,
