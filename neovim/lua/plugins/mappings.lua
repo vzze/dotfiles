@@ -28,38 +28,43 @@ M.normal = {
     ["<leader>cn"]  = { "<Plug>(coc-diagnostic-prev)"                , "Diagnostic Prev"       },
     ["<leader>cm"]  = { "<Plug>(coc-diagnostic-next)"                , "Diagnostic Next"       },
     ["<leader>cd"]  = { "<Plug>(coc-definition)"                     , "Code Definition"       },
+    ["<leader>cw"]  = { ":CocDiagnostic<CR>"                         , "Diagnostic Window"     },
     ["<leader>cy"]  = { "<Plug>(coc-type-definition)"                , "Code Type Def"         },
     ["<leader>ci"]  = { "<Plug>(coc-implementation)"                 , "Code Impl"             },
     ["<leader>cr"]  = { "<Plug>(coc-references)"                     , "Code Ref"              },
     ["<leader>ca"]  = { "<Plug>(coc-codeaction)"                     , "Code Action"           },
     ["<leader>cf"]  = { "<Plug>(coc-fix-current)"                    , "Auto Fix"              },
-    ["<leader>cl"]  = { "<Plug>(coc-codelens-action)"                , "Code Lens"             },
+    ["<leader>cc"]  = { "<Plug>(coc-codelens-action)"                , "Code Lens"             },
+    ["<leader>cl"]  = { name = "+list"                                                         },
+    ["<leader>cld"] = { ":<C-u>CocList diagnostics<CR>"              , "List Diagnostics"      },
+    ["<leader>clo"] = { ":<C-u>CocList outline<CR>"                  , "Current Doc Symbols"   },
+    ["<leader>cls"] = { ":<C-u>CocList -I symbols<CR>"               , "Workspace Symbols"     },
 
     ["s"]           = { name = "+splits"                                                       },
-    ["sq"]          = { ":quit<CR>"                                  , "Quit Current Window"   },
+    ["sq"]          = { ":quit<CR>"                                  , "Quit Current Split"    },
     ["sh"]          = { "<cmd>FocusSplitLeft<CR>"                    , "Split Left"            },
     ["sj"]          = { "<cmd>FocusSplitDown<CR>"                    , "Split Down"            },
     ["sk"]          = { "<cmd>FocusSplitUp<CR>"                      , "Split Up"              },
     ["sl"]          = { "<cmd>FocusSplitRight<CR>"                   , "Split Right"           },
+    ["sm"]          = { "<cmd>FocusMaximise<CR>"                     , "Maximizes Split"       },
+    ["ss"]          = { "<cmd>FocusSplitCycle<CR>"                   , "Cycle Splits"          },
+    ["sS"]          = { "<cmd>FocusSplitCycle reverse<CR>"           , "Reverse Cycle Splits"  },
     ["sr"]          = { name = "+Switch CC and HH"                                             },
     ["src"]         = { ":CocCommand clangd.switchSourceHeader<CR>"  , "Switch CC and HH"      },
 
-    ["gcc"]         = { "<Plug>CommentaryLine"                       , "Comment Line"          },
-    ["gc"]          = { "<Plug>Commentary"                           , "Comment"               },
-
-    ["cs"]          = { "<Plug>Csurround"                            , "Add Delimiters"        },
-    ["ds"]          = { "<Plug>Dsurround"                            , "Remove Delimiters"     },
-
-    ["ys"]          = { "<Plug>Ysurround"                            , "iw Text Object"        },
-    ["yss"]         = { "<Plug>Yssurround"                           , "Surround Entire Line"  },
-
-    ["yS"]          = { "<Plug>YSurround"                            , "iw Text Object"        },
-    ["ySS"]         = { "<Plug>YSsurround"                           , "Surround Entire Line"  },
-    ["ySs"]         = { "<Plug>YSsurround"                           , "Surround Entire Line"  },
+    ["gc"]          = { ":CommentToggle<CR>"                         , "Toggle Comments"       }
 }
 
 M.visual = {
-    ["gc"]          = { "<Plug>Commentary"                           , "Comment"               }
+    ["g"]  = { name = "+Text Edit"                                                    },
+    ["gc"] = { ":'<,'>CommentToggle<CR>"                    , "Toggle Comments"       },
+    ["g)"] = { ":<C-u>call v:lua.Surround('(', ')')<CR>"    , "Visual Surround"       },
+    ["g]"] = { ":<C-u>call v:lua.Surround('[', ']')<CR>"    , "Visual Surround"       },
+    ["g}"] = { ":<C-u>call v:lua.Surround('{', '}')<CR>"    , "Visual Surround"       },
+    ["g>"] = { ":<C-u>call v:lua.Surround('<', '>')<CR>"    , "Visual Surround"       },
+    ["g'"] = { [[:<C-u>call v:lua.Surround("'", "'")<CR>]]  , "Visual Surround"       },
+    ["g`"] = { [[:<C-u>call v:lua.Surround("`", "`")<CR>]]  , "Visual Surround"       },
+    ['g"'] = { [[:<C-u>call v:lua.Surround('"', '"')<CR>]]  , "Visual Surround"       }
 }
 
 M.insert = {
@@ -69,7 +74,7 @@ M.insert = {
 }
 
 M.termin = {
-    ["jj"]       = { vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, true, true) , "Term Normal Mode" }
+    ["jj"] = { vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, true, true) , "Term Normal Mode" }
 }
 
 M.setup = function()

@@ -3,20 +3,11 @@ local M = {}
 M.globals = function()
     local gset = vim.api.nvim_set_var
 
-    gset("airline_powerline_fonts"                , 0                                )
-    gset("airline#extensions#tabline#enabled"     , 1                                )
-    gset("airline#extensions#coc#enabled"         , 1                                )
-    gset("airline_theme"                          , 'purify'                         )
-    gset("airline_section_b"                      , "%{get(g:,'coc_git_status','')}" )
+    gset("cursorword_disable_at_startup"      , false                            )
+    gset("cursorword_min_width"               , 2                                )
 
-    gset("airline#extensions#tagbar#enabled"      , 1                                )
-    gset("airline#extensions#tagbar#searchmethod" , 'scoped-stl'                     )
-    gset("airline#extensions#tagbar#flags"        , 'fs'                             )
-
-    gset("cursorword_disable_at_startup"          , false                            )
-
-    gset("loaded_perl_provider"                   , 0                                )
-    gset("loaded_ruby_provider"                   , 0                                )
+    gset("loaded_perl_provider"               , 0                                )
+    gset("loaded_ruby_provider"               , 0                                )
 end
 
 M.settings = function()
@@ -45,34 +36,34 @@ M.settings = function()
 end
 
 M.autocmd = function()
-    vim.cmd([[autocmd vimenter * hi Pmenu guibg=NONE ctermbg=NONE ctermfg=3 guifg=3]])
-    vim.cmd([[autocmd vimenter * hi PmenuSel guibg=NONE ctermbg=NONE ctermfg=121 guifg=121]])
-    vim.cmd([[autocmd vimenter * hi CocFloating guibg=NONE ctermbg=NONE ctermfg=3 guifg=3]])
-    vim.cmd([[autocmd vimenter * hi CocMenuSel guibg=NONE ctermbg=NONE ctermfg=121 guifg=121]])
-    vim.cmd([[autocmd vimenter * hi CocInlayHint guibg=NONE ctermbg=NONE ctermfg=11 guifg=11]])
-    vim.cmd([[autocmd vimenter * hi Conceal guibg=NONE ctermbg=NONE ctermfg=1 guifg=1]])
-    vim.cmd([[autocmd vimenter * hi MatchParen guibg=NONE ctermbg=NONE ctermfg=15 guifg=15]])
+    vim.cmd([[hi Pmenu guibg=NONE ctermbg=NONE ctermfg=3 guifg=3]])
+    vim.cmd([[hi PmenuSel guibg=NONE ctermbg=NONE ctermfg=121 guifg=121]])
+    vim.cmd([[hi CocFloating guibg=NONE ctermbg=NONE ctermfg=3 guifg=3]])
+    vim.cmd([[hi CocMenuSel guibg=NONE ctermbg=NONE ctermfg=121 guifg=121]])
+    vim.cmd([[hi CocInlayHint guibg=NONE ctermbg=NONE ctermfg=11 guifg=11]])
+    vim.cmd([[hi Conceal guibg=NONE ctermbg=NONE ctermfg=1 guifg=1]])
+    vim.cmd([[hi MatchParen guibg=NONE ctermbg=NONE ctermfg=15 guifg=15]])
 
-    vim.cmd([[autocmd vimenter * hi DiffAdd ctermbg=NONE guifg=NONE]])
-    vim.cmd([[autocmd vimenter * hi VertSplit cterm=NONE gui=NONE]])
-    vim.cmd([[autocmd vimenter * hi SignColumn ctermbg=NONE guibg=NONE]])
-    vim.cmd([[autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE ctermfg=7 guifg=7]])
-    vim.cmd([[autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE ctermfg=NONE guifg=NONE]])
+    vim.cmd([[hi DiffAdd ctermbg=NONE guifg=NONE]])
+    vim.cmd([[hi VertSplit cterm=NONE gui=NONE]])
+    vim.cmd([[hi SignColumn ctermbg=NONE guibg=NONE]])
+    vim.cmd([[hi Normal guibg=NONE ctermbg=NONE ctermfg=7 guifg=7]])
+    vim.cmd([[hi EndOfBuffer guibg=NONE ctermbg=NONE ctermfg=NONE guifg=NONE]])
 
-    vim.cmd([[autocmd vimenter * hi CursorWord cterm=underline gui=underline]])
-    vim.cmd([[autocmd vimenter * hi CursorLineNr cterm=NONE gui=NONE]])
-    vim.cmd([[autocmd vimenter * hi CursorLine cterm=none gui=none ctermbg=none ctermfg=none guibg=none guifg=none]])
+    vim.cmd([[hi CursorWord cterm=underline gui=underline]])
+    vim.cmd([[hi CursorLineNr cterm=NONE gui=NONE]])
+    vim.cmd([[hi CursorLine cterm=none gui=none ctermbg=none ctermfg=none guibg=none guifg=none]])
 
-    vim.cmd([[autocmd vimenter * hi Constant guibg=NONE ctermbg=NONE ctermfg=6 guifg=6]])
-    vim.cmd([[autocmd vimenter * hi Number guibg=NONE ctermbg=NONE ctermfg=12 guifg=12]])
-    vim.cmd([[autocmd vimenter * hi Special guibg=NONE ctermbg=NONE ctermfg=11 guifg=11]])
-    vim.cmd([[autocmd vimenter * hi SpecialChar guibg=NONE ctermbg=NONE ctermfg=3 guifg=3]])
-    vim.cmd([[autocmd vimenter * hi String guibg=NONE ctermbg=NONE ctermfg=6 guifg=6]])
-    vim.cmd([[autocmd vimenter * hi Type cterm=italic ctermfg=121 gui=italic guifg=121]])
-    vim.cmd([[autocmd vimenter * hi Keyword cterm=italic ctermfg=11 gui=italic guifg=11]])
-    vim.cmd([[autocmd vimenter * hi PreProc cterm=italic ctermfg=12 gui=italic guifg=12]])
+    vim.cmd([[hi Constant guibg=NONE ctermbg=NONE ctermfg=6 guifg=6]])
+    vim.cmd([[hi Number guibg=NONE ctermbg=NONE ctermfg=12 guifg=12]])
+    vim.cmd([[hi Special guibg=NONE ctermbg=NONE ctermfg=11 guifg=11]])
+    vim.cmd([[hi SpecialChar guibg=NONE ctermbg=NONE ctermfg=3 guifg=3]])
+    vim.cmd([[hi String guibg=NONE ctermbg=NONE ctermfg=6 guifg=6]])
+    vim.cmd([[hi Type cterm=italic ctermfg=121 gui=italic guifg=121]])
+    vim.cmd([[hi Keyword cterm=italic ctermfg=11 gui=italic guifg=11]])
+    vim.cmd([[hi PreProc cterm=italic ctermfg=12 gui=italic guifg=12]])
 
-    vim.cmd([[autocmd vimenter * hi Twilight ctermfg=8]])
+    vim.cmd([[hi Twilight ctermfg=8]])
 
     vim.cmd([[autocmd vimenter * TSEnable highlight]])
 

@@ -5,31 +5,28 @@ M.setup = function()
 
     vim.call("plug#begin", "~/AppData/Local/nvim/plugged")
 
+    Plug 'lewis6991/impatient.nvim'
     Plug 'elihunter173/dirbuf.nvim'
-    Plug 'tpope/vim-commentary' -- For Commenting gcc & gc
-    Plug 'vim-airline/vim-airline'
-    Plug 'rafi/awesome-vim-colorschemes'
     Plug 'neoclide/coc.nvim'
-    Plug 'terryma/vim-multiple-cursors' -- CTRL + N for multiple cursors
     Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
-    Plug 'folke/zen-mode.nvim'
-    Plug 'tpope/vim-surround'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'goolord/alpha-nvim'
-    Plug 'tpope/vim-repeat'
-    Plug 'lewis6991/impatient.nvim'
     Plug 'mcauley-penney/tidy.nvim'
     Plug 'folke/which-key.nvim'
+    Plug 'folke/zen-mode.nvim'
     Plug 'folke/twilight.nvim'
     Plug 'beauwilliams/focus.nvim'
-    Plug 'kg8m/vim-simple-align'
-    Plug 'preservim/tagbar'
     Plug 'xiyaowong/nvim-cursorword'
     Plug 'jghauser/mkdir.nvim'
     Plug 'max397574/better-escape.nvim'
     Plug 'numToStr/FTerm.nvim'
+    Plug 'nvim-lualine/lualine.nvim'
+    Plug 'terrortylor/nvim-comment'
+
+    Plug 'kg8m/vim-simple-align'
+    Plug 'terryma/vim-multiple-cursors'
 
     vim.call("plug#end")
 
@@ -47,8 +44,16 @@ M.setup = function()
     require("twilight").setup({})
     require("focus").setup({})
 
-    require("FTerm").setup({ cmd = "Powershell.exe" })
+    require("FTerm").setup({ cmd = "pwsh.exe" })
 
+    require("nvim_comment").setup({
+        marker_padding = true,
+        comment_empty = false,
+        comment_empty_trim_whitespace = true,
+        create_mappings = false
+    })
+
+    require("plugins/lualine").setup()
     require("plugins/mappings").setup()
     require("plugins/splash_screen").setup()
 end
