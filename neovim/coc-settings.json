@@ -13,15 +13,6 @@
     "sumneko-lua.enable": true,
     "sumneko-lua.prompt": true,
 
-    "java.format.enabled": false,
-
-    "java.configuration.runtimes": [
-        {
-            "name": "JavaSE-17",
-            "path": "D:/scoop/apps/openjdk/current"
-        }
-    ],
-
     "coc.preferences.formatOnType": false,
     "coc.preferences.bracketEnterImprove": true,
 

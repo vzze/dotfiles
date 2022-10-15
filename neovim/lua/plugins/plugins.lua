@@ -3,7 +3,11 @@ local M = {}
 M.setup = function()
     local Plug = vim.fn["plug#"]
 
-    vim.call("plug#begin", "~/AppData/Local/nvim/plugged")
+    if vim.fn.has("unix") == 1 then
+        vim.call("plug#begin", "~/.config/nvim/plugged")
+    elseif vim.fn.has("win32") == 1 then
+        vim.call("plug#begin", "~/AppData/Local/nvim/plugged")
+    end
 
     Plug 'lewis6991/impatient.nvim'
     Plug 'elihunter173/dirbuf.nvim'
