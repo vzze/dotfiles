@@ -48,7 +48,11 @@ M.setup = function()
     require("twilight").setup({})
     require("focus").setup({})
 
-    require("FTerm").setup({ cmd = "pwsh.exe" })
+    if vim.fn.has("unix") == 1 then
+        require("FTerm").setup({ cmd = "bash" })
+    elseif vim.fn.has("win32") == 1 then
+        require("FTerm").setup({ cmd = "pwsh.exe" })
+    end
 
     require("nvim_comment").setup({
         marker_padding = true,
