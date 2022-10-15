@@ -1,5 +1,69 @@
 local M = {}
 
+function MultipleCursorsBefore()
+    if vim.fn.exists(":CocDisable") == 2 then
+        vim.cmd("CocDisable")
+    end
+end
+
+function MultipleCursorsAfter()
+    if vim.fn.exists(":CocEnable") == 2 then
+        vim.cmd("CocEnable")
+    end
+end
+
+function CheckBackSpace()
+    local col = vim.fn.col('.') - 1
+    return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+end
+
+function ShowDocs()
+    local cw = vim.fn.expand('<cword>')
+    if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
+        vim.api.nvim_command('h ' .. cw)
+    elseif vim.api.nvim_eval('coc#rpc#ready()') then
+        vim.fn.CocActionAsync('doHover')
+    else
+        vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
+    end
+end
+
+function Surround(br2, br1)
+    local tup1 = vim.api.nvim_buf_get_mark(0, "<")
+    local tup2 = vim.api.nvim_buf_get_mark(0, ">")
+    local txt = vim.api.nvim_buf_get_lines(0, tup1[1] - 1, tup2[1], true)
+
+    txt[#txt] = txt[#txt]:sub(0, tup2[2]) .. br1 .. txt[#txt]:sub(tup2[2] + 1)
+    txt[1] = txt[1]:sub(0, tup1[2]) .. br2 .. txt[1]:sub(tup1[2] + 1)
+    vim.api.nvim_buf_set_lines(0, tup1[1] - 1, tup2[1], true, txt)
+end
+
+function SurroundLine(br2, br1)
+    local txt = vim.api.nvim_get_current_line()
+    txt = br2 .. txt .. br1
+    vim.api.nvim_set_current_line(txt);
+end
+
+function SurroundWord(br2, br1)
+    local txt = vim.api.nvim_get_current_line()
+    local tup = vim.api.nvim_win_get_cursor(0)
+    local col = tup[2]
+    local i = txt:find("%W", col + 1)
+    if i == nil then
+       i = #txt + 1
+    end
+    local rev = txt:reverse()
+    local i2 = col + (math.floor(#txt / 2) - col) * 2
+    i2 = rev:find("%W", i2 + 1)
+    if i2 == nil then
+       i2 = #rev + 1
+    end
+    rev = rev:sub(0, i2 - 1) .. br2 .. rev:sub(i2)
+    txt = rev:reverse()
+    txt = txt:sub(0, i) .. br1 .. txt:sub(i + 1)
+    vim.api.nvim_set_current_line(txt);
+end
+
 M.normal = {
     ["t"]           = { name = "+tabs"                                                         },
     ["th"]          = { ":tabprevious<CR>"                           , "Previous Tab"          },
@@ -16,12 +80,11 @@ M.normal = {
     ["<leader>th"]  = { "<cmd>Telescope help_tags<CR>"               , "Help Tags"             },
 
     ["<leader>u"]   = { name = "+util"                                                         },
+    ["<leader>uz"]  = { ":ZenMode<CR>"                               , "Zen Mode"              },
 
     ["<leader>ug"]  = { name = "+git"                                                          },
     ["<leader>ugt"] = { ":CocCommand git.browserOpen<CR>"            , "Git Info Location"     },
     ["<leader>ugc"] = { ":CocCommand git.chunkInfo<CR>"              , "Git Chunk Info"        },
-
-    ["<leader>uz"]  = { ":ZenMode<CR>"                               , "Zen Mode"              },
 
     ["<leader>c"]   = { name = "+code"                                                         },
     ["<leader>co"]  = { ":call v:lua.ShowDocs()<CR>"                 , "Shows Docs"            },
@@ -35,6 +98,7 @@ M.normal = {
     ["<leader>ca"]  = { "<Plug>(coc-codeaction)"                     , "Code Action"           },
     ["<leader>cf"]  = { "<Plug>(coc-fix-current)"                    , "Auto Fix"              },
     ["<leader>cc"]  = { "<Plug>(coc-codelens-action)"                , "Code Lens"             },
+
     ["<leader>cl"]  = { name = "+list"                                                         },
     ["<leader>cld"] = { ":<C-u>CocList diagnostics<CR>"              , "List Diagnostics"      },
     ["<leader>clo"] = { ":<C-u>CocList outline<CR>"                  , "Current Doc Symbols"   },
@@ -52,19 +116,38 @@ M.normal = {
     ["sr"]          = { name = "+Switch CC and HH"                                             },
     ["src"]         = { ":CocCommand clangd.switchSourceHeader<CR>"  , "Switch CC and HH"      },
 
-    ["gc"]          = { ":CommentToggle<CR>"                         , "Toggle Comments"       }
+    ["g"]           = { name = "+Text Edit"                                                    },
+    ["gc"]          = { ":CommentToggle<CR>"                             , "Comment Line"      },
+
+    ["gl"]          = { name = "+Line Edit"                                                    },
+    ["gl)"]         = { ":<C-u>call v:lua.SurroundLine('(', ')')<CR>"    , "Surround Line"     },
+    ["gl]"]         = { ":<C-u>call v:lua.SurroundLine('[', ']')<CR>"    , "Surround Line"     },
+    ["gl}"]         = { ":<C-u>call v:lua.SurroundLine('{', '}')<CR>"    , "Surround Line"     },
+    ["gl>"]         = { ":<C-u>call v:lua.SurroundLine('<', '>')<CR>"    , "Surround Line"     },
+    ["gl'"]         = { [[:<C-u>call v:lua.SurroundLine("'", "'")<CR>]]  , "Surround Line"     },
+    ["gl`"]         = { [[:<C-u>call v:lua.SurroundLine("`", "`")<CR>]]  , "Surround Line"     },
+    ['gl"']         = { [[:<C-u>call v:lua.SurroundLine('"', '"')<CR>]]  , "Surround Line"     },
+
+    ["gw"]          = { name = "+Word Edit"                                                    },
+    ["gw)"]         = { ":<C-u>call v:lua.SurroundWord('(', ')')<CR>"    , "Surround Word"     },
+    ["gw]"]         = { ":<C-u>call v:lua.SurroundWord('(', ')')<CR>"    , "Surround Word"     },
+    ["gw}"]         = { ":<C-u>call v:lua.SurroundWord('(', ')')<CR>"    , "Surround Word"     },
+    ["gw'"]         = { [[:<C-u>call v:lua.SurroundWord("'", "'")<CR>]]  , "Surround Word"     },
+    ["gw`"]         = { [[:<C-u>call v:lua.SurroundWord("`", "`")<CR>]]  , "Surround Word"     },
+    ['gw"']         = { [[:<C-u>call v:lua.SurroundWord('"', '"')<CR>]]  , "Surround Word"     },
 }
 
 M.visual = {
     ["g"]  = { name = "+Text Edit"                                                    },
-    ["gc"] = { ":'<,'>CommentToggle<CR>"                    , "Toggle Comments"       },
-    ["g)"] = { ":<C-u>call v:lua.Surround('(', ')')<CR>"    , "Visual Surround"       },
-    ["g]"] = { ":<C-u>call v:lua.Surround('[', ']')<CR>"    , "Visual Surround"       },
-    ["g}"] = { ":<C-u>call v:lua.Surround('{', '}')<CR>"    , "Visual Surround"       },
-    ["g>"] = { ":<C-u>call v:lua.Surround('<', '>')<CR>"    , "Visual Surround"       },
-    ["g'"] = { [[:<C-u>call v:lua.Surround("'", "'")<CR>]]  , "Visual Surround"       },
-    ["g`"] = { [[:<C-u>call v:lua.Surround("`", "`")<CR>]]  , "Visual Surround"       },
-    ['g"'] = { [[:<C-u>call v:lua.Surround('"', '"')<CR>]]  , "Visual Surround"       }
+    ["gc"] = { ":'<,'>CommentToggle<CR>"                    , "Comment Block"         },
+    ["g)"] = { ":<C-u>call v:lua.Surround('(', ')')<CR>"    , "Surround Block"        },
+    ["g]"] = { ":<C-u>call v:lua.Surround('[', ']')<CR>"    , "Surround Block"        },
+    ["g}"] = { ":<C-u>call v:lua.Surround('{', '}')<CR>"    , "Surround Block"        },
+    ["g>"] = { ":<C-u>call v:lua.Surround('<', '>')<CR>"    , "Surround Block"        },
+    ["g'"] = { [[:<C-u>call v:lua.Surround("'", "'")<CR>]]  , "Surround Block"        },
+    ["g`"] = { [[:<C-u>call v:lua.Surround("`", "`")<CR>]]  , "Surround Block"        },
+    ['g"'] = { [[:<C-u>call v:lua.Surround('"', '"')<CR>]]  , "Surround Block"        }
+
 }
 
 M.insert = {

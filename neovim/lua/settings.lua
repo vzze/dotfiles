@@ -67,8 +67,6 @@ M.autocmd = function()
 
     vim.cmd([[autocmd vimenter * TSEnable highlight]])
 
-    vim.cmd([[autocmd User CocGitStatusChange call v:lua.UpdateGitStatus()]])
-
     vim.cmd([[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]])
     vim.cmd([[autocmd BufEnter * set signcolumn=yes]])
 

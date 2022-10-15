@@ -267,7 +267,7 @@ M.setup = function()
     local dashboard = require("alpha.themes.dashboard")
 
     math.randomseed(os.time())
-    dashboard.section.header.val = M.art[math.random(#M.art)]
+    dashboard.section.header.val = M.art[1] -- M.art[math.random(#M.art)]
 
     dashboard.section.buttons.val = {
         dashboard.button("e", "New File", ":ene <BAR> startinsert <CR>"),

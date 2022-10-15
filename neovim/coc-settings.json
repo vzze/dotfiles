@@ -28,6 +28,7 @@
     "suggest.virtualText": true,
 
     "inlayHint.enable": true,
+    "inlayHint.display": true,
     "inlayHint.subSeparator": " ",
     "inlayHint.typeSeparator": "",
     "inlayHint.enableParameter": true,
@@ -61,5 +62,6 @@
     "git.conflict.current.hlGroup": "DiffAdd",
     "git.changeRemovedSign.hlGroup": "DiffAdd",
     "git.addGBlameToBufferVar": true,
-    "git.splitWindowCommand": "above sp"
+    "git.splitWindowCommand": "above sp",
+    "Lua.telemetry.enable": false
 }

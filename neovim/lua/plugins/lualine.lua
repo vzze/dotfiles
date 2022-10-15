@@ -75,7 +75,7 @@ M.setup = function()
                 {
                     'diagnostics',
 
-                    sources = { 'nvim_diagnostic', 'coc' },
+                    sources = { 'coc' },
                     sections = { 'error', 'warn', 'info', 'hint' },
 
                     diagnostics_color = {
