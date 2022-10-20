@@ -97,7 +97,6 @@ M.normal = {
     ["<leader>cr"]  = { "<Plug>(coc-references)"                     , "Code Ref"              },
     ["<leader>ca"]  = { "<Plug>(coc-codeaction)"                     , "Code Action"           },
     ["<leader>cf"]  = { "<Plug>(coc-fix-current)"                    , "Auto Fix"              },
-    ["<leader>cc"]  = { "<Plug>(coc-codelens-action)"                , "Code Lens"             },
 
     ["<leader>cl"]  = { name = "+list"                                                         },
     ["<leader>cld"] = { ":<C-u>CocList diagnostics<CR>"              , "List Diagnostics"      },
