@@ -13,31 +13,27 @@
                 {
                     "foreground": "lightCyan",
                     "style": "plain",
+                    "properties": {
+                        "style": "folder"
+                    },
                     "template": "<darkGray>: </>{{ .Path }} ",
                     "type": "path"
                 },
-                {
-                    "foreground": "red",
-                    "style": "plain",
-                    "template": " C:{{ if gt .Code 0 }}{{ .Code }}{{ end }} ",
-                    "type": "exit"
-                }
-            ],
-            "type": "prompt"
-        },
-        {
-            "alignment": "right",
-            "newline": false,
-            "segments": [
                 {
                     "style": "plain",
                     "template": "<white>git:</>{{ .HEAD }} ",
                     "type": "git"
                 },
                 {
+                    "foreground": "red",
+                    "style": "plain",
+                    "template": " C:{{ if gt .Code 0 }}{{ .Code }}{{ end }} ",
+                    "type": "exit"
+                },
+                {
                     "foreground": "darkGray",
                     "style": "plain",
-                    "template": "[{{ .CurrentDate | date .Format }}]",
+                    "template": "{{ .CurrentDate | date .Format }}",
                     "type": "time"
                 }
             ],
