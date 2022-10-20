@@ -4,16 +4,16 @@
     "actions": 
     [
         {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
             "command": 
             {
                 "action": "copy",
                 "singleLine": false
             },
             "keys": "ctrl+c"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
         },
         {
             "command": "find",
@@ -27,16 +27,40 @@
                 "splitMode": "duplicate"
             },
             "keys": "alt+shift+d"
+        },
+        {
+            "command": "unbound",
+            "keys": "q"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+shift+t"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+q"
+        },
+        {
+            "command": "closePane",
+            "keys": "ctrl+shift+w"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab"
+            },
+            "keys": "ctrl+t"
         }
     ],
     "alwaysOnTop": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "defaultProfile": "{b66366c7-9ee9-483f-bf12-4e354d6925f9}",
     "profiles": 
     {
         "defaults": 
         {
+            "elevate": false,
             "startingDirectory": "D:"
         },
         "list": 
@@ -65,6 +89,7 @@
                 },
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
                 "name": "Command Prompt",
                 "opacity": 50,
                 "startingDirectory": "D:",
@@ -85,16 +110,52 @@
                 "useAcrylic": true
             },
             {
-                "guid": "{8fa15c3e-ab89-5e03-98fb-595b918e8e07}",
+                "altGrAliasing": true,
+                "antialiasingMode": "grayscale",
+                "closeOnExit": "automatic",
+                "colorScheme": "FCC0FF_V2",
+                "commandline": "D:\\Powershell Core\\7\\pwsh.exe",
+                "cursorShape": "bar",
+                "elevate": true,
+                "font": 
+                {
+                    "face": "Cartograph CF",
+                    "size": 12
+                },
+                "guid": "{b66366c7-9ee9-483f-bf12-4e354d6925f9}",
                 "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
+                "historySize": 9001,
+                "icon": "D:\\Powershell Core\\7\\assets\\Powershell_av_colors.ico",
+                "name": "PowerShell Core",
+                "opacity": 50,
+                "padding": "8",
+                "snapOnInput": true,
+                "startingDirectory": "D:",
+                "useAcrylic": true
             },
             {
-                "guid": "{626cca3b-bdae-5a6d-a7d8-e2852a0ce1e3}",
+                "altGrAliasing": true,
+                "antialiasingMode": "grayscale",
+                "closeOnExit": "automatic",
+                "colorScheme": "FCC0FF_V2",
+                "commandline": "D:\\scoop\\apps\\archwsl\\current\\Arch.exe",
+                "cursorShape": "bar",
+                "elevate": true,
+                "font": 
+                {
+                    "face": "Cartograph CF",
+                    "size": 12
+                },
+                "guid": "{4d2fdc5e-472f-4f86-a87a-c71491258769}",
                 "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
+                "historySize": 9001,
+                "icon": "C:\\Users\\Edi\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\arch.png",
+                "name": "Arch",
+                "opacity": 50,
+                "padding": "8",
+                "snapOnInput": true,
+                "startingDirectory": "D:",
+                "useAcrylic": true
             }
         ]
     },

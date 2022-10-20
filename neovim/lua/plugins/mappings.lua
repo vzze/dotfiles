@@ -135,6 +135,9 @@ M.normal = {
     ["gw'"]         = { [[:<C-u>call v:lua.SurroundWord("'", "'")<CR>]]  , "Surround Word"     },
     ["gw`"]         = { [[:<C-u>call v:lua.SurroundWord("`", "`")<CR>]]  , "Surround Word"     },
     ['gw"']         = { [[:<C-u>call v:lua.SurroundWord('"', '"')<CR>]]  , "Surround Word"     },
+
+    ["<C-f>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"' , "Scroll Down"  , expr = true },
+    ["<C-b>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"' , "Scroll Up"    , expr = true },
 }
 
 M.visual = {
@@ -146,14 +149,18 @@ M.visual = {
     ["g>"] = { ":<C-u>call v:lua.Surround('<', '>')<CR>"    , "Surround Block"        },
     ["g'"] = { [[:<C-u>call v:lua.Surround("'", "'")<CR>]]  , "Surround Block"        },
     ["g`"] = { [[:<C-u>call v:lua.Surround("`", "`")<CR>]]  , "Surround Block"        },
-    ['g"'] = { [[:<C-u>call v:lua.Surround('"', '"')<CR>]]  , "Surround Block"        }
+    ['g"'] = { [[:<C-u>call v:lua.Surround('"', '"')<CR>]]  , "Surround Block"        },
 
+    ["<C-f>"]   = { 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"' , "Scroll Down"  , expr = true },
+    ["<C-b>"]   = { 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"' , "Scroll Up"    , expr = true },
 }
 
 M.insert = {
     ["<CR>"]    = { [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]]     , "Report Enter" , expr = true },
     ["<TAB>"]   = { 'coc#pum#visible() ? coc#pum#next(1) : v:lua.CheckBackSpace() ? "<TAB>" : coc#refresh()' , "Report Tab"   , expr = true },
-    ["<S-TAB>"] = { [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]]                                       , "Report S-Tab" , expr = true }
+    ["<S-TAB>"] = { [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]]                                       , "Report S-Tab" , expr = true },
+    ["<C-f>"]   = { 'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"'                   , "Scroll Down"  , expr = true },
+    ["<C-b>"]   = { 'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"'                    , "Scroll Up"    , expr = true },
 }
 
 M.termin = {
