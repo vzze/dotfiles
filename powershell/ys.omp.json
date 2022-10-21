@@ -7,7 +7,7 @@
             "segments": [
                 {
                     "style": "plain",
-                    "template": "<lightYellow>{{ .UserName }}</> <darkGray>@</> <lightGreen>{{ .HostName }}</> ",
+                    "template": "<lightYellow>{{ .UserName }}</> <darkGray>@</> <lightMagenta>{{ .HostName }}</> ",
                     "type": "session"
                 },
                 {

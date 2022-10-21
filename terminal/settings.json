@@ -54,7 +54,7 @@
     ],
     "alwaysOnTop": false,
     "copyFormatting": "none",
-    "copyOnSelect": false,
+    "copyOnSelect": true,
     "defaultProfile": "{26bdfc62-db1b-4215-b42e-d1a70e8540ea}",
     "profiles": 
     {
@@ -410,7 +410,9 @@
             "yellow": "#808000"
         }
     ],
+    "showTabsInTitlebar": true,
     "startOnUserLogin": false,
     "tabWidthMode": "equal",
-    "useAcrylicInTabRow": true
+    "useAcrylicInTabRow": true,
+    "windowingBehavior": "useAnyExisting"
 }
