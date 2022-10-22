@@ -4,20 +4,20 @@
     "actions": 
     [
         {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+c"
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": "paste",
             "keys": "ctrl+v"
         },
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+c"
         },
         {
             "command": 
@@ -27,6 +27,10 @@
                 "splitMode": "duplicate"
             },
             "keys": "alt+shift+d"
+        },
+        {
+            "command": "closePane",
+            "keys": "ctrl+shift+w"
         },
         {
             "command": "unbound",
@@ -39,10 +43,6 @@
         {
             "command": "unbound",
             "keys": "ctrl+q"
-        },
-        {
-            "command": "closePane",
-            "keys": "ctrl+shift+w"
         },
         {
             "command": 
@@ -67,7 +67,7 @@
         [
             {
                 "colorScheme": "FCC0FF",
-                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -nologo",
                 "elevate": false,
                 "font": 
                 {
@@ -83,6 +83,7 @@
             },
             {
                 "colorScheme": "FCC0FF",
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "font": 
                 {
                     "face": "Cartograph CF"
@@ -115,7 +116,7 @@
                 "antialiasingMode": "grayscale",
                 "closeOnExit": "automatic",
                 "colorScheme": "FCC0FF",
-                "commandline": "D:\\Powershell Core\\7\\pwsh.exe",
+                "commandline": "D:\\Powershell Core\\7\\pwsh.exe -nologo",
                 "cursorShape": "bar",
                 "elevate": true,
                 "experimental.retroTerminalEffect": false,
@@ -133,6 +134,7 @@
                 "padding": "8",
                 "snapOnInput": true,
                 "startingDirectory": "D:",
+                "tabTitle": "Power",
                 "useAcrylic": true
             },
             {
@@ -150,6 +152,33 @@
                 "name": "Arch",
                 "opacity": 50,
                 "startingDirectory": "/mnt/d",
+                "tabTitle": null,
+                "useAcrylic": true
+            },
+            {
+                "colorScheme": "FCC0FF",
+                "font": 
+                {
+                    "face": "Cartograph CF"
+                },
+                "guid": "{5f021c56-073f-51aa-8ff7-c15eb4fae770}",
+                "hidden": false,
+                "name": "CMD VS 2022",
+                "opacity": 50,
+                "source": "Windows.Terminal.VisualStudio",
+                "useAcrylic": true
+            },
+            {
+                "colorScheme": "FCC0FF",
+                "font": 
+                {
+                    "face": "Cartograph CF"
+                },
+                "guid": "{443dd862-c90b-5ce1-b6dc-4d0dda73a2c4}",
+                "hidden": false,
+                "name": "PWSH VS 2022",
+                "opacity": 50,
+                "source": "Windows.Terminal.VisualStudio",
                 "useAcrylic": true
             }
         ]
@@ -411,7 +440,7 @@
         }
     ],
     "showTabsInTitlebar": true,
-    "startOnUserLogin": false,
+    "startOnUserLogin": true,
     "tabWidthMode": "equal",
     "useAcrylicInTabRow": true,
     "windowingBehavior": "useAnyExisting"
