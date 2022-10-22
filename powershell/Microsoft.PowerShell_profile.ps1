@@ -53,10 +53,6 @@ function vupgrade {
         $UTime.Invoke("nvim")
         nvim "+PlugUpdate | :q | :q"
     }
-    if($TestCommandExists.Invoke("arch")) {
-        $UTime.Invoke("arch")
-        arch run sudo pacman -Syu
-    }
 }
 
 function touch {
