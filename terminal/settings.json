@@ -4,20 +4,20 @@
     "actions": 
     [
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
             "command": 
             {
                 "action": "copy",
                 "singleLine": false
             },
             "keys": "ctrl+c"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": 
@@ -27,10 +27,6 @@
                 "splitMode": "duplicate"
             },
             "keys": "alt+shift+d"
-        },
-        {
-            "command": "closePane",
-            "keys": "ctrl+shift+w"
         },
         {
             "command": "unbound",
@@ -43,6 +39,10 @@
         {
             "command": "unbound",
             "keys": "ctrl+q"
+        },
+        {
+            "command": "closePane",
+            "keys": "ctrl+shift+w"
         },
         {
             "command": 
@@ -61,56 +61,11 @@
         "defaults": 
         {
             "elevate": false,
-            "startingDirectory": "D:"
+            "startingDirectory": "D:",
+            "suppressApplicationTitle": true
         },
         "list": 
         [
-            {
-                "colorScheme": "FCC0FF",
-                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -nologo",
-                "elevate": false,
-                "font": 
-                {
-                    "face": "Cartograph CF"
-                },
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": false,
-                "name": "Windows PowerShell",
-                "opacity": 50,
-                "padding": "8",
-                "startingDirectory": "D:",
-                "useAcrylic": true
-            },
-            {
-                "colorScheme": "FCC0FF",
-                "commandline": "%SystemRoot%\\System32\\cmd.exe",
-                "font": 
-                {
-                    "face": "Cartograph CF"
-                },
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
-                "icon": "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
-                "name": "Command Prompt",
-                "opacity": 50,
-                "startingDirectory": "D:",
-                "useAcrylic": true
-            },
-            {
-                "altGrAliasing": true,
-                "colorScheme": "FCC0FF",
-                "font": 
-                {
-                    "face": "Cartograph CF"
-                },
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
-                "name": "Azure Cloud Shell",
-                "opacity": 50,
-                "source": "Windows.Terminal.Azure",
-                "startingDirectory": "D:",
-                "useAcrylic": true
-            },
             {
                 "altGrAliasing": true,
                 "antialiasingMode": "grayscale",
@@ -138,7 +93,6 @@
                 "useAcrylic": true
             },
             {
-                "altGrAliasing": true,
                 "colorScheme": "FCC0FF",
                 "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Arch",
                 "elevate": true,
@@ -146,39 +100,130 @@
                 {
                     "face": "Cartograph CF"
                 },
-                "guid": "{3d7e18fd-0e6c-4f79-ad06-aecf82542197}",
+                "guid": "{c4a939eb-8173-452d-b4e1-7e1df7e688d9}",
                 "hidden": false,
                 "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
                 "name": "Arch",
                 "opacity": 50,
                 "startingDirectory": "/mnt/d",
-                "tabTitle": null,
                 "useAcrylic": true
             },
             {
+                "altGrAliasing": true,
+                "antialiasingMode": "grayscale",
+                "closeOnExit": "automatic",
                 "colorScheme": "FCC0FF",
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -nologo",
+                "cursorShape": "bar",
+                "elevate": true,
                 "font": 
                 {
-                    "face": "Cartograph CF"
+                    "face": "Cartograph CF",
+                    "size": 12
                 },
-                "guid": "{5f021c56-073f-51aa-8ff7-c15eb4fae770}",
+                "guid": "{187b6f01-75f7-4a79-9d78-9dddfe0331f2}",
                 "hidden": false,
-                "name": "CMD VS 2022",
+                "historySize": 9001,
+                "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
+                "name": "Windows Powershell",
                 "opacity": 50,
-                "source": "Windows.Terminal.VisualStudio",
+                "padding": "8",
+                "snapOnInput": true,
+                "startingDirectory": "D:",
                 "useAcrylic": true
             },
             {
+                "altGrAliasing": true,
+                "antialiasingMode": "grayscale",
+                "closeOnExit": "automatic",
                 "colorScheme": "FCC0FF",
+                "commandline": "D:\\scoop\\apps\\git\\current\\bin\\bash.exe",
+                "cursorShape": "bar",
+                "elevate": true,
+                "experimental.retroTerminalEffect": false,
+                "font": 
+                {
+                    "face": "Cartograph CF",
+                    "size": 12
+                },
+                "guid": "{3e8dd241-a2ee-460b-aa40-3d0b3a4eda1d}",
+                "hidden": false,
+                "historySize": 9001,
+                "icon": "D:\\scoop\\apps\\git\\current\\usr\\share\\git\\git-for-windows.ico",
+                "name": "Git Bash",
+                "opacity": 50,
+                "padding": "8",
+                "snapOnInput": true,
+                "startingDirectory": "D:",
+                "tabTitle": "Power",
+                "useAcrylic": true
+            },
+            {
+                "altGrAliasing": true,
+                "antialiasingMode": "grayscale",
+                "closeOnExit": "automatic",
+                "colorScheme": "FCC0FF",
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "cursorShape": "bar",
+                "font": 
+                {
+                    "face": "Cartograph CF",
+                    "size": 12
+                },
+                "guid": "{b340268f-a709-4bf8-abf6-a50eb954a741}",
+                "hidden": false,
+                "historySize": 9001,
+                "icon": "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
+                "name": "Command Prompt",
+                "opacity": 50,
+                "padding": "8, 8, 8, 8",
+                "snapOnInput": true,
+                "startingDirectory": "D:",
+                "useAcrylic": true
+            },
+            {
+                "altGrAliasing": true,
+                "colorScheme": "FCC0FF",
+                "connectionType": "{d9fcfdfa-a479-412c-83b7-c5640e61cd62}",
                 "font": 
                 {
                     "face": "Cartograph CF"
                 },
-                "guid": "{443dd862-c90b-5ce1-b6dc-4d0dda73a2c4}",
+                "guid": "{2160b9e4-9988-4140-a914-e9ee32193a1c}",
                 "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/{b453ae62-4e3d-5e58-b989-0a998ec441b8}.png",
+                "name": "Azure Cloud Shell",
+                "opacity": 50,
+                "startingDirectory": "D:",
+                "useAcrylic": true
+            },
+            {
+                "colorScheme": "FCC0FF",
+                "commandline": "powershell.exe -NoExit -Command \"&{Import-Module \"\"\"D:\\VS\\2022\\Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll\"\"\"; Enter-VsDevShell af62f4aa -SkipAutomaticLocation -DevCmdArguments \"\"\"-arch=x64 -host_arch=x64\"\"\"}\"",
+                "elevate": true,
+                "font": 
+                {
+                    "face": "Cartograph CF"
+                },
+                "guid": "{d38e57fe-ba58-4e3f-a7d6-7daf5cd22630}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
                 "name": "PWSH VS 2022",
                 "opacity": 50,
-                "source": "Windows.Terminal.VisualStudio",
+                "useAcrylic": true
+            },
+            {
+                "colorScheme": "FCC0FF",
+                "commandline": "cmd.exe /k \"D:\\VS\\2022\\Common7\\Tools\\VsDevCmd.bat\" -arch=x64 -host_arch=x64",
+                "font": 
+                {
+                    "face": "Cartograph CF"
+                },
+                "guid": "{762864db-5301-47a4-8282-3765dee199e7}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
+                "name": "CMD VS 2022",
+                "opacity": 50,
                 "useAcrylic": true
             }
         ]
