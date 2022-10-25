@@ -51,7 +51,7 @@ function vupgrade {
     }
     if($TestCommandExists.Invoke("nvim")) {
         $UTime.Invoke("nvim")
-        nvim "+PlugUpdate | :q | :q"
+        nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
     }
 }
 

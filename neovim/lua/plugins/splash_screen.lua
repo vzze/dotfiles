@@ -1,6 +1,5 @@
 local M = {}
 M.art = {
-    {
         [[    `-'`                                ~;    ]],
         [[     ~~~-`                           'x#@x    ]],
         [[$####x~~~~;&###########W###########8NW@@#&###$]],
@@ -30,20 +29,50 @@ M.art = {
         [[     ':o$W8u~~<o&xN8$8uxNaaNx*&@@@#$$$x;'     ]],
         [[         ';x$&N8%#$8&NxN&88NoxxxxNu;'         ]],
         [[            -ox*N#%$88$W&8$%W%*..-'           ]],
-        [[          `.'    .<a%WW@W#a<.      ```        ]]
-    }
+        [[          `.'    .<a%WW@W#a<.      ```        ]],
+        [[                                              ]],
+        [[]],
 }
 
-M.setup = function()
+M.setup = function(plug_number)
     local dashboard = require("alpha.themes.dashboard")
 
+    local time = os.date("*t")
+
+    local left   = "vzze "
+    local middle = ""
+    local right  = "Plugins: " .. tostring(plug_number)
+
+    if time.hour < 10 then middle = middle .. "0" .. time.hour .. ':'
+    else middle = middle .. time.hour .. ':' end
+
+    if time.min < 10 then middle = middle .. "0" .. time.min .. ':'
+    else middle = middle .. time.min .. ':' end
+
+    if time.sec < 10 then middle = middle .. "0" .. time.sec
+    else middle = middle .. time.sec end
+
+    M.art[32] = middle .. M.art[32]
+
+    for _ = 1, (#M.art[1] - #middle) / 2 - #left, 1 do
+        M.art[32] = " " .. M.art[32]
+    end
+
+    M.art[32] = left .. M.art[32]
+
+    for _ = 1, (#M.art[1] - #middle) / 2 - #right, 1 do
+        M.art[32] = M.art[32] .. " "
+    end
+
+    M.art[32] = M.art[32] .. right
+
     math.randomseed(os.time())
-    dashboard.section.header.val = M.art[1]
+    dashboard.section.header.val = M.art
 
     dashboard.section.buttons.val = {
-        dashboard.button("e", "New File", ":ene <BAR> startinsert <CR>"),
-        dashboard.button("SPC t f", "Find File"),
-        dashboard.button("SPC t g", "Find Word"),
+        dashboard.button("r", " Restore", ":RestoreSession<CR>"),
+        dashboard.button("SPC u f", " Files"),
+        dashboard.button("SPC u g", " Grep Time"),
     }
 
     dashboard.section.header.opts.hl = "LineNr"

@@ -3,11 +3,13 @@ local M = {}
 M.globals = function()
     local gset = vim.api.nvim_set_var
 
-    gset("cursorword_disable_at_startup"      , false                            )
-    gset("cursorword_min_width"               , 2                                )
+    gset("cursorword_disable_at_startup" , false)
+    gset("cursorword_min_width"          , 2    )
 
-    gset("loaded_perl_provider"               , 0                                )
-    gset("loaded_ruby_provider"               , 0                                )
+    gset("VM_set_statusline"             , 0    )
+
+    gset("loaded_perl_provider"          , 0    )
+    gset("loaded_ruby_provider"          , 0    )
 end
 
 M.settings = function()
@@ -31,6 +33,7 @@ M.settings = function()
     vim.o.writebackup = false
     vim.o.fillchars = "vert: "
     vim.o.cmdheight = "0"
+    vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
     vim.cmd("colorscheme default")
 end
@@ -65,15 +68,11 @@ M.autocmd = function()
 
     vim.cmd([[hi Twilight ctermfg=8]])
 
-    vim.cmd([[autocmd vimenter * TSEnable highlight]])
-
     vim.cmd([[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]])
     vim.cmd([[autocmd BufEnter * set signcolumn=yes]])
 
     vim.cmd([[autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2]])
     vim.cmd([[autocmd User AlphaReady set laststatus=0 | autocmd BufUnload <buffer> set laststatus=2]])
-    vim.cmd([[autocmd User MultipleCursorsPre call v:lua.MultipleCursorsBefore()]])
-    vim.cmd([[autocmd User MultipleCursorsPost call v:lua.MultipleCursorsAfter()]])
 end
 
 M.setup = function()

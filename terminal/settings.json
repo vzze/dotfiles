@@ -488,5 +488,5 @@
     "startOnUserLogin": true,
     "tabWidthMode": "equal",
     "useAcrylicInTabRow": true,
-    "windowingBehavior": "useAnyExisting"
+    "windowingBehavior": "useNew"
 }

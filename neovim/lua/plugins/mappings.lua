@@ -1,23 +1,13 @@
 local M = {}
 
-function MultipleCursorsBefore()
-    if vim.fn.exists(":CocDisable") == 2 then
-        vim.cmd("CocDisable")
-    end
-end
-
-function MultipleCursorsAfter()
-    if vim.fn.exists(":CocEnable") == 2 then
-        vim.cmd("CocEnable")
-    end
-end
-
 function CheckBackSpace()
     local col = vim.fn.col('.') - 1
+    ---@diagnostic disable-next-line: undefined-field
     return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
 end
 
 function ShowDocs()
+    ---@diagnostic disable-next-line: missing-parameter
     local cw = vim.fn.expand('<cword>')
     if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
         vim.api.nvim_command('h ' .. cw)
@@ -64,94 +54,153 @@ function SurroundWord(br2, br1)
     vim.api.nvim_set_current_line(txt);
 end
 
+function Align(arg1, arg2, token)
+    local lines = vim.api.nvim_buf_get_lines(0, arg1 - 1, arg2, true);
+
+    local ind = {}
+
+    for key, value in pairs(lines) do
+        local s = 0
+        local e = 0
+        ind[key] = {}
+        s, e = string.find(value, token, s)
+        while s ~= nil do
+            table.insert(ind[key], s)
+            s = e + 1
+            s, e = string.find(value, token, s)
+        end
+    end
+
+    local max = 0
+
+    for _, value in pairs(ind) do
+        if max < #value then
+            max = #value
+        end
+    end
+
+    for _, value in pairs(ind) do
+        while #value ~= max do
+            table.insert(value, -1)
+        end
+    end
+
+    local str = ""
+
+    for j = 1, #ind[1], 1 do
+        local len_m = 0
+        for _, value in pairs(ind) do
+            if len_m < value[j] then
+                len_m = value[j]
+            end
+        end
+
+        for key, value in pairs(lines) do
+            if ind[key][j] ~= -1 then
+                for _ = 1, len_m - ind[key][j], 1 do
+                    str = str .. " "
+                end
+                for x = j + 1, #ind[key], 1 do
+                    if ind[key][x] ~= -1 then
+                        ind[key][x] = ind[key][x] + len_m - ind[key][j]
+                    end
+                end
+                lines[key] = string.sub(value, 0, ind[key][j] - 1) .. str .. string.sub(value, ind[key][j])
+                str = ""
+            end
+        end
+    end
+
+    vim.api.nvim_buf_set_lines(0, arg1 - 1, arg2, true, lines)
+end
+
 M.normal = {
-    ["t"]           = { name = "+tabs"                                                         },
-    ["th"]          = { ":tabprevious<CR>"                           , "Previous Tab"          },
-    ["tl"]          = { ":tabnext<CR>"                               , "Next Tab"              },
-    ["tn"]          = { ":tabnew<CR>"                                , "New Tab"               },
-    ["td"]          = { ":tabclose<CR>"                              , "Close Tab"             },
-    ["te"]          = { "<cmd>lua require(\"FTerm\").toggle()<CR>"   , "Terminal"              },
-    ["ts"]          = { ":Dirbuf <Bar> :DirbufSync<CR>"              , "File Editor"           },
+    ["q"]           = { ":SaveSession<CR> <Bar> :wqa<CR>"           , "gtfo asap"            },
 
-    ["<leader>t"]   = { name = "+telescope"                                                    },
-    ["<leader>tf"]  = { "<cmd>Telescope find_files<CR>"              , "Find Files"            },
-    ["<leader>tg"]  = { "<cmd>Telescope live_grep<CR>"               , "Grep Time"             },
-    ["<leader>tb"]  = { "<cmd>Telescope buffers<CR>"                 , "Find Buffers"          },
-    ["<leader>th"]  = { "<cmd>Telescope help_tags<CR>"               , "Help Tags"             },
+    ["t"]           = { name = "+tabs"                                                       },
+    ["th"]          = { ":tabprevious<CR>"                          , "Previous Tab"         },
+    ["tl"]          = { ":tabnext<CR>"                              , "Next Tab"             },
+    ["tn"]          = { ":tabnew<CR>"                               , "New Tab"              },
+    ["td"]          = { ":tabclose<CR>"                             , "Close Tab"            },
+    ["te"]          = { "<cmd>lua require(\"FTerm\").toggle()<CR>"  , "Terminal"             },
+    ["tf"]          = { ":Dirbuf <Bar> :DirbufSync<CR>"             , "File Editor"          },
 
-    ["<leader>u"]   = { name = "+util"                                                         },
-    ["<leader>uz"]  = { ":ZenMode<CR>"                               , "Zen Mode"              },
+    ["tq"]          = { ":q<CR>", "Close Split"                                              },
+    ["tH"]          = { "<cmd>FocusSplitLeft<CR>"                   , "Split Left"           },
+    ["tJ"]          = { "<cmd>FocusSplitDown<CR>"                   , "Split Down"           },
+    ["tK"]          = { "<cmd>FocusSplitUp<CR>"                     , "Split Up"             },
+    ["tL"]          = { "<cmd>FocusSplitRight<CR>"                  , "Split Right"          },
+    ["tt"]          = { "<cmd>FocusSplitCycle<CR>"                  , "Cycle Splits"         },
+    ["tT"]          = { "<cmd>FocusSplitCycle reverse<CR>"          , "Reverse Cycle Splits" },
+    ["tr"]          = { name = "+Switch CC and HH"                                           },
+    ["trc"]         = { ":CocCommand clangd.switchSourceHeader<CR>" , "Switch CC and HH"     },
 
-    ["<leader>ug"]  = { name = "+git"                                                          },
-    ["<leader>ugt"] = { ":CocCommand git.browserOpen<CR>"            , "Git Info Location"     },
-    ["<leader>ugc"] = { ":CocCommand git.chunkInfo<CR>"              , "Git Chunk Info"        },
+    ["<leader>u"]   = { name = "+util"                                                       },
+    ["<leader>uz"]  = { ":ZenMode<CR>"                              , "Zen Mode"             },
+    ["<leader>uf"]  = { "<cmd>Telescope find_files<CR>"             , "Find Files"           },
+    ["<leader>ug"]  = { "<cmd>Telescope live_grep<CR>"              , "Grep Time"            },
+    ["<leader>ub"]  = { "<cmd>Telescope buffers<CR>"                , "Find Buffers"         },
+    ["<leader>uh"]  = { "<cmd>Telescope help_tags<CR>"              , "Help Tags"            },
 
-    ["<leader>c"]   = { name = "+code"                                                         },
-    ["<leader>co"]  = { ":call v:lua.ShowDocs()<CR>"                 , "Shows Docs"            },
-    ["<leader>cn"]  = { "<Plug>(coc-diagnostic-prev)"                , "Diagnostic Prev"       },
-    ["<leader>cm"]  = { "<Plug>(coc-diagnostic-next)"                , "Diagnostic Next"       },
-    ["<leader>cd"]  = { "<Plug>(coc-definition)"                     , "Code Definition"       },
-    ["<leader>cw"]  = { ":CocDiagnostic<CR>"                         , "Diagnostic Window"     },
-    ["<leader>cy"]  = { "<Plug>(coc-type-definition)"                , "Code Type Def"         },
-    ["<leader>ci"]  = { "<Plug>(coc-implementation)"                 , "Code Impl"             },
-    ["<leader>cr"]  = { "<Plug>(coc-references)"                     , "Code Ref"              },
-    ["<leader>ca"]  = { "<Plug>(coc-codeaction)"                     , "Code Action"           },
-    ["<leader>cf"]  = { "<Plug>(coc-fix-current)"                    , "Auto Fix"              },
+    ["<leader>g"]   = { name = "+git"                                                        },
+    ["<leader>gt"]  = { ":CocCommand git.browserOpen<CR>"           , "Git Info Location"    },
+    ["<leader>gc"]  = { ":CocCommand git.chunkInfo<CR>"             , "Git Chunk Info"       },
 
-    ["<leader>cl"]  = { name = "+list"                                                         },
-    ["<leader>cld"] = { ":<C-u>CocList diagnostics<CR>"              , "List Diagnostics"      },
-    ["<leader>clo"] = { ":<C-u>CocList outline<CR>"                  , "Current Doc Symbols"   },
-    ["<leader>cls"] = { ":<C-u>CocList -I symbols<CR>"               , "Workspace Symbols"     },
+    ["<leader>c"]   = { name = "+code"                                                       },
+    ["<leader>co"]  = { ":call v:lua.ShowDocs()<CR>"                , "Shows Docs"           },
+    ["<leader>cn"]  = { "<Plug>(coc-diagnostic-prev)"               , "Diagnostic Prev"      },
+    ["<leader>cm"]  = { "<Plug>(coc-diagnostic-next)"               , "Diagnostic Next"      },
+    ["<leader>cd"]  = { "<Plug>(coc-definition)"                    , "Code Definition"      },
+    ["<leader>cw"]  = { ":CocDiagnostic<CR>"                        , "Diagnostic Window"    },
+    ["<leader>cy"]  = { "<Plug>(coc-type-definition)"               , "Code Type Def"        },
+    ["<leader>ci"]  = { "<Plug>(coc-implementation)"                , "Code Impl"            },
+    ["<leader>cr"]  = { "<Plug>(coc-references)"                    , "Code Ref"             },
+    ["<leader>ca"]  = { "<Plug>(coc-codeaction)"                    , "Code Action"          },
+    ["<leader>cf"]  = { "<Plug>(coc-fix-current)"                   , "Auto Fix"             },
 
-    ["s"]           = { name = "+splits"                                                       },
-    ["sq"]          = { ":quit<CR>"                                  , "Quit Current Split"    },
-    ["sh"]          = { "<cmd>FocusSplitLeft<CR>"                    , "Split Left"            },
-    ["sj"]          = { "<cmd>FocusSplitDown<CR>"                    , "Split Down"            },
-    ["sk"]          = { "<cmd>FocusSplitUp<CR>"                      , "Split Up"              },
-    ["sl"]          = { "<cmd>FocusSplitRight<CR>"                   , "Split Right"           },
-    ["sm"]          = { "<cmd>FocusMaximise<CR>"                     , "Maximizes Split"       },
-    ["ss"]          = { "<cmd>FocusSplitCycle<CR>"                   , "Cycle Splits"          },
-    ["sS"]          = { "<cmd>FocusSplitCycle reverse<CR>"           , "Reverse Cycle Splits"  },
-    ["sr"]          = { name = "+Switch CC and HH"                                             },
-    ["src"]         = { ":CocCommand clangd.switchSourceHeader<CR>"  , "Switch CC and HH"      },
+    ["<leader>cl"]  = { name = "+list"                                                       },
+    ["<leader>cld"] = { ":<C-u>CocList diagnostics<CR>"             , "List Diagnostics"     },
+    ["<leader>clo"] = { ":<C-u>CocList outline<CR>"                 , "Current Doc Symbols"  },
+    ["<leader>cls"] = { ":<C-u>CocList -I symbols<CR>"              , "Workspace Symbols"    },
 
-    ["g"]           = { name = "+Text Edit"                                                    },
-    ["gc"]          = { ":CommentToggle<CR>"                             , "Comment Line"      },
+    ["g"]           = { name = "+Text Edit"                                                  },
+    ["gc"]          = { ":CommentToggle<CR>"                            , "Comment Line"     },
 
-    ["gl"]          = { name = "+Line Edit"                                                    },
-    ["gl)"]         = { ":<C-u>call v:lua.SurroundLine('(', ')')<CR>"    , "Surround Line"     },
-    ["gl]"]         = { ":<C-u>call v:lua.SurroundLine('[', ']')<CR>"    , "Surround Line"     },
-    ["gl}"]         = { ":<C-u>call v:lua.SurroundLine('{', '}')<CR>"    , "Surround Line"     },
-    ["gl>"]         = { ":<C-u>call v:lua.SurroundLine('<', '>')<CR>"    , "Surround Line"     },
-    ["gl'"]         = { [[:<C-u>call v:lua.SurroundLine("'", "'")<CR>]]  , "Surround Line"     },
-    ["gl`"]         = { [[:<C-u>call v:lua.SurroundLine("`", "`")<CR>]]  , "Surround Line"     },
-    ['gl"']         = { [[:<C-u>call v:lua.SurroundLine('"', '"')<CR>]]  , "Surround Line"     },
+    ["gl"]          = { name = "+Line Edit"                                                  },
+    ["gl)"]         = { ":<C-u>call v:lua.SurroundLine('(', ')')<CR>"   , "Surround Line"    },
+    ["gl]"]         = { ":<C-u>call v:lua.SurroundLine('[', ']')<CR>"   , "Surround Line"    },
+    ["gl}"]         = { ":<C-u>call v:lua.SurroundLine('{', '}')<CR>"   , "Surround Line"    },
+    ["gl>"]         = { ":<C-u>call v:lua.SurroundLine('<', '>')<CR>"   , "Surround Line"    },
+    ["gl'"]         = { [[:<C-u>call v:lua.SurroundLine("'", "'")<CR>]] , "Surround Line"    },
+    ["gl`"]         = { [[:<C-u>call v:lua.SurroundLine("`", "`")<CR>]] , "Surround Line"    },
+    ['gl"']         = { [[:<C-u>call v:lua.SurroundLine('"', '"')<CR>]] , "Surround Line"    },
 
-    ["gw"]          = { name = "+Word Edit"                                                    },
-    ["gw)"]         = { ":<C-u>call v:lua.SurroundWord('(', ')')<CR>"    , "Surround Word"     },
-    ["gw]"]         = { ":<C-u>call v:lua.SurroundWord('(', ')')<CR>"    , "Surround Word"     },
-    ["gw}"]         = { ":<C-u>call v:lua.SurroundWord('(', ')')<CR>"    , "Surround Word"     },
-    ["gw'"]         = { [[:<C-u>call v:lua.SurroundWord("'", "'")<CR>]]  , "Surround Word"     },
-    ["gw`"]         = { [[:<C-u>call v:lua.SurroundWord("`", "`")<CR>]]  , "Surround Word"     },
-    ['gw"']         = { [[:<C-u>call v:lua.SurroundWord('"', '"')<CR>]]  , "Surround Word"     },
+    ["gw"]          = { name = "+Word Edit"                                                  },
+    ["gw)"]         = { ":<C-u>call v:lua.SurroundWord('(', ')')<CR>"   , "Surround Word"    },
+    ["gw]"]         = { ":<C-u>call v:lua.SurroundWord('[', ']')<CR>"   , "Surround Word"    },
+    ["gw}"]         = { ":<C-u>call v:lua.SurroundWord('{', '}')<CR>"   , "Surround Word"    },
+    ["gw>"]         = { ":<C-u>call v:lua.SurroundWord('<', '>')<CR>"   , "Surround Word"    },
+    ["gw'"]         = { [[:<C-u>call v:lua.SurroundWord("'", "'")<CR>]] , "Surround Word"    },
+    ["gw`"]         = { [[:<C-u>call v:lua.SurroundWord("`", "`")<CR>]] , "Surround Word"    },
+    ['gw"']         = { [[:<C-u>call v:lua.SurroundWord('"', '"')<CR>]] , "Surround Word"    },
 
-    ["<C-f>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"' , "Scroll Down"  , expr = true },
-    ["<C-b>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"' , "Scroll Up"    , expr = true },
+    ["<C-f>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"' , "Scroll Down" , expr = true },
+    ["<C-b>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"' , "Scroll Up"   , expr = true },
 }
 
 M.visual = {
-    ["g"]  = { name = "+Text Edit"                                                    },
-    ["gc"] = { ":'<,'>CommentToggle<CR>"                    , "Comment Block"         },
-    ["g)"] = { ":<C-u>call v:lua.Surround('(', ')')<CR>"    , "Surround Block"        },
-    ["g]"] = { ":<C-u>call v:lua.Surround('[', ']')<CR>"    , "Surround Block"        },
-    ["g}"] = { ":<C-u>call v:lua.Surround('{', '}')<CR>"    , "Surround Block"        },
-    ["g>"] = { ":<C-u>call v:lua.Surround('<', '>')<CR>"    , "Surround Block"        },
-    ["g'"] = { [[:<C-u>call v:lua.Surround("'", "'")<CR>]]  , "Surround Block"        },
-    ["g`"] = { [[:<C-u>call v:lua.Surround("`", "`")<CR>]]  , "Surround Block"        },
-    ['g"'] = { [[:<C-u>call v:lua.Surround('"', '"')<CR>]]  , "Surround Block"        },
+    ["g"]     = { name = "+Text Edit"                                             },
+    ["gc"]    = { ":'<,'>CommentToggle<CR>"                    , "Comment Block"  },
+    ["g)"]    = { ":<C-u>call v:lua.Surround('(', ')')<CR>"    , "Surround Block" },
+    ["g]"]    = { ":<C-u>call v:lua.Surround('[', ']')<CR>"    , "Surround Block" },
+    ["g}"]    = { ":<C-u>call v:lua.Surround('{', '}')<CR>"    , "Surround Block" },
+    ["g>"]    = { ":<C-u>call v:lua.Surround('<', '>')<CR>"    , "Surround Block" },
+    ["g'"]    = { [[:<C-u>call v:lua.Surround("'", "'")<CR>]]  , "Surround Block" },
+    ["g`"]    = { [[:<C-u>call v:lua.Surround("`", "`")<CR>]]  , "Surround Block" },
+    ['g"']    = { [[:<C-u>call v:lua.Surround('"', '"')<CR>]]  , "Surround Block" },
 
-    ["<C-f>"]   = { 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"' , "Scroll Down"  , expr = true },
-    ["<C-b>"]   = { 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"' , "Scroll Up"    , expr = true },
+    ["<C-f>"] = { 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"' , "Scroll Down" , expr = true },
+    ["<C-b>"] = { 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"' , "Scroll Up"   , expr = true },
 }
 
 M.insert = {
@@ -173,6 +222,10 @@ M.setup = function()
         clear_empty_lines = false,
         keys = "<Esc>",
     })
+
+    require("leap").set_default_keymaps()
+
+    vim.api.nvim_create_user_command("Align", "call v:lua.Align(<line1>, <line2>, <f-args>)", { ["range"] = 1, ["nargs"] = 1 })
 
     local wk = require("which-key")
 
