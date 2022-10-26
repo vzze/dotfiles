@@ -25,7 +25,7 @@ vupgrade () {
     fi
     if command -v "nvim" > /dev/null; then
         echo $'\n--' $(date +"%T") $'-- nvim\n'
-        nvim "+PlugUpdate | :q | :q"
+        nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
     fi
 }
 

@@ -235,6 +235,9 @@ M.setup = function()
     wk.register(M.termin, { mode = "t", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
 
     wk.setup({
+        plugins = {
+            marks = false
+        },
         icons = {
             breadcrumb = ">>",
             separator = "->",

@@ -33,11 +33,6 @@ M.setup = function(use)
     for _, plugin in pairs(M.plugins) do
         use(plugin)
     end
-
-    require("plugins/other").setup()
-    require("plugins/statusline").setup()
-    require("plugins/mappings").setup()
-    require("plugins/splash_screen").setup(#M.plugins)
 end
 
 return M
