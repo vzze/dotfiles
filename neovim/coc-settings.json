@@ -12,6 +12,7 @@
     "sumneko-lua.enableNvimLuaDev": true,
     "sumneko-lua.enable": true,
     "sumneko-lua.prompt": true,
+    "Lua.telemetry.enable": false,
 
     "coc.preferences.formatOnType": false,
     "coc.preferences.bracketEnterImprove": true,
@@ -53,7 +54,5 @@
     "git.conflict.current.hlGroup": "DiffAdd",
     "git.changeRemovedSign.hlGroup": "DiffAdd",
     "git.addGBlameToBufferVar": true,
-    "git.splitWindowCommand": "above sp",
-    "Lua.telemetry.enable": false,
-    "clangd.path": "~\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\15.0.3\\clangd_15.0.3\\bin\\clangd.exe"
+    "git.splitWindowCommand": "above sp"
 }

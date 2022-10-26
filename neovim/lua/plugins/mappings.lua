@@ -163,7 +163,6 @@ M.normal = {
     ["<leader>clo"] = { ":<C-u>CocList outline<CR>"                 , "Current Doc Symbols"  },
     ["<leader>cls"] = { ":<C-u>CocList -I symbols<CR>"              , "Workspace Symbols"    },
 
-    ["g"]           = { name = "+Text Edit"                                                  },
     ["gc"]          = { ":CommentToggle<CR>"                            , "Comment Line"     },
 
     ["gl"]          = { name = "+Line Edit"                                                  },
@@ -189,7 +188,6 @@ M.normal = {
 }
 
 M.visual = {
-    ["g"]     = { name = "+Text Edit"                                             },
     ["gc"]    = { ":'<,'>CommentToggle<CR>"                    , "Comment Block"  },
     ["g)"]    = { ":<C-u>call v:lua.Surround('(', ')')<CR>"    , "Surround Block" },
     ["g]"]    = { ":<C-u>call v:lua.Surround('[', ']')<CR>"    , "Surround Block" },
@@ -227,8 +225,11 @@ M.setup = function()
 
     vim.api.nvim_create_user_command("Align", "call v:lua.Align(<line1>, <line2>, <f-args>)", { ["range"] = 1, ["nargs"] = 1 })
 
-    local wk = require("which-key")
+    vim.api.nvim_create_user_command("SS", "call v:lua.Surround(<f-args>)", { ["range"] = 1, ["nargs"] = "*" })
+    vim.api.nvim_create_user_command("SW", "call v:lua.SurroundWord(<f-args>)", { ["nargs"] = "*" });
+    vim.api.nvim_create_user_command("SL", "call v:lua.SurroundLine(<f-args>)", { ["nargs"] = "*" });
 
+    local wk = require("which-key")
     wk.register(M.normal, { mode = "n", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
     wk.register(M.visual, { mode = "v", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
     wk.register(M.insert, { mode = "i", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })

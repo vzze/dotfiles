@@ -1,3 +1,5 @@
+pcall(require, "impatient")
+
 local ensure_packer = function()
     local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
     ---@diagnostic disable-next-line: missing-parameter
@@ -11,17 +13,12 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-local plugs = require("plugins/plugins")
+local packer = require("packer")
 
-require("packer").startup(plugs.setup)
+packer.startup(require("plugins/plugins").setup)
 
 if packer_bootstrap then
-   require("packer").sync()
+   packer.sync()
 end
-
-require("plugins/other").setup()
-require("plugins/statusline").setup()
-require("plugins/mappings").setup()
-require("plugins/splash_screen").setup(#plugs.plugins)
 
 require("settings").setup()

@@ -92,7 +92,7 @@ M.setup = function()
             lualine_a = {'buffers'},
             lualine_b = {'filename'},
             lualine_c = {},
-            lualine_x = { require('auto-session-library').current_session_name },
+            lualine_x = {},
             lualine_y = {'filesize'},
             lualine_z = {'tabs'}
         },
