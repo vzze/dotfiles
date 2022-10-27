@@ -230,6 +230,7 @@ M.setup = function()
     vim.api.nvim_create_user_command("SL", "call v:lua.SurroundLine(<f-args>)", { ["nargs"] = "*" });
 
     local wk = require("which-key")
+
     wk.register(M.normal, { mode = "n", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
     wk.register(M.visual, { mode = "v", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
     wk.register(M.insert, { mode = "i", prefix = "", buffer = nil, silent = true, noremap = true, nowait = false })
