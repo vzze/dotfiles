@@ -5,9 +5,6 @@ M.globals = function()
 
     gset("cursorword_disable_at_startup" , false)
     gset("cursorword_min_width"          , 2    )
-
-    gset("VM_set_statusline"             , 0    )
-
     gset("loaded_perl_provider"          , 0    )
     gset("loaded_ruby_provider"          , 0    )
 end
@@ -34,6 +31,9 @@ M.settings = function()
     vim.o.fillchars = "vert: "
     vim.o.cmdheight = "0"
     vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+    vim.o.foldmethod = "indent"
+    vim.o.foldlevelstart = -1
+    vim.o.foldcolumn = "1"
 
     vim.cmd("colorscheme default")
 end
@@ -41,11 +41,15 @@ end
 M.autocmd = function()
     vim.cmd([[hi Pmenu guibg=NONE ctermbg=NONE ctermfg=3 guifg=3]])
     vim.cmd([[hi PmenuSel guibg=NONE ctermbg=NONE ctermfg=10 guifg=10]])
+    vim.cmd([[hi PmenuSbar guibg=NONE ctermbg=NONE ctermfg=NONE guifg=NONE]])
+    vim.cmd([[hi PmenuThumb guibg=6 ctermbg=6 ctermfg=0 guifg=0]])
     vim.cmd([[hi CocFloating guibg=NONE ctermbg=NONE ctermfg=3 guifg=3]])
     vim.cmd([[hi CocMenuSel guibg=NONE ctermbg=NONE ctermfg=10 guifg=10]])
     vim.cmd([[hi CocInlayHint guibg=NONE ctermbg=NONE ctermfg=15 guifg=15]])
     vim.cmd([[hi Conceal guibg=NONE ctermbg=NONE ctermfg=1 guifg=1]])
     vim.cmd([[hi MatchParen guibg=NONE ctermbg=NONE ctermfg=15 guifg=15]])
+    vim.cmd([[hi Folded guibg=NONE ctermbg=NONE ctermfg=5 guifg=5]])
+    vim.cmd([[hi FoldColumn guibg=NONE ctermbg=NONE ctermfg=5 guifg=5]])
 
     vim.cmd([[hi DiffAdd ctermbg=NONE guifg=NONE]])
     vim.cmd([[hi VertSplit cterm=NONE gui=NONE]])
@@ -56,6 +60,7 @@ M.autocmd = function()
     vim.cmd([[hi CursorWord cterm=underline gui=underline]])
     vim.cmd([[hi CursorLineNr cterm=NONE gui=NONE]])
     vim.cmd([[hi CursorLine cterm=none gui=none ctermbg=none ctermfg=none guibg=none guifg=none]])
+    vim.cmd([[hi CursorColumn ctermfg=11 ctermbg=NONE guifg=11 guibg=NONE]])
 
     vim.cmd([[hi Constant guibg=NONE ctermbg=NONE ctermfg=6 guifg=6]])
     vim.cmd([[hi Number guibg=NONE ctermbg=NONE ctermfg=12 guifg=12]])
@@ -65,6 +70,13 @@ M.autocmd = function()
     vim.cmd([[hi Type cterm=italic ctermfg=10 gui=italic guifg=10]])
     vim.cmd([[hi Keyword cterm=italic ctermfg=11 gui=italic guifg=11]])
     vim.cmd([[hi PreProc cterm=italic ctermfg=12 gui=italic guifg=12]])
+    vim.cmd([[hi Todo ctermfg=11 ctermbg=NONE guifg=11 guibg=NONE]])
+    vim.cmd([[hi Visual ctermfg=NONE ctermbg=8 guifg=NONE guibg=8]])
+
+    vim.cmd([[hi DiffAdd ctermfg=0 ctermbg=2 guifg=0 guibg=2]])
+    vim.cmd([[hi DiffChange ctermfg=0 ctermbg=5 guifg=0 guibg=5]])
+    vim.cmd([[hi DiffDelete ctermfg=0 ctermbg=4 guifg=0 guibg=4]])
+    vim.cmd([[hi DiffText cterm=NONE ctermfg=0 ctermbg=1 guifg=0 guibg=1]])
 
     vim.cmd([[hi Twilight ctermfg=8]])
 

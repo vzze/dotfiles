@@ -59,7 +59,7 @@ function Align(arg1, arg2, token)
 
     local ind = {}
 
-    for key, value in pairs(lines) do
+    for key, value in ipairs(lines) do
         local s = 0
         local e = 0
         ind[key] = {}
@@ -73,13 +73,13 @@ function Align(arg1, arg2, token)
 
     local max = 0
 
-    for _, value in pairs(ind) do
+    for _, value in ipairs(ind) do
         if max < #value then
             max = #value
         end
     end
 
-    for _, value in pairs(ind) do
+    for _, value in ipairs(ind) do
         while #value ~= max do
             table.insert(value, -1)
         end
@@ -89,13 +89,13 @@ function Align(arg1, arg2, token)
 
     for j = 1, #ind[1], 1 do
         local len_m = 0
-        for _, value in pairs(ind) do
+        for _, value in ipairs(ind) do
             if len_m < value[j] then
                 len_m = value[j]
             end
         end
 
-        for key, value in pairs(lines) do
+        for key, value in ipairs(lines) do
             if ind[key][j] ~= -1 then
                 for _ = 1, len_m - ind[key][j], 1 do
                     str = str .. " "
@@ -115,36 +115,41 @@ function Align(arg1, arg2, token)
 end
 
 M.normal = {
-    ["q"]           = { ":SaveSession<CR> <Bar> :wqa<CR>"           , "gtfo asap"            },
+    ["q"]           = { ":SaveSession<CR> <Bar> :wqa<CR>"             , "gtfo asap"            },
 
-    ["t"]           = { name = "+tabs"                                                       },
-    ["th"]          = { ":tabprevious<CR>"                          , "Previous Tab"         },
-    ["tl"]          = { ":tabnext<CR>"                              , "Next Tab"             },
-    ["tn"]          = { ":tabnew<CR>"                               , "New Tab"              },
-    ["td"]          = { ":tabclose<CR>"                             , "Close Tab"            },
-    ["te"]          = { "<cmd>lua require(\"FTerm\").toggle()<CR>"  , "Terminal"             },
-    ["tf"]          = { ":Dirbuf <Bar> :DirbufSync<CR>"             , "File Editor"          },
+    ["t"]           = { name = "+tabs"                                                         },
+    ["th"]          = { ":tabprevious<CR>"                            , "Previous Tab"         },
+    ["tl"]          = { ":tabnext<CR>"                                , "Next Tab"             },
+    ["tn"]          = { ":tabnew<CR>"                                 , "New Tab"              },
+    ["td"]          = { ":tabclose<CR>"                               , "Close Tab"            },
+    ["te"]          = { "<cmd>lua require(\"FTerm\").toggle()<CR>"    , "Terminal"             },
+    ["tf"]          = { ":Dirbuf <Bar> :DirbufSync<CR>"               , "File Editor"          },
 
-    ["tq"]          = { ":q<CR>", "Close Split"                                              },
-    ["tH"]          = { "<cmd>FocusSplitLeft<CR>"                   , "Split Left"           },
-    ["tJ"]          = { "<cmd>FocusSplitDown<CR>"                   , "Split Down"           },
-    ["tK"]          = { "<cmd>FocusSplitUp<CR>"                     , "Split Up"             },
-    ["tL"]          = { "<cmd>FocusSplitRight<CR>"                  , "Split Right"          },
-    ["tt"]          = { "<cmd>FocusSplitCycle<CR>"                  , "Cycle Splits"         },
-    ["tT"]          = { "<cmd>FocusSplitCycle reverse<CR>"          , "Reverse Cycle Splits" },
-    ["tr"]          = { name = "+Switch CC and HH"                                           },
-    ["trc"]         = { ":CocCommand clangd.switchSourceHeader<CR>" , "Switch CC and HH"     },
+    ["tq"]          = { ":q<CR>"                                      , "Close Split"          },
+    ["tH"]          = { "<cmd>FocusSplitLeft<CR>"                     , "Split Left"           },
+    ["tJ"]          = { "<cmd>FocusSplitDown<CR>"                     , "Split Down"           },
+    ["tK"]          = { "<cmd>FocusSplitUp<CR>"                       , "Split Up"             },
+    ["tL"]          = { "<cmd>FocusSplitRight<CR>"                    , "Split Right"          },
+    ["tt"]          = { "<cmd>FocusSplitCycle<CR>"                    , "Cycle Splits"         },
+    ["tT"]          = { "<cmd>FocusSplitCycle reverse<CR>"            , "Reverse Cycle Splits" },
+    ["tr"]          = { name = "+Switch CC and HH"                                             },
+    ["trc"]         = { ":CocCommand clangd.switchSourceHeader<CR>"   , "Switch CC and HH"     },
 
     ["<leader>u"]   = { name = "+util"                                                       },
-    ["<leader>uz"]  = { ":ZenMode<CR>"                              , "Zen Mode"             },
-    ["<leader>uf"]  = { "<cmd>Telescope find_files<CR>"             , "Find Files"           },
-    ["<leader>ug"]  = { "<cmd>Telescope live_grep<CR>"              , "Grep Time"            },
-    ["<leader>ub"]  = { "<cmd>Telescope buffers<CR>"                , "Find Buffers"         },
-    ["<leader>uh"]  = { "<cmd>Telescope help_tags<CR>"              , "Help Tags"            },
+    ["<leader>uz"]  = { ":ZenMode<CR>"                                , "Zen Mode"           },
+    ["<leader>ut"]  = { "<cmd>Telescope builtin<CR>"                  , "Telescope"          },
+    ["<leader>uf"]  = { "<cmd>Telescope find_files<CR>"               , "Find Files"         },
+    ["<leader>ug"]  = { "<cmd>Telescope live_grep<CR>"                , "Grep Time"          },
+    ["<leader>ub"]  = { "<cmd>Telescope buffers<CR>"                  , "Find Buffers"       },
+    ["<leader>uh"]  = { "<cmd>Telescope help_tags<CR>"                , "Help Tags"          },
+    ["<leader>us"]  = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Fuzzy Find"         },
 
     ["<leader>g"]   = { name = "+git"                                                        },
-    ["<leader>gt"]  = { ":CocCommand git.browserOpen<CR>"           , "Git Info Location"    },
-    ["<leader>gc"]  = { ":CocCommand git.chunkInfo<CR>"             , "Git Chunk Info"       },
+    ["<leader>go"]  = { ":CocCommand git.browserOpen<CR>"           , "Git Browser Open"     },
+    ["<leader>gi"]  = { ":CocCommand git.chunkInfo<CR>"             , "Git Chunk Info"       },
+    ["<leader>gc"]  = { "<cmd>Telescope git_commits<CR>"            , "Git Commits"          },
+    ["<leader>gb"]  = { "<cmd>Telescope git_branches<CR>"           , "Git Branches"         },
+    ["<leader>gs"]  = { "<cmd>Telescope git_status<CR>"             , "Git Status"           },
 
     ["<leader>c"]   = { name = "+code"                                                       },
     ["<leader>co"]  = { ":call v:lua.ShowDocs()<CR>"                , "Shows Docs"           },
@@ -163,7 +168,7 @@ M.normal = {
     ["<leader>clo"] = { ":<C-u>CocList outline<CR>"                 , "Current Doc Symbols"  },
     ["<leader>cls"] = { ":<C-u>CocList -I symbols<CR>"              , "Workspace Symbols"    },
 
-    ["gc"]          = { ":CommentToggle<CR>"                            , "Comment Line"     },
+    ["gc"]          = { ":CommentToggle<CR>"                        , "Comment Line"         },
 
     ["gl"]          = { name = "+Line Edit"                                                  },
     ["gl)"]         = { ":<C-u>call v:lua.SurroundLine('(', ')')<CR>"   , "Surround Line"    },

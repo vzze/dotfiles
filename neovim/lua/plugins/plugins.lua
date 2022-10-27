@@ -8,6 +8,8 @@ M.plugins = {
     'xiyaowong/nvim-cursorword',
     'jghauser/mkdir.nvim',
 
+    'nvim-lua/plenary.nvim',
+
     {
         'folke/which-key.nvim',
         config = function()
@@ -111,19 +113,32 @@ M.plugins = {
         end
     },
     {
+        'sindrets/diffview.nvim',
+        opt = true,
+        cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewRefresh" },
+        config = function()
+            require("diffview").setup({
+                use_icons = false
+            })
+        end
+    },
+    {
         'nvim-telescope/telescope.nvim',
         opt = true,
-        cmd = "Telescope",
-        requires = {
-            { 'nvim-lua/plenary.nvim', opt = true, module = "plenary" }
-        }
+        cmd = "Telescope"
     }
 }
 
 PluginNumber = #M.plugins
 
+for _, plugin in ipairs(M.plugins) do
+    if plugin["requires"] then
+        PluginNumber = PluginNumber + #plugin["requires"]
+    end
+end
+
 M.setup = function(use)
-    for _, plugin in pairs(M.plugins) do
+    for _, plugin in ipairs(M.plugins) do
         use(plugin)
     end
 end
