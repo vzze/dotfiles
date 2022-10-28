@@ -73,10 +73,10 @@ M.autocmd = function()
     vim.cmd([[hi Todo ctermfg=11 ctermbg=NONE guifg=11 guibg=NONE]])
     vim.cmd([[hi Visual ctermfg=NONE ctermbg=8 guifg=NONE guibg=8]])
 
-    vim.cmd([[hi DiffAdd ctermfg=0 ctermbg=2 guifg=0 guibg=2]])
-    vim.cmd([[hi DiffChange ctermfg=0 ctermbg=5 guifg=0 guibg=5]])
-    vim.cmd([[hi DiffDelete ctermfg=0 ctermbg=4 guifg=0 guibg=4]])
-    vim.cmd([[hi DiffText cterm=NONE ctermfg=0 ctermbg=1 guifg=0 guibg=1]])
+    vim.cmd([[hi DiffAdd ctermfg=2 ctermbg=NONE guifg=2 guibg=NONE]])
+    vim.cmd([[hi DiffChange ctermfg=5 ctermbg=NONE guifg=5 guibg=NONE]])
+    vim.cmd([[hi DiffDelete ctermfg=4 ctermbg=NONE guifg=4 guibg=NONE]])
+    vim.cmd([[hi DiffText ctermfg=1 ctermbg=NONE guifg=1 guibg=NONE]])
 
     vim.cmd([[hi Twilight ctermfg=8]])
 
