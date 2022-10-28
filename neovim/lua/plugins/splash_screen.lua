@@ -42,6 +42,7 @@ M.setup = function(plug_number)
     local left   = "vzze "
     local middle = ""
     local right  = "Plugins: " .. tostring(plug_number)
+    local final  = ""
 
     if time.hour < 10 then middle = middle .. "0" .. time.hour .. ':'
     else middle = middle .. time.hour .. ':' end
@@ -52,27 +53,27 @@ M.setup = function(plug_number)
     if time.sec < 10 then middle = middle .. "0" .. time.sec
     else middle = middle .. time.sec end
 
-    M.art[32] = middle .. M.art[32]
+    final = middle .. final
 
     for _ = 1, (#M.art[1] - #middle) / 2 - #left, 1 do
-        M.art[32] = " " .. M.art[32]
+        final = " " .. final
     end
 
-    M.art[32] = left .. M.art[32]
+    final = left .. final
 
     for _ = 1, (#M.art[1] - #middle) / 2 - #right, 1 do
-        M.art[32] = M.art[32] .. " "
+        final = final .. " "
     end
 
-    M.art[32] = M.art[32] .. right
+    M.art[32] = final .. right
 
     math.randomseed(os.time())
     dashboard.section.header.val = M.art
 
     dashboard.section.buttons.val = {
-        dashboard.button("r", " Restore", ":RestoreSession<CR>"),
-        dashboard.button("SPC u f", " Files"),
-        dashboard.button("SPC u g", " Grep Time"),
+        dashboard.button("r  ", "  Restore", ":RestoreSession<CR>"),
+        dashboard.button("SPC u f  ", "  Files"),
+        dashboard.button("SPC u g  ", "  Grep Time"),
     }
 
     dashboard.section.header.opts.hl = "LineNr"
