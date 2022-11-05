@@ -4,20 +4,20 @@
     "actions": 
     [
         {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+c"
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": "paste",
             "keys": "ctrl+v"
         },
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+c"
         },
         {
             "command": 
@@ -27,6 +27,10 @@
                 "splitMode": "duplicate"
             },
             "keys": "alt+shift+d"
+        },
+        {
+            "command": "closePane",
+            "keys": "ctrl+shift+w"
         },
         {
             "command": "unbound",
@@ -39,10 +43,6 @@
         {
             "command": "unbound",
             "keys": "ctrl+q"
-        },
-        {
-            "command": "closePane",
-            "keys": "ctrl+shift+w"
         },
         {
             "command": 
@@ -198,32 +198,22 @@
                 "useAcrylic": true
             },
             {
-                "colorScheme": "FCC0FF",
-                "commandline": "powershell.exe -NoExit -Command \"&{Import-Module \"\"\"D:\\VS\\2022\\Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll\"\"\"; Enter-VsDevShell af62f4aa -SkipAutomaticLocation -DevCmdArguments \"\"\"-arch=x64 -host_arch=x64\"\"\"}\"",
-                "elevate": true,
-                "font": 
-                {
-                    "face": "Cartograph CF"
-                },
-                "guid": "{d38e57fe-ba58-4e3f-a7d6-7daf5cd22630}",
+                "guid": "{e2499c5a-7973-5574-aebf-c1915de45cc6}",
                 "hidden": false,
-                "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
-                "name": "PWSH VS 2022",
-                "opacity": 50,
-                "useAcrylic": true
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
             },
             {
                 "colorScheme": "FCC0FF",
-                "commandline": "cmd.exe /k \"D:\\VS\\2022\\Common7\\Tools\\VsDevCmd.bat\" -arch=x64 -host_arch=x64",
                 "font": 
                 {
                     "face": "Cartograph CF"
                 },
-                "guid": "{762864db-5301-47a4-8282-3765dee199e7}",
+                "guid": "{5b498dd6-edea-5356-b611-51faa5a20477}",
                 "hidden": false,
-                "icon": "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
-                "name": "CMD VS 2022",
+                "name": "Developer PowerShell for VS 2022",
                 "opacity": 50,
+                "source": "Windows.Terminal.VisualStudio",
                 "useAcrylic": true
             }
         ]

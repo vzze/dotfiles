@@ -3,8 +3,7 @@
         "-std=c++20",
         "-Wall",
         "-Wextra",
-        "-Wconversion",
-        "--target=x86_64-w64-mingw32"
+        "-Wconversion"
     ],
 
     "clangd.enabled": true,
@@ -13,6 +12,8 @@
     "sumneko-lua.enable": true,
     "sumneko-lua.prompt": true,
     "Lua.telemetry.enable": false,
+
+    "powershell.integratedConsole.showOnStartup": false,
 
     "coc.preferences.formatOnType": false,
     "coc.preferences.bracketEnterImprove": true,
@@ -46,13 +47,6 @@
     "git.removedSign.text": "_",
     "git.topRemovedSign.text": "-",
     "git.changeRemovedSign.text": "/",
-    "git.topRemovedSign.hlGroup": "DiffAdd",
-    "git.addedSign.hlGroup": "DiffAdd",
-    "git.changedSign.hlGroup": "DiffAdd",
-    "git.removedSign.hlGroup": "DiffAdd",
-    "git.conflict.incoming.hlGroup": "DiffAdd",
-    "git.conflict.current.hlGroup": "DiffAdd",
-    "git.changeRemovedSign.hlGroup": "DiffAdd",
     "git.addGBlameToBufferVar": true,
     "git.splitWindowCommand": "above sp"
 }
