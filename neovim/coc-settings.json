@@ -23,9 +23,9 @@
     "inlayHint.enable": true,
     "inlayHint.display": true,
     "inlayHint.subSeparator": " ",
-    "inlayHint.typeSeparator": "",
+    "inlayHint.typeSeparator": "ret",
     "inlayHint.enableParameter": true,
-    "inlayHint.parameterSeparator": "",
+    "inlayHint.parameterSeparator": "~ ",
     "inlayHint.refreshOnInsertMode": false,
 
     "pairs.alwaysPairCharacters": [ "(", "[", "{", "<", "'", "\"", "`"],
