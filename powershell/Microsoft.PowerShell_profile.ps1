@@ -1,12 +1,6 @@
-oh-my-posh init pwsh --config D:/CB/Configs/powershell/ys.omp.json | Invoke-Expression
+Import-Module PSColor
 
-Set-Alias time Get-Date
-
-function todo {
-    Get-Content -Path "D:/CB/todo.md"
-}
-
-$TODO = "D:/CB/todo.md"
+oh-my-posh init pwsh --config ~/.config/posh/ys.omp.json | Invoke-Expression
 
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
@@ -35,7 +29,7 @@ function vupgrade {
     }
     if($TestCommandExists.Invoke("python")) {
         $UTime.Invoke("python")
-        python -m pip install --upgrade pip
+	python.exe -m pip install --upgrade pip
     }
     if($TestCommandExists.Invoke("pip")) {
         $UTime.Invoke("pip")
