@@ -170,37 +170,12 @@ M.normal = {
 
     ["gc"]          = { ":CommentToggle<CR>"                        , "Comment Line"         },
 
-    ["gl"]          = { name = "+Line Edit"                                                  },
-    ["gl)"]         = { ":<C-u>call v:lua.SurroundLine('(', ')')<CR>"   , "Surround Line"    },
-    ["gl]"]         = { ":<C-u>call v:lua.SurroundLine('[', ']')<CR>"   , "Surround Line"    },
-    ["gl}"]         = { ":<C-u>call v:lua.SurroundLine('{', '}')<CR>"   , "Surround Line"    },
-    ["gl>"]         = { ":<C-u>call v:lua.SurroundLine('<', '>')<CR>"   , "Surround Line"    },
-    ["gl'"]         = { [[:<C-u>call v:lua.SurroundLine("'", "'")<CR>]] , "Surround Line"    },
-    ["gl`"]         = { [[:<C-u>call v:lua.SurroundLine("`", "`")<CR>]] , "Surround Line"    },
-    ['gl"']         = { [[:<C-u>call v:lua.SurroundLine('"', '"')<CR>]] , "Surround Line"    },
-
-    ["gw"]          = { name = "+Word Edit"                                                  },
-    ["gw)"]         = { ":<C-u>call v:lua.SurroundWord('(', ')')<CR>"   , "Surround Word"    },
-    ["gw]"]         = { ":<C-u>call v:lua.SurroundWord('[', ']')<CR>"   , "Surround Word"    },
-    ["gw}"]         = { ":<C-u>call v:lua.SurroundWord('{', '}')<CR>"   , "Surround Word"    },
-    ["gw>"]         = { ":<C-u>call v:lua.SurroundWord('<', '>')<CR>"   , "Surround Word"    },
-    ["gw'"]         = { [[:<C-u>call v:lua.SurroundWord("'", "'")<CR>]] , "Surround Word"    },
-    ["gw`"]         = { [[:<C-u>call v:lua.SurroundWord("`", "`")<CR>]] , "Surround Word"    },
-    ['gw"']         = { [[:<C-u>call v:lua.SurroundWord('"', '"')<CR>]] , "Surround Word"    },
-
     ["<C-f>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"' , "Scroll Down" , expr = true },
     ["<C-b>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"' , "Scroll Up"   , expr = true },
 }
 
 M.visual = {
     ["gc"]    = { ":'<,'>CommentToggle<CR>"                    , "Comment Block"  },
-    ["g)"]    = { ":<C-u>call v:lua.Surround('(', ')')<CR>"    , "Surround Block" },
-    ["g]"]    = { ":<C-u>call v:lua.Surround('[', ']')<CR>"    , "Surround Block" },
-    ["g}"]    = { ":<C-u>call v:lua.Surround('{', '}')<CR>"    , "Surround Block" },
-    ["g>"]    = { ":<C-u>call v:lua.Surround('<', '>')<CR>"    , "Surround Block" },
-    ["g'"]    = { [[:<C-u>call v:lua.Surround("'", "'")<CR>]]  , "Surround Block" },
-    ["g`"]    = { [[:<C-u>call v:lua.Surround("`", "`")<CR>]]  , "Surround Block" },
-    ['g"']    = { [[:<C-u>call v:lua.Surround('"', '"')<CR>]]  , "Surround Block" },
 
     ["<C-f>"] = { 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"' , "Scroll Down" , expr = true },
     ["<C-b>"] = { 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"' , "Scroll Up"   , expr = true },

@@ -48,5 +48,5 @@
     "git.topRemovedSign.text": "-",
     "git.changeRemovedSign.text": "/",
     "git.addGBlameToBufferVar": true,
-    "git.splitWindowCommand": "above sp"
+    "git.splitWindowCommand": "above sp",
 }

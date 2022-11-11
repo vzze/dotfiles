@@ -4,21 +4,28 @@ M.plugins = {
     'lewis6991/impatient.nvim',
     'wbthomason/packer.nvim',
 
-    'neoclide/coc.nvim',
+    { 'neoclide/coc.nvim', branch = 'release' },
+
     'xiyaowong/nvim-cursorword',
     'jghauser/mkdir.nvim',
 
     'nvim-lua/plenary.nvim',
 
     {
+        'max397574/better-escape.nvim',
+        opt = true,
+        module = "better_escape"
+    },
+    {
+        'ggandor/leap.nvim',
+        opt = true,
+        module = "leap"
+    },
+    {
         'folke/which-key.nvim',
         config = function()
             require("plugins/mappings").setup()
-        end,
-        requires = {
-            { 'max397574/better-escape.nvim' },
-            { 'ggandor/leap.nvim' }
-        }
+        end
     },
     {
         'nvim-treesitter/nvim-treesitter',
@@ -46,7 +53,6 @@ M.plugins = {
             require("numb").setup()
         end
     },
-
     {
         'rmagatti/auto-session',
         opt = true,
@@ -59,7 +65,6 @@ M.plugins = {
             })
         end
     },
-
     {
         'elihunter173/dirbuf.nvim',
         opt = true,
@@ -130,12 +135,6 @@ M.plugins = {
 }
 
 PluginNumber = #M.plugins
-
-for _, plugin in ipairs(M.plugins) do
-    if plugin["requires"] then
-        PluginNumber = PluginNumber + #plugin["requires"]
-    end
-end
 
 M.setup = function(use)
     for _, plugin in ipairs(M.plugins) do

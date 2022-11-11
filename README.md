@@ -50,6 +50,7 @@ Packages
     python          3.11.0           main   2022-11-10 13:06:40
     ripgrep         13.0.0           main   2022-11-10 13:04:49
     rustup          1.25.1           main   2022-11-10 13:08:00
+    topgrade        10.1.2           main   2022-11-11 15:19:50
     universal-ctags 2020-10-11       extras 2022-11-10 13:04:30
     winfetch        2.4.1            main   2022-11-10 13:04:37
     youtube-dl      2021.12.17       main   2022-11-10 13:08:28
