@@ -74,14 +74,8 @@ M.autocmd = function()
     hi Twilight ctermfg=8
     ]])
 
-
-    vim.api.nvim_create_autocmd("User AlphaReady", {
-        command = "set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2"
-    })
-
-    vim.api.nvim_create_autocmd("User AlphaReady", {
-        command = "set laststatus=0 | autocmd BufUnload <buffer> set laststatus=2"
-    })
+    vim.api.nvim_command([[autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2]])
+    vim.api.nvim_command([[autocmd User AlphaReady set laststatus=0 | autocmd BufUnload <buffer> set laststatus=2]])
 
     vim.api.nvim_create_autocmd("FileType", {
         command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o"
