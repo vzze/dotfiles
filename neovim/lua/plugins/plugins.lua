@@ -1,16 +1,34 @@
 local M = {}
 
+function WilderLazyLoad()
+    local wilder = require("wilder")
+    wilder.set_option('renderer', wilder.popupmenu_renderer({
+        highlighter = wilder.basic_highlighter(),
+    }))
+    wilder.setup({ modes = { ':', '/', '?' } })
+end
+
 M.plugins = {
     'lewis6991/impatient.nvim',
     'wbthomason/packer.nvim',
-
-    { 'neoclide/coc.nvim', branch = 'release' },
 
     'xiyaowong/nvim-cursorword',
     'jghauser/mkdir.nvim',
 
     'nvim-lua/plenary.nvim',
 
+    {
+        'vzze/calculator.nvim',
+        opt = true,
+        module = "calculator"
+    },
+    {
+        'gelguy/wilder.nvim',
+        config = function()
+            vim.api.nvim_command([[autocmd CmdlineEnter * ++once call v:lua.WilderLazyLoad() | call wilder#main#start()]])
+        end
+    },
+    { 'neoclide/coc.nvim', branch = 'release' },
     {
         'max397574/better-escape.nvim',
         opt = true,
@@ -30,16 +48,12 @@ M.plugins = {
     {
         'nvim-treesitter/nvim-treesitter',
         config = function()
-            vim.api.nvim_create_autocmd("vimenter", {
-                command = "TSEnable highlight"
-            })
+            vim.api.nvim_create_autocmd("vimenter", { command = "TSEnable highlight" })
         end
     },
     {
         'nvim-lualine/lualine.nvim',
-        config = function()
-            require("plugins/statusline").setup()
-        end
+        config = function() require("plugins/statusline").setup() end
     },
     {
         'goolord/alpha-nvim',
@@ -49,9 +63,7 @@ M.plugins = {
     },
     {
         'nacro90/numb.nvim',
-        config = function()
-            require("numb").setup()
-        end
+        config = function() require("numb").setup() end
     },
     {
         'rmagatti/auto-session',

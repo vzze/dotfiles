@@ -23,7 +23,7 @@ function Surround(br2, br1)
     local tup2 = vim.api.nvim_buf_get_mark(0, ">")
     local txt = vim.api.nvim_buf_get_lines(0, tup1[1] - 1, tup2[1], true)
 
-    txt[#txt] = txt[#txt]:sub(0, tup2[2]) .. br1 .. txt[#txt]:sub(tup2[2] + 1)
+    txt[#txt] = txt[#txt]:sub(0, tup2[2] + 1) .. br1 .. txt[#txt]:sub(tup2[2] + 2)
     txt[1] = txt[1]:sub(0, tup1[2]) .. br2 .. txt[1]:sub(tup1[2] + 1)
     vim.api.nvim_buf_set_lines(0, tup1[1] - 1, tup2[1], true, txt)
 end
@@ -121,11 +121,11 @@ M.normal = {
     ["th"]          = { ":tabprevious<CR>"                            , "Previous Tab"         },
     ["tl"]          = { ":tabnext<CR>"                                , "Next Tab"             },
     ["tn"]          = { ":tabnew<CR>"                                 , "New Tab"              },
-    ["td"]          = { ":tabclose<CR>"                               , "Close Tab"            },
+    ["td"]          = { ":bd<CR>"                                     , "Close Tab"            },
     ["te"]          = { "<cmd>lua require(\"FTerm\").toggle()<CR>"    , "Terminal"             },
     ["tf"]          = { ":Dirbuf <Bar> :DirbufSync<CR>"               , "File Editor"          },
 
-    ["tq"]          = { ":q<CR>"                                      , "Close Split"          },
+    ["tq"]          = { ":tabclose<CR>"                               , "Close Split"          },
     ["tH"]          = { "<cmd>FocusSplitLeft<CR>"                     , "Split Left"           },
     ["tJ"]          = { "<cmd>FocusSplitDown<CR>"                     , "Split Down"           },
     ["tK"]          = { "<cmd>FocusSplitUp<CR>"                       , "Split Up"             },
@@ -208,6 +208,9 @@ M.setup = function()
     vim.api.nvim_create_user_command("SS", "call v:lua.Surround(<f-args>)", { ["range"] = 1, ["nargs"] = "*" })
     vim.api.nvim_create_user_command("SW", "call v:lua.SurroundWord(<f-args>)", { ["nargs"] = "*" });
     vim.api.nvim_create_user_command("SL", "call v:lua.SurroundLine(<f-args>)", { ["nargs"] = "*" });
+
+    vim.api.nvim_create_user_command("Calculate", "lua require(\"calculator\").calculate()",
+        { ["range"] = 1, ["nargs"] = 0 })
 
     local wk = require("which-key")
 
