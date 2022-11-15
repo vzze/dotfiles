@@ -18,6 +18,11 @@ M.plugins = {
     'nvim-lua/plenary.nvim',
 
     {
+        'vzze/aligner.nvim',
+        opt = true,
+        module = "aligner"
+    },
+    {
         'vzze/calculator.nvim',
         opt = true,
         module = "calculator"
