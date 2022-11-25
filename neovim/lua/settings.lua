@@ -26,13 +26,14 @@ M.settings = function()
     vim.o.backup = false
     vim.o.ruler = false
     vim.o.writebackup = false
-    vim.o.fillchars = "vert: "
+    vim.o.fillchars = "stl: ,stlnc: ,vert: "
     vim.o.cmdheight = "0"
     vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
     vim.o.foldmethod = "indent"
     vim.o.foldlevelstart = -1
     vim.o.foldcolumn = "1"
     vim.o.laststatus = "0"
+    vim.o.hidden = false
 end
 
 M.autocmd = function()
@@ -72,6 +73,8 @@ M.autocmd = function()
         hi DiffChange ctermfg=5 ctermbg=NONE guifg=5 guibg=NONE |
         hi DiffDelete ctermfg=4 ctermbg=NONE guifg=4 guibg=NONE |
         hi DiffText ctermfg=1 ctermbg=NONE guifg=1 guibg=NONE |
+        hi StatusLine cterm=NONE ctermfg=13 ctermbg=NONE |
+        hi StatusLineNC cterm=NONE ctermfg=13 ctermbg=NONE |
         hi Twilight ctermfg=8
     ]])
 
@@ -80,8 +83,6 @@ M.autocmd = function()
     vim.api.nvim_create_autocmd("FileType", {
         command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o"
     })
-
-    vim.api.nvim_create_autocmd("BufEnter", { command = "set signcolumn=yes" })
 end
 
 M.setup = function()

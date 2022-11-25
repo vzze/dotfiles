@@ -15,7 +15,7 @@ local packer_bootstrap = ensure_packer()
 
 local packer = require("packer")
 
-packer.startup(require("plugins/plugins").setup)
+packer.startup(require("plugins").setup)
 
 if packer_bootstrap then
    packer.sync()
