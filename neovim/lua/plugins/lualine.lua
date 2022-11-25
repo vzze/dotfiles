@@ -52,11 +52,10 @@ return {
                     statusline = 1000,
                 }
             },
-            statusline = {},
             tabline = {
-                lualine_a = {'mode'},
-                lualine_b = {'buffers'},
-                lualine_c = {},
+                lualine_a = { 'mode', 'searchcount' },
+                lualine_b = { 'tabs' },
+                lualine_c = { 'buffers' },
                 lualine_x = {
                     'branch', 'diff',
                     {
@@ -77,8 +76,8 @@ return {
                         always_visible = false,
                     }
                 },
-                lualine_y = { 'filesize', 'filename', 'progress' },
-                lualine_z = { 'tabs' }
+                lualine_y = { 'filename', 'encoding', 'filesize', 'progress' },
+                lualine_z = { 'location' }
             },
             sections = {},
             inactive_sections = {},

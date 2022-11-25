@@ -1,0 +1,206 @@
+{
+    "buckets": [
+        {
+            "Name": "extras",
+            "Source": "https://github.com/ScoopInstaller/Extras",
+            "Updated": "2022-11-25T18:30:00+02:00",
+            "Manifests": 1731
+        },
+        {
+            "Name": "main",
+            "Source": "https://github.com/ScoopInstaller/Main",
+            "Updated": "2022-11-25T18:29:57+02:00",
+            "Manifests": 1122
+        },
+        {
+            "Name": "versions",
+            "Source": "https://github.com/ScoopInstaller/Versions",
+            "Updated": "2022-11-25T18:46:24+02:00",
+            "Manifests": 396
+        }
+    ],
+    "apps": [
+        {
+            "Updated": "2022-11-10T12:30:21.9994966+02:00",
+            "Name": "7zip",
+            "Info": "",
+            "Version": "22.01",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-10T13:56:39.8008243+02:00",
+            "Name": "archwsl",
+            "Info": "",
+            "Version": "22.10.16.0",
+            "Source": "extras"
+        },
+        {
+            "Updated": "2022-11-10T12:30:10.454882+02:00",
+            "Name": "aria2",
+            "Info": "",
+            "Version": "1.36.0-1",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-10T13:01:53.0132904+02:00",
+            "Name": "cloc",
+            "Info": "",
+            "Version": "1.94",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-17T14:41:07.8080918+02:00",
+            "Name": "cmake",
+            "Info": "",
+            "Version": "3.25.0",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-10T13:06:08.0805162+02:00",
+            "Name": "dark",
+            "Info": "",
+            "Version": "3.11.2",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-14T18:10:49.6474269+02:00",
+            "Name": "fd",
+            "Info": "",
+            "Version": "8.5.3",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-10T13:08:19.0553471+02:00",
+            "Name": "ffmpeg",
+            "Info": "",
+            "Version": "5.1.2",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-19T20:50:32.9068612+02:00",
+            "Name": "fzf",
+            "Info": "",
+            "Version": "0.35.1",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-10T13:03:11.1800093+02:00",
+            "Name": "gcc",
+            "Info": "",
+            "Version": "11.2.0",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-10T13:03:37.4113585+02:00",
+            "Name": "gdb",
+            "Info": "",
+            "Version": "11.1",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-16T14:23:35.9039512+02:00",
+            "Name": "gh",
+            "Info": "",
+            "Version": "2.20.2",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-10T12:30:48.6146396+02:00",
+            "Name": "git",
+            "Info": "",
+            "Version": "2.38.1.windows.1",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-16T15:44:56.0805483+02:00",
+            "Name": "krita",
+            "Info": "",
+            "Version": "5.1.3",
+            "Source": "extras"
+        },
+        {
+            "Updated": "2022-11-10T13:03:48.5071047+02:00",
+            "Name": "lua",
+            "Info": "",
+            "Version": "5.4.2",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-10T13:09:34.2861414+02:00",
+            "Name": "make",
+            "Info": "",
+            "Version": "4.4",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-21T01:07:17.5985591+02:00",
+            "Name": "neovim",
+            "Info": "",
+            "Version": "0.8.1",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-15T13:40:45.3205496+02:00",
+            "Name": "nodejs",
+            "Info": "",
+            "Version": "19.1.0",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-25T21:28:20.4720335+02:00",
+            "Name": "oh-my-posh",
+            "Info": "",
+            "Version": "12.19.0",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-10T13:06:40.823126+02:00",
+            "Name": "python",
+            "Info": "",
+            "Version": "3.11.0",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-10T13:04:49.0894002+02:00",
+            "Name": "ripgrep",
+            "Info": "",
+            "Version": "13.0.0",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-10T13:08:00.0315795+02:00",
+            "Name": "rustup",
+            "Info": "",
+            "Version": "1.25.1",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-25T17:41:30.7921498+02:00",
+            "Name": "topgrade",
+            "Info": "",
+            "Version": "10.2.0",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-10T13:04:30.1097532+02:00",
+            "Name": "universal-ctags",
+            "Info": "",
+            "Version": "2020-10-11",
+            "Source": "extras"
+        },
+        {
+            "Updated": "2022-11-10T13:04:37.9253585+02:00",
+            "Name": "winfetch",
+            "Info": "",
+            "Version": "2.4.1",
+            "Source": "main"
+        },
+        {
+            "Updated": "2022-11-10T13:08:28.3214387+02:00",
+            "Name": "youtube-dl",
+            "Info": "",
+            "Version": "2021.12.17",
+            "Source": "main"
+        }
+    ]
+}
