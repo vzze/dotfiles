@@ -83,14 +83,14 @@ M.theme = function()
         ]]
     })
 
-    vim.api.nvim_command([[colorscheme default]])
+    vim.api.nvim_command([[colorscheme ]] .. _G.V.colorscheme)
 end
 
 M.setup = function()
     M.theme()
 
     vim.api.nvim_create_autocmd("VimEnter", {
-        callback = function() M.settings() end
+        callback = function() M.settings() _G.V.post_setup_callback() end
     })
 end
 

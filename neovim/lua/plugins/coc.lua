@@ -3,13 +3,13 @@ return {
     run = ":CocUpdate",
     branch = 'release',
     config = function()
-        V.CheckBackSpace = function()
+        _Internal.CheckBackSpace = function()
             local col = vim.fn.col('.') - 1
             ---@diagnostic disable-next-line: undefined-field
             return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
         end
 
-        V.ShowDocs = function()
+        _Internal.ShowDocs = function()
             ---@diagnostic disable-next-line: missing-parameter
             local cw = vim.fn.expand('<cword>')
             if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then

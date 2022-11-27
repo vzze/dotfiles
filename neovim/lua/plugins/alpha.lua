@@ -1,4 +1,3 @@
-
 return {
     'goolord/alpha-nvim',
     config = function()
@@ -33,48 +32,52 @@ return {
             [[         ';x$&N8%#$8&NxN&88NoxxxxNu;'         ]],
             [[            -ox*N#%$88$W&8$%W%*..-'           ]],
             [[          `.'    .<a%WW@W#a<.      ```        ]],
-            [[                                              ]],
-            [[]],
         }
         local dashboard = require("alpha.themes.dashboard")
 
-        local time = os.date("*t")
+        if _G.V.splash_screen.info == true then
+            local time = os.date("*t")
 
-        local left   = "vzze "
-        local middle = ""
-        local right  = "Plugins: " .. tostring(#vim.tbl_keys(packer_plugins or {}))
-        local final  = ""
+            local left   = "V1602 "
+            local middle = ""
+            local right  = "Plugins: " .. tostring(#vim.tbl_keys(packer_plugins or {}))
+            local final  = ""
 
-        if time.hour < 10 then middle = middle .. "0" .. time.hour .. ':'
-        else middle = middle .. time.hour .. ':' end
+            if time.hour < 10 then middle = middle .. "0" .. time.hour .. ':'
+            else middle = middle .. time.hour .. ':' end
 
-        if time.min < 10 then middle = middle .. "0" .. time.min .. ':'
-        else middle = middle .. time.min .. ':' end
+            if time.min < 10 then middle = middle .. "0" .. time.min .. ':'
+            else middle = middle .. time.min .. ':' end
 
-        if time.sec < 10 then middle = middle .. "0" .. time.sec
-        else middle = middle .. time.sec end
+            if time.sec < 10 then middle = middle .. "0" .. time.sec
+            else middle = middle .. time.sec end
 
-        final = middle .. final
+            final = middle .. final
 
-        for _ = 1, (#art[1] - #middle) / 2 - #left, 1 do
-            final = " " .. final
+            for _ = 1, (#art[1] - #middle) / 2 - #left, 1 do
+                final = " " .. final
+            end
+
+            final = left .. final
+
+            for _ = 1, (#art[1] - #middle) / 2 - #right, 1 do
+                final = final .. " "
+            end
+
+            for _ = 1, _G.V.splash_screen.lines_sep, 1 do
+                table.insert(art, #art + 1, [[]])
+            end
+
+            table.insert(art, #art + 1, final .. right)
         end
-
-        final = left .. final
-
-        for _ = 1, (#art[1] - #middle) / 2 - #right, 1 do
-            final = final .. " "
-        end
-
-        art[32] = final .. right
 
         math.randomseed(os.time())
         dashboard.section.header.val = art
 
         dashboard.section.buttons.val = {
             dashboard.button("r  ", "  Restore", ":RestoreSession<CR>"),
-            dashboard.button("SPC u f  ", "  Files"),
-            dashboard.button("SPC u g  ", "  Grep Time"),
+            dashboard.button("SPC t f  ", "  Files"),
+            dashboard.button("SPC t g  ", "  Grep Time"),
         }
 
         dashboard.section.header.opts.hl = "LineNr"

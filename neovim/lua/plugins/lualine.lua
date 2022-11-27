@@ -1,39 +1,6 @@
 return {
     'nvim-lualine/lualine.nvim',
     config = function()
-        local theme = {
-            ["normal"] = {
-                ["a"] = { ["fg"] = "#1f1c21", ["bg"] = "#fcc0ff" },
-                ["b"] = { ["fg"] = "fcc0ff", ["bg"] = ""         },
-                ["c"] = { ["fg"] = "fcc0ff", ["bg"] = ""         },
-            },
-            ["insert"] = {
-                ["a"] = { ["fg"] = "#1f1c21", ["bg"] = "#60ff60" },
-                ["b"] = { ["fg"] = "#60ff60", ["bg"] = ""        },
-                ["c"] = { ["fg"] = "#60ff60", ["bg"] = ""        },
-            },
-            ["visual"] = {
-                ["a"] = { ["fg"] = "#1f1c21", ["bg"] = "#fa8dff" },
-                ["b"] = { ["fg"] = "#fa8dff", ["bg"] = ""        },
-                ["c"] = { ["fg"] = "#fa8dff", ["bg"] = ""        },
-            },
-            ["replace"] = {
-                ["a"] = { ["fg"] = "#1f1c21", ["bg"] = "#00fbff" },
-                ["b"] = { ["fg"] = "#00fbff", ["bg"] = ""        },
-                ["c"] = { ["fg"] = "#00fbff", ["bg"] = ""        },
-            },
-            ["command"] = {
-                ["a"] = { ["fg"] = "#1f1c21", ["bg"] = "#f14c4c" },
-                ["b"] = { ["fg"] = "#f14c4c", ["bg"] = ""        },
-                ["c"] = { ["fg"] = "#f14c4c", ["bg"] = ""        },
-            },
-            ["inactive"] = {
-                ["a"] = { ["fg"] = "#00fbff", ["bg"] = ""        },
-                ["b"] = { ["fg"] = "#00fbff", ["bg"] = ""        },
-                ["c"] = { ["fg"] = "#00fbff", ["bg"] = ""        },
-            },
-        }
-
         local git_status = function()
             if vim.b.gitsigns_status ~= '' then
                 return vim.b.gitsigns_head .. ': ' .. vim.b.gitsigns_status
@@ -47,7 +14,7 @@ return {
         require('lualine').setup({
             options = {
                 icons_enabled = false,
-                theme = theme,
+                theme = _G.V.lualine.theme,
                 component_separators = { left = '', right = '' },
                 section_separators = { left = '', right = '' },
                 disabled_filetypes = {
