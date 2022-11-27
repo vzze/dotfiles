@@ -34,6 +34,7 @@ M.plugins = {
 
 M.setup = function(use)
     use(M.plugins)
+    use(_G.V.extra_plugins)
 end
 
 return M

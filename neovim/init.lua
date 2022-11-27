@@ -14,6 +14,7 @@ V = {
         { '|', '|' },
         { '`', '`' },
     },
+    extra_plugins = {},
     lualine = {
         theme = {
             ["normal"] = {
