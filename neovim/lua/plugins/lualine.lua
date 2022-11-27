@@ -79,5 +79,7 @@ return {
             place = {'winbar'},
             unhide = false
         })
+
+        vim.api.nvim_command([[set laststatus=1]])
     end
 }
