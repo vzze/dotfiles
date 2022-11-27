@@ -16,7 +16,6 @@
     "powershell.integratedConsole.showOnStartup": false,
 
     "coc.preferences.formatOnType": false,
-    "coc.preferences.bracketEnterImprove": true,
 
     "suggest.virtualText": true,
 
@@ -28,10 +27,6 @@
     "inlayHint.parameterSeparator": "~ ",
     "inlayHint.refreshOnInsertMode": false,
 
-    "pairs.alwaysPairCharacters": [ "(", "[", "{", "<", "'", "\"", "`"],
-    "pairs.enableBackspace": true,
-    "pairs.enableCharacters": [ "(", "[", "{", "<", "'", "\"", "`" ],
-
     "diagnostic.virtualTextCurrentLineOnly": false,
     "diagnostic.virtualText": true,
     "diagnostic.hintSign": "h",
@@ -39,15 +34,5 @@
     "diagnostic.warningSign": ">>",
     "diagnostic.infoSign": "?",
 
-    "git.enableGlobalStatus": true,
-    "git.enableGutters": true,
-    "git.realtimeGutters": true,
-    "git.addedSign.text": "+",
-    "git.changedSign.text": "~",
-    "git.removedSign.text": "_",
-    "git.topRemovedSign.text": "-",
-    "git.changeRemovedSign.text": "/",
-    "git.addGBlameToBufferVar": true,
-    "git.splitWindowCommand": "above sp",
     "clangd.path": "~\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\15.0.3\\clangd_15.0.3\\bin\\clangd.exe",
 }

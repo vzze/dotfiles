@@ -1,21 +1,3 @@
-function CheckBackSpace()
-    local col = vim.fn.col('.') - 1
-    ---@diagnostic disable-next-line: undefined-field
-    return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
-end
-
-function ShowDocs()
-    ---@diagnostic disable-next-line: missing-parameter
-    local cw = vim.fn.expand('<cword>')
-    if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
-        vim.api.nvim_command('h ' .. cw)
-    elseif vim.api.nvim_eval('coc#rpc#ready()') then
-        vim.fn.CocActionAsync('doHover')
-    else
-        vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
-    end
-end
-
 return {
     'folke/which-key.nvim',
     config = function()
@@ -41,27 +23,34 @@ return {
             ["<leader>q"]   = { ":SaveSession<CR> <Bar> :wqa<CR>"             , "Quit & Save Session"  },
             ["<leader>s"]   = { "<Plug>(leap-forward-to)"                     , "Leap Forward"         },
             ["<leader>S"]   = { "<Plug>(leap-backward-to)"                    , "Leap Backward"        },
+            ["<leader>z"]  = { ":ZenMode<CR>"                                , "Zen Mode"              },
 
-            ["<leader>u"]   = { name = "+util"                                                       },
-            ["<leader>uz"]  = { ":ZenMode<CR>"                                , "Zen Mode"           },
-            ["<leader>ut"]  = { "<cmd>Telescope builtin<CR>"                  , "Telescope"          },
-            ["<leader>uf"]  = { "<cmd>Telescope find_files<CR>"               , "Find Files"         },
-            ["<leader>ug"]  = { "<cmd>Telescope live_grep<CR>"                , "Grep Time"          },
-            ["<leader>ub"]  = { "<cmd>Telescope buffers<CR>"                  , "Find Buffers"       },
-            ["<leader>uh"]  = { "<cmd>Telescope help_tags<CR>"                , "Help Tags"          },
-            ["<leader>us"]  = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Fuzzy Find"         },
+            ["<leader>t"]   = { name = "+telescope"                                                  },
+            ["<leader>tt"]  = { "<cmd>Telescope builtin<CR>"                  , "Telescope"          },
+            ["<leader>tf"]  = { "<cmd>Telescope find_files<CR>"               , "Find Files"         },
+            ["<leader>tg"]  = { "<cmd>Telescope live_grep<CR>"                , "Grep Time"          },
+            ["<leader>tb"]  = { "<cmd>Telescope buffers<CR>"                  , "Find Buffers"       },
+            ["<leader>th"]  = { "<cmd>Telescope help_tags<CR>"                , "Help Tags"          },
+            ["<leader>ts"]  = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Fuzzy Find"         },
+            ["<leader>tc"]  = { "<cmd>Telescope git_commits<CR>"              , "Git Commits"        },
+            ["<leader>tl"]  = { "<cmd>Telescope git_branches<CR>"             , "Git Branches"       },
+            ["<leader>ta"]  = { "<cmd>Telescope git_status<CR>"               , "Git Status"         },
 
             ["<leader>g"]   = { name = "+git"                                                        },
-            ["<leader>go"]  = { ":CocCommand git.browserOpen<CR>"           , "Git Browser Open"     },
-            ["<leader>gi"]  = { ":CocCommand git.chunkInfo<CR>"             , "Git Chunk Info"       },
-            ["<leader>gc"]  = { "<cmd>Telescope git_commits<CR>"            , "Git Commits"          },
-            ["<leader>gb"]  = { "<cmd>Telescope git_branches<CR>"           , "Git Branches"         },
-            ["<leader>gs"]  = { "<cmd>Telescope git_status<CR>"             , "Git Status"           },
+            ["<leader>gn"]  = { ":Gitsigns next_hunk<CR>"                   , "Next Hunk"            },
+            ["<leader>gN"]  = { ":Gitsigns prev_hunk<CR>"                   , "Prev Hunk"            },
+            ["<leader>gs"]  = { ":Gitsigns stage_buffer<CR>"                , "Stage Buffer"         },
+            ["<leader>gu"]  = { ":Gitsigns undo_stage_hunk<CR>"             , "Undo Stage Hunk"      },
+            ["<leader>gr"]  = { ":Gitsigns reset_buffer<CR>"                , "Reset Buffer"         },
+            ["<leader>gp"]  = { ":Gitsigns preview_hunk<CR>"                , "Preview Hunk"         },
+            ["<leader>gb"]  = { ":Gitsigns blame_line<CR>"                  , "Blame Line"           },
+            ["<leader>gB"]  = { ":Gitsigns toggle_current_line_blame<CR>"   , "Current Blame Line"   },
+            ["<leader>gd"]  = { ":Gitsigns toggle_deleted<CR>"              , "Toggle Deleted"       },
 
             ["<leader>c"]   = { name = "+code"                                                       },
-            ["<leader>co"]  = { ":call v:lua.ShowDocs()<CR>"                , "Shows Docs"           },
+            ["<leader>co"]  = { "v:lua.V.ShowDocs()"                        , "Shows Docs"           },
             ["<leader>cn"]  = { "<Plug>(coc-diagnostic-prev)"               , "Diagnostic Prev"      },
-            ["<leader>cm"]  = { "<Plug>(coc-diagnostic-next)"               , "Diagnostic Next"      },
+            ["<leader>cN"]  = { "<Plug>(coc-diagnostic-next)"               , "Diagnostic Next"      },
             ["<leader>cd"]  = { "<Plug>(coc-definition)"                    , "Code Definition"      },
             ["<leader>cw"]  = { ":CocDiagnostic<CR>"                        , "Diagnostic Window"    },
             ["<leader>cy"]  = { "<Plug>(coc-type-definition)"               , "Code Type Def"        },
@@ -92,11 +81,11 @@ return {
         }
 
         local insert = {
-            ["<CR>"]    = { [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]]     , "Report Enter" , expr = true },
-            ["<TAB>"]   = { 'coc#pum#visible() ? coc#pum#next(1) : v:lua.CheckBackSpace() ? "<TAB>" : coc#refresh()' , "Report Tab"   , expr = true },
-            ["<S-TAB>"] = { [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]]                                       , "Report S-Tab" , expr = true },
-            ["<C-f>"]   = { 'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"'                   , "Scroll Down"  , expr = true },
-            ["<C-b>"]   = { 'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"'                    , "Scroll Up"    , expr = true },
+            ["<CR>"]    = { "v:lua.V.CompletionConfirm()"                                                              , "Report Enter" , expr = true },
+            ["<TAB>"]   = { 'coc#pum#visible() ? coc#pum#next(1) : v:lua.V.CheckBackSpace() ? "<TAB>" : coc#refresh()' , "Report Tab"   , expr = true },
+            ["<S-TAB>"] = { [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]]                                         , "Report S-Tab" , expr = true },
+            ["<C-f>"]   = { 'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"'                     , "Scroll Down"  , expr = true },
+            ["<C-b>"]   = { 'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"'                      , "Scroll Up"    , expr = true },
         }
 
         local termin = {

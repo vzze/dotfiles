@@ -14,12 +14,9 @@ M.plugins = {
     require("plugins.calculator"),
     require("plugins.autopairs"),
     require("plugins.wilder"),
+    require("plugins.gitsigns"),
     require("plugins.coc"),
     require("plugins.leap"),
-    require("plugins.lualine"),
-    require("plugins.which-key"),
-    require("plugins.alpha"),
-    require("plugins.treesitter"),
     require("plugins.auto-session"),
     require("plugins.tidy"),
     require("plugins.zen-mode"),
@@ -28,10 +25,12 @@ M.plugins = {
     require("plugins.FTerm"),
     require("plugins.comment"),
     require("plugins.diffview"),
-    require("plugins.telescope")
+    require("plugins.telescope"),
+    require("plugins.lualine"),
+    require("plugins.which-key"),
+    require("plugins.treesitter"),
+    require("plugins.alpha")
 }
-
-PluginNumber = #M.plugins
 
 M.setup = function(use)
     use(M.plugins)

@@ -34,6 +34,16 @@ return {
             },
         }
 
+        local git_status = function()
+            if vim.b.gitsigns_status ~= '' then
+                return vim.b.gitsigns_head .. ': ' .. vim.b.gitsigns_status
+            end
+            if vim.b.gitsigns_head then
+                return vim.b.gitsigns_head
+            end
+            return ''
+        end
+
         require('lualine').setup({
             options = {
                 icons_enabled = false,
@@ -48,16 +58,14 @@ return {
                 always_divide_middle = true,
                 globalstatus = false,
                 refresh = {
-                    tabline = 1000,
-                    statusline = 1000,
+                    tabline = 1000
                 }
             },
             tabline = {
-                lualine_a = { 'mode', 'searchcount' },
+                lualine_a = { 'mode', git_status, 'searchcount' },
                 lualine_b = { 'tabs' },
                 lualine_c = { 'buffers' },
                 lualine_x = {
-                    'branch', 'diff',
                     {
                         'diagnostics',
 
@@ -79,11 +87,30 @@ return {
                 lualine_y = { 'filename', 'encoding', 'filesize', 'progress' },
                 lualine_z = { 'location' }
             },
-            sections = {},
-            inactive_sections = {},
+            sections = {
+                lualine_a = { 'filename' },
+                lualine_b = { '' },
+                lualine_c = { '' },
+                lualine_x = { '' },
+                lualine_y = { '' },
+                lualine_z = { '' },
+            },
+            inactive_sections = {
+                lualine_a = { 'filename' },
+                lualine_b = { '' },
+                lualine_c = { '' },
+                lualine_x = { '' },
+                lualine_y = { '' },
+                lualine_z = { '' },
+            },
             winbar = {},
             inactive_winbar = {},
             extensions = {}
+        })
+
+        require('lualine').hide({
+            place = {'winbar'},
+            unhide = false
         })
     end
 }
