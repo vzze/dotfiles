@@ -36,7 +36,7 @@ return {
                     {
                         'diagnostics',
 
-                        sources = { 'coc' },
+                        sources = { 'nvim_lsp' },
                         sections = { 'error', 'warn', 'info', 'hint' },
 
                         diagnostics_color = {
