@@ -1,6 +1,44 @@
 V = {
     colorscheme = "default",
     post_setup_callback = function() end,
+    providers = {
+        ['nodejs'] = true,
+        ['python3'] = true,
+        ['perl'] = false,
+        ['ruby'] = false,
+    },
+    vim_settings = {
+        number = true,
+        relativenumber = true,
+        expandtab = true,
+        tabstop = 8,
+        shiftwidth = 4,
+        smarttab = true,
+        softtabstop = 1,
+        mouse = 'a',
+        encoding = "UTF-8",
+        clipboard = vim.o.clipboard .. "unnamedplus",
+        signcolumn = "yes",
+        completeopt = { "menu", "preview" },
+        hlsearch = true,
+        updatetime = 300,
+        timeoutlen = 500,
+        backup = false,
+        ruler = false,
+        writebackup = false,
+        fillchars = {
+            stl = ' ', stlnc = ' ', vert = ' '
+        },
+        cmdheight = 0,
+        sessionoptions = {
+            "blank", "buffers", "curdir", "folds", "help", "tabpages", "winsize", "winpos", "terminal"
+        },
+        foldmethod = "indent",
+        foldlevelstart = -1,
+        foldcolumn = "1",
+        laststatus = 1,
+        hidden = false
+    },
     splash_screen = {
         info = true,
         lines_sep = 1
@@ -88,17 +126,55 @@ V = {
                 ["<leader>tl"]  = { "<cmd>Telescope git_branches<CR>"             , "Git Branches"         },
                 ["<leader>ta"]  = { "<cmd>Telescope git_status<CR>"               , "Git Status"           },
 
+                ["<leader>c"]   = { name = "+coc"                                                          },
+                ["<leader>co"]  = { ":call v:lua.ShowDocs()<CR>"                  , "Shows Docs"           },
+                ["<leader>cn"]  = { "<Plug>(coc-diagnostic-prev)"                 , "Diagnostic Prev"      },
+                ["<leader>cm"]  = { "<Plug>(coc-diagnostic-next)"                 , "Diagnostic Next"      },
+                ["<leader>cd"]  = { "<Plug>(coc-definition)"                      , "Code Definition"      },
+                ["<leader>cw"]  = { ":CocDiagnostic<CR>"                          , "Diagnostic Window"    },
+                ["<leader>cy"]  = { "<Plug>(coc-type-definition)"                 , "Code Type Def"        },
+                ["<leader>ci"]  = { "<Plug>(coc-implementation)"                  , "Code Impl"            },
+                ["<leader>cr"]  = { "<Plug>(coc-references)"                      , "Code Ref"             },
+                ["<leader>ca"]  = { "<Plug>(coc-codeaction)"                      , "Code Action"          },
+                ["<leader>cf"]  = { "<Plug>(coc-fix-current)"                     , "Auto Fix"             },
+
+                ["<leader>cl"]  = { name = "+list"                                                         },
+                ["<leader>cld"] = { ":<C-u>CocList diagnostics<CR>"               , "List Diagnostics"     },
+                ["<leader>clo"] = { ":<C-u>CocList outline<CR>"                   , "Current Doc Symbols"  },
+                ["<leader>cls"] = { ":<C-u>CocList -I symbols<CR>"                , "Workspace Symbols"    },
+
                 ["gc"]          = { ":CommentToggle<CR>"                          , "Comment Line"         },
+
+                ["<C-f>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"' , "Scroll Down" , expr = true },
+                ["<C-b>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"' , "Scroll Up"   , expr = true },
             },
             visual = {
                 ["gc"]          = { ":CommentToggle<CR>"                          , "Comment Block"        },
 
                 ["<leader>s"]   = { "<Plug>(leap-forward-till)"                   , "Leap Forward"         },
-                ["<leader>S"]   = { "<Plug>(leap-backward-till)"                  , "Leap Backward"        }
+                ["<leader>S"]   = { "<Plug>(leap-backward-till)"                  , "Leap Backward"        },
+
+                ["<C-f>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"' , "Scroll Down" , expr = true },
+                ["<C-b>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"' , "Scroll Up"   , expr = true }
             },
-            insert = {},
+            insert = {
+                ["<CR>"]        = { "v:lua._Internal.CompletionConfirm()"         , "Report Enter" , expr = true },
+
+                ["<TAB>"]       = {
+                    'coc#pum#visible() ? coc#pum#next(1) : v:lua._Internal.CheckBackSpace() ? "<TAB>" : coc#refresh()',
+                    "Report Tab", expr = true
+                },
+                ["<S-TAB>"]     = { [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], "Report S-Tab", expr = true },
+                ["<C-f>"]       = { 'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"',
+                    "Scroll Down"  , expr = true
+                },
+                ["<C-b>"]       = {
+                    'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"',
+                    "Scroll Up", expr = true
+                },
+            },
             terminal = {
-                ["<Esc>"]       = { vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, true , true) , "Term Normal Mode" }
+                ["<Esc>"]       = { vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, true , true), "Term Normal Mode" }
             }
         },
         git = {
@@ -118,46 +194,7 @@ V = {
             insert = {},
             terminal = {},
         },
-        lsp = {
-            normal = {
-                ["<leader>l"]  = { name = "+lsp"                                                       },
-                ["<leader>lD"] = { vim.lsp.buf.declaration                    , "Declaration"          },
-                ["<leader>ld"] = { vim.lsp.buf.definition                     , "Definition"           },
-                ["<leader>lt"] = { vim.lsp.buf.type_definition                , "Type Definition"      },
-                ["<leader>li"] = { vim.lsp.buf.implementation                 , "Implementation"       },
-                ["<leader>lK"] = { vim.lsp.buf.hover                          , "Hover"                },
-                ["<leader>la"] = { vim.lsp.buf.code_action                    , "Code Action"          },
-                ["<leader>ls"] = { vim.lsp.buf.signature_help                 , "Signature Help"       },
-                ["<leader>lr"] = { vim.lsp.buf.references                     , "References"           },
-                ["<leader>ln"] = { vim.diagnostic.goto_next                   , "Next Diagnostic"      },
-                ["<leader>lN"] = { vim.diagnostic.goto_prev                   , "Prev Diagnostic"      },
-                ["<leader>lo"] = { vim.diagnostic.open_float                  , "Diagnostic Float"     }
-            },
-            visual = {},
-            insert = {},
-            terminal = {},
-        }
     },
-    lspconfig = {
-        ['sumneko_lua'] = {
-            settings = {
-                Lua = {
-                    runtime = {
-                        version = 'LuaJIT'
-                    },
-                    diagnostics = {
-                        globals = {'vim'}
-                    },
-                    workspace = {
-                        library = vim.api.nvim_get_runtime_file("", true)
-                    },
-                    telemetry = {
-                        enable = false
-                    }
-                }
-            }
-        }
-    }
 }
 
 require("v").setup()

@@ -17,5 +17,13 @@ return {
 
             np.add_rule(r)
         end
+
+        _Internal.CompletionConfirm = function()
+            if vim.fn["coc#pum#visible"]() ~= 0  then
+                return vim.fn["coc#pum#confirm"]()
+            else
+                return np.autopairs_cr()
+            end
+        end
     end
 }
