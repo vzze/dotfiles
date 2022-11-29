@@ -108,12 +108,16 @@ V = {
                 ["st"]          = { "<cmd>FocusSplitCycle reverse<CR>"            , "Reverse Cycle Splits" },
 
                 ["<leader>q"]   = { ":SaveSession<CR> <Bar> :wqa<CR>"             , "Quit & Save Session"  },
-                ["<leader>u"]   = { ":PackerSync<CR>"                             , "Update"               },
                 ["<leader>h"]   = { ":TSToggle highlight<CR>"                     , "Toggle Highlight"     },
                 ["<leader>d"]   = { ":DiffviewOpen"                               , "DiffViewOpen"         },
                 ["<leader>s"]   = { "<Plug>(leap-forward-to)"                     , "Leap Forward"         },
                 ["<leader>S"]   = { "<Plug>(leap-backward-to)"                    , "Leap Backward"        },
                 ["<leader>z"]   = { ":ZenMode<CR>"                                , "Zen Mode"             },
+
+                ["<leader>u"]   = { name = "+update"                                                       },
+                ["<leader>up"]  = { ":PackerSync<CR>"                             , "Plugins"              },
+                ["<leader>ul"]  = { ":CocUpdate<CR>"                              , "Language Servers"     },
+                ["<leader>ut"]  = { ":TSUpdate all<CR>"                           , "Treesitter"           },
 
                 ["<leader>t"]   = { name = "+telescope"                                                    },
                 ["<leader>tt"]  = { "<cmd>Telescope builtin<CR>"                  , "Telescope"            },
