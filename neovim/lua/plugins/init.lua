@@ -9,18 +9,14 @@ M.plugins = {
 
     'nvim-lua/plenary.nvim',
 
-    require("plugins.coq"),
-    require("plugins.coq-artifacts"),
-    require("plugins.coq-thirdparty"),
-
-    require("plugins.mason"),
-    require("plugins.mason-lsp"),
-    require("plugins.nvim-lsp"),
-
     require("plugins.dirbuf"),
     require("plugins.aligner"),
     require("plugins.calculator"),
     require("plugins.autopairs"),
+    require("plugins.coc-nvim"),
+    require("plugins.lualine"),
+    require("plugins.which-key"),
+    require("plugins.treesitter"),
     require("plugins.gitsigns"),
     require("plugins.leap"),
     require("plugins.auto-session"),
@@ -32,9 +28,6 @@ M.plugins = {
     require("plugins.comment"),
     require("plugins.diffview"),
     require("plugins.telescope"),
-    require("plugins.lualine"),
-    require("plugins.which-key"),
-    require("plugins.treesitter"),
     require("plugins.alpha")
 }
 

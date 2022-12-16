@@ -5,21 +5,6 @@ M.setup = function()
 
     _G._Internal = {}
 
-    vim.g.coq_settings = {
-        keymap = { recommended = false },
-        auto_start = "shut-up",
-        display = {
-            icons = {
-                mode = "none"
-            },
-            ghost_text = {
-                context = {
-                    " -> ", ""
-                }
-            }
-        }
-    }
-
     local ensure_packer = function()
         local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
         ---@diagnostic disable-next-line: missing-parameter

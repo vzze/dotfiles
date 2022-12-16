@@ -91,32 +91,34 @@ V = {
         global = {
             normal = {
                 ["t"]           = { name = "+tabs"                                                         },
-                ["th"]          = { "<cmd>tabprevious<CR>"                        , "Previous Tab"         },
-                ["tl"]          = { "<cmd>tabnext<CR>"                            , "Next Tab"             },
-                ["tn"]          = { "<cmd>tabnew<CR>"                             , "New Tab"              },
-                ["td"]          = { "<cmd>tabclose<CR>"                           , "Close Tab"            },
+                ["th"]          = { ":tabprevious<CR>"                            , "Previous Tab"         },
+                ["tl"]          = { ":tabnext<CR>"                                , "Next Tab"             },
+                ["tn"]          = { ":tabnew<CR>"                                 , "New Tab"              },
+                ["td"]          = { ":tabclose<CR>"                               , "Close Tab"            },
                 ["te"]          = { "<cmd>lua require(\"FTerm\").toggle()<CR>"    , "Terminal"             },
-                ["tf"]          = { "<cmd>Dirbuf <Bar> :DirbufSync<CR>"           , "File Editor"          },
+                ["tf"]          = { ":Dirbuf <Bar> :DirbufSync<CR>"               , "File Editor"          },
 
                 ["s"]           = { name = "+splits"                                                       },
-                ["sq"]          = { "<cmd>q<CR>"                                  , "Close Split"          },
+                ["sq"]          = { ":q<CR>"                                      , "Close Split"          },
                 ["sh"]          = { "<cmd>FocusSplitLeft<CR>"                     , "Split Left"           },
                 ["sj"]          = { "<cmd>FocusSplitDown<CR>"                     , "Split Down"           },
                 ["sk"]          = { "<cmd>FocusSplitUp<CR>"                       , "Split Up"             },
                 ["sl"]          = { "<cmd>FocusSplitRight<CR>"                    , "Split Right"          },
                 ["ss"]          = { "<cmd>FocusSplitCycle<CR>"                    , "Cycle Splits"         },
                 ["st"]          = { "<cmd>FocusSplitCycle reverse<CR>"            , "Reverse Cycle Splits" },
+                ["sr"]          = { ":CocCommand clangd.switchSourceHeader<CR>"   , "Switch HH & CC"       },
 
-                ["<leader>q"]   = { "<cmd>SaveSession<CR> <Bar> :wqa<CR>"         , "Quit & Save Session"  },
-                ["<leader>h"]   = { "<cmd>TSToggle highlight<CR>"                 , "Toggle Highlight"     },
-                ["<leader>d"]   = { "<cmd>DiffviewOpen"                           , "DiffViewOpen"         },
+                ["<leader>q"]   = { ":SaveSession<CR> <Bar> :wqa<CR>"             , "Quit & Save Session"  },
+                ["<leader>h"]   = { ":TSToggle highlight<CR>"                     , "Toggle Highlight"     },
+                ["<leader>d"]   = { ":DiffviewOpen"                               , "DiffViewOpen"         },
                 ["<leader>s"]   = { "<Plug>(leap-forward-to)"                     , "Leap Forward"         },
                 ["<leader>S"]   = { "<Plug>(leap-backward-to)"                    , "Leap Backward"        },
-                ["<leader>z"]   = { "<cmd>ZenMode<CR>"                            , "Zen Mode"             },
+                ["<leader>z"]   = { ":ZenMode<CR>"                                , "Zen Mode"             },
 
                 ["<leader>u"]   = { name = "+update"                                                       },
-                ["<leader>up"]  = { "<cmd>PackerSync<CR>"                         , "Plugins"              },
-                ["<leader>ut"]  = { "<cmd>TSUpdate all<CR>"                       , "Treesitter"           },
+                ["<leader>up"]  = { ":PackerSync<CR>"                             , "Plugins"              },
+                ["<leader>ul"]  = { ":CocUpdate<CR>"                              , "Language Servers"     },
+                ["<leader>ut"]  = { ":TSUpdate all<CR>"                           , "Treesitter"           },
 
                 ["<leader>t"]   = { name = "+telescope"                                                    },
                 ["<leader>tt"]  = { "<cmd>Telescope builtin<CR>"                  , "Telescope"            },
@@ -129,21 +131,52 @@ V = {
                 ["<leader>tl"]  = { "<cmd>Telescope git_branches<CR>"             , "Git Branches"         },
                 ["<leader>ta"]  = { "<cmd>Telescope git_status<CR>"               , "Git Status"           },
 
-                ["gc"]          = { "<cmd>CommentToggle<CR>"                      , "Comment Line"         },
+                ["<leader>c"]   = { name = "+coc"                                                          },
+                ["<leader>co"]  = { ":call v:lua.ShowDocs()<CR>"                  , "Shows Docs"           },
+                ["<leader>cn"]  = { "<Plug>(coc-diagnostic-prev)"                 , "Diagnostic Prev"      },
+                ["<leader>cm"]  = { "<Plug>(coc-diagnostic-next)"                 , "Diagnostic Next"      },
+                ["<leader>cd"]  = { "<Plug>(coc-definition)"                      , "Code Definition"      },
+                ["<leader>cw"]  = { ":CocDiagnostic<CR>"                          , "Diagnostic Window"    },
+                ["<leader>cy"]  = { "<Plug>(coc-type-definition)"                 , "Code Type Def"        },
+                ["<leader>ci"]  = { "<Plug>(coc-implementation)"                  , "Code Impl"            },
+                ["<leader>cr"]  = { "<Plug>(coc-references)"                      , "Code Ref"             },
+                ["<leader>ca"]  = { "<Plug>(coc-codeaction)"                      , "Code Action"          },
+                ["<leader>cf"]  = { "<Plug>(coc-fix-current)"                     , "Auto Fix"             },
+
+                ["<leader>cl"]  = { name = "+list"                                                         },
+                ["<leader>cld"] = { ":<C-u>CocList diagnostics<CR>"               , "List Diagnostics"     },
+                ["<leader>clo"] = { ":<C-u>CocList outline<CR>"                   , "Current Doc Symbols"  },
+                ["<leader>cls"] = { ":<C-u>CocList -I symbols<CR>"                , "Workspace Symbols"    },
+
+                ["gc"]          = { ":CommentToggle<CR>"                          , "Comment Line"         },
+
+                ["<C-f>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"' , "Scroll Down" , expr = true },
+                ["<C-b>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"' , "Scroll Up"   , expr = true },
             },
             visual = {
-                ["gc"]          = { "<cmd>CommentToggle<CR>"                      , "Comment Block"        },
+                ["gc"]          = { ":CommentToggle<CR>"                          , "Comment Block"        },
 
                 ["<leader>s"]   = { "<Plug>(leap-forward-till)"                   , "Leap Forward"         },
                 ["<leader>S"]   = { "<Plug>(leap-backward-till)"                  , "Leap Backward"        },
+
+                ["<C-f>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"' , "Scroll Down" , expr = true },
+                ["<C-b>"]       = { 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"' , "Scroll Up"   , expr = true }
             },
             insert = {
-                ['<CR>']        = { "v:lua._Internal.CR()"                        , "Enter"     , expr = true },
-                ['<BS>']        = { "v:lua._Internal.BS()"                        , "Backspace" , expr = true },
-                ['<Esc>']       = { [[pumvisible() ? "<c-e><esc>" : "<esc>"]]     , "Esc"       , expr = true },
-                ['<c-c>']       = { [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]]     , "CC"        , expr = true },
-                ['<Tab>']       = { [[pumvisible() ? "<c-n>" : "<tab>"]]          , "Tab"       , expr = true },
-                ['<S-Tab>']     = { [[pumvisible() ? "<c-p>" : "<bs>"]]           , "Shift Tab" , expr = true }
+                ["<CR>"]        = { "v:lua._Internal.CompletionConfirm()"         , "Report Enter" , expr = true },
+
+                ["<TAB>"]       = {
+                    'coc#pum#visible() ? coc#pum#next(1) : v:lua._Internal.CheckBackSpace() ? "<TAB>" : coc#refresh()',
+                    "Report Tab", expr = true
+                },
+                ["<S-TAB>"]     = { [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], "Report S-Tab", expr = true },
+                ["<C-f>"]       = { 'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"',
+                    "Scroll Down"  , expr = true
+                },
+                ["<C-b>"]       = {
+                    'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(0)<cr>" : "<Left>"',
+                    "Scroll Up", expr = true
+                },
             },
             terminal = {
                 ["<Esc>"]       = { vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, true , true), "Term Normal Mode" }
@@ -152,82 +185,21 @@ V = {
         git = {
             normal = {
                 ["<leader>g"]   = { name = "+git"                                                          },
-                ["<leader>gn"]  = { "<cmd>Gitsigns next_hunk<CR>"                 , "Next Hunk"            },
-                ["<leader>gN"]  = { "<cmd>Gitsigns prev_hunk<CR>"                 , "Prev Hunk"            },
-                ["<leader>gs"]  = { "<cmd>Gitsigns stage_buffer<CR>"              , "Stage Buffer"         },
-                ["<leader>gu"]  = { "<cmd>Gitsigns undo_stage_hunk<CR>"           , "Undo Stage Hunk"      },
-                ["<leader>gr"]  = { "<cmd>Gitsigns reset_buffer<CR>"              , "Reset Buffer"         },
-                ["<leader>gp"]  = { "<cmd>Gitsigns preview_hunk<CR>"              , "Preview Hunk"         },
-                ["<leader>gb"]  = { "<cmd>Gitsigns blame_line<CR>"                , "Blame Line"           },
-                ["<leader>gB"]  = { "<cmd>Gitsigns toggle_current_line_blame<CR>" , "Current Blame Line"   },
-                ["<leader>gd"]  = { "<cmd>Gitsigns toggle_deleted<CR>"            , "Toggle Deleted"       }
+                ["<leader>gn"]  = { ":Gitsigns next_hunk<CR>"                     , "Next Hunk"            },
+                ["<leader>gN"]  = { ":Gitsigns prev_hunk<CR>"                     , "Prev Hunk"            },
+                ["<leader>gs"]  = { ":Gitsigns stage_buffer<CR>"                  , "Stage Buffer"         },
+                ["<leader>gu"]  = { ":Gitsigns undo_stage_hunk<CR>"               , "Undo Stage Hunk"      },
+                ["<leader>gr"]  = { ":Gitsigns reset_buffer<CR>"                  , "Reset Buffer"         },
+                ["<leader>gp"]  = { ":Gitsigns preview_hunk<CR>"                  , "Preview Hunk"         },
+                ["<leader>gb"]  = { ":Gitsigns blame_line<CR>"                    , "Blame Line"           },
+                ["<leader>gB"]  = { ":Gitsigns toggle_current_line_blame<CR>"     , "Current Blame Line"   },
+                ["<leader>gd"]  = { ":Gitsigns toggle_deleted<CR>"                , "Toggle Deleted"       }
             },
             visual = {},
             insert = {},
             terminal = {},
         },
-        lsp = {
-            normal = {
-                ["<leader>l"]  = { name = "+lsp"                                                       },
-                ["<leader>lD"] = { vim.lsp.buf.declaration                    , "Declaration"          },
-                ["<leader>ld"] = { vim.lsp.buf.definition                     , "Definition"           },
-                ["<leader>lt"] = { vim.lsp.buf.type_definition                , "Type Definition"      },
-                ["<leader>li"] = { vim.lsp.buf.implementation                 , "Implementation"       },
-                ["<leader>lK"] = { vim.lsp.buf.hover                          , "Hover"                },
-                ["<leader>la"] = { vim.lsp.buf.code_action                    , "Code Action"          },
-                ["<leader>ls"] = { vim.lsp.buf.signature_help                 , "Signature Help"       },
-                ["<leader>lr"] = { vim.lsp.buf.references                     , "References"           },
-                ["<leader>ln"] = { vim.diagnostic.goto_next                   , "Next Diagnostic"      },
-                ["<leader>lN"] = { vim.diagnostic.goto_prev                   , "Prev Diagnostic"      },
-                ["<leader>lo"] = { vim.diagnostic.open_float                  , "Diagnostic Float"     }
-            },
-            visual = {},
-            insert = {},
-            terminal = {}
-        }
     },
-    lspconfig = {
-        ['sumneko_lua'] = {
-            settings = {
-                Lua = {
-                    runtime = {
-                        version = 'LuaJIT'
-                    },
-                    diagnostics = {
-                        globals = {'vim'}
-                    },
-                    workspace = {
-                        library = vim.api.nvim_get_runtime_file("", true)
-                    },
-                    telemetry = {
-                        enable = false
-                    }
-                }
-            }
-        },
-        ['clangd'] = {
-            on_attach = function(_, bufnr)
-                local wk = require("which-key")
-                wk.register(V.mappings.lsp.normal  , { mode = "n", prefix = "", buffer = bufnr, silent = true, noremap = true, nowait = false })
-                wk.register(V.mappings.lsp.visual  , { mode = "v", prefix = "", buffer = bufnr, silent = true, noremap = true, nowait = false })
-                wk.register(V.mappings.lsp.insert  , { mode = "i", prefix = "", buffer = bufnr, silent = true, noremap = true, nowait = false })
-                wk.register(V.mappings.lsp.terminal, { mode = "t", prefix = "", buffer = bufnr, silent = true, noremap = true, nowait = false })
-                wk.register({
-                    ['sr'] = { "<cmd>ClangdSwitchSourceHeader<CR>", "Switch CC & HH" }
-                }, { mode = "n", prefix = "", buffer = bufnr, silent = true, noremap = true, nowait = false })
-            end,
-            root_dir = require("lspconfig").util.root_pattern(
-                '.clangd',
-                '.clang-tidy',
-                '.clang-format',
-                'compile_commands.json',
-                'build/compile_commands.json',
-                'compile_flags.txt',
-                'configure.ac',
-                '.git'
-            )
-        }
-    }
 }
 
 require("v").setup()
