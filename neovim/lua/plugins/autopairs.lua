@@ -2,7 +2,9 @@ return {
     "windwp/nvim-autopairs",
     config = function()
         local np = require("nvim-autopairs")
-        np.setup()
+
+        np.setup({ map_bs = false, map_cr = false })
+
         local rule = require("nvim-autopairs.rule")
         local cond = require('nvim-autopairs.conds')
 
@@ -18,11 +20,23 @@ return {
             np.add_rule(r)
         end
 
-        _Internal.CompletionConfirm = function()
-            if vim.fn["coc#pum#visible"]() ~= 0  then
-                return vim.fn["coc#pum#confirm"]()
+        _Internal.CR = function()
+            if vim.fn.pumvisible() ~= 0 then
+                if vim.fn.complete_info({ 'selected' }).selected ~= -1 then
+                    return np.esc('<c-y>')
+                else
+                    return np.esc('<c-e>') .. np.autopairs_cr()
+                end
             else
                 return np.autopairs_cr()
+            end
+        end
+
+        _Internal.BS = function()
+            if vim.fn.pumvisible() ~= 0 and vim.fn.complete_info({ 'mode' }).mode == 'eval' then
+                return np.esc('<c-e>') .. np.autopairs_bs()
+            else
+                return np.autopairs_bs()
             end
         end
     end
