@@ -30,9 +30,6 @@ M.theme = function()
             hi PmenuSel guibg=NONE ctermbg=NONE ctermfg=10 guifg=10                           |
             hi PmenuSbar guibg=NONE ctermbg=NONE ctermfg=NONE guifg=NONE                      |
             hi PmenuThumb guibg=5 ctermbg=5 ctermfg=5 guifg=5                                 |
-            hi CocFloating guibg=NONE ctermbg=NONE ctermfg=3 guifg=3                          |
-            hi CocMenuSel guibg=NONE ctermbg=NONE ctermfg=10 guifg=10                         |
-            hi CocInlayHint guibg=NONE ctermbg=NONE ctermfg=15 guifg=15                       |
             hi Conceal guibg=NONE ctermbg=NONE ctermfg=1 guifg=1                              |
             hi MatchParen guibg=NONE ctermbg=NONE ctermfg=15 guifg=15                         |
             hi Folded guibg=NONE ctermbg=NONE ctermfg=5 guifg=5                               |

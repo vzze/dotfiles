@@ -141,9 +141,9 @@ V = {
                 ['<CR>']        = { "v:lua._Internal.CR()"                        , "Enter"     , expr = true },
                 ['<BS>']        = { "v:lua._Internal.BS()"                        , "Backspace" , expr = true },
                 ['<Esc>']       = { [[pumvisible() ? "<c-e><esc>" : "<esc>"]]     , "Esc"       , expr = true },
-                ['<c-c']        = { [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]]     , "CC"        , expr = true },
+                ['<c-c>']       = { [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]]     , "CC"        , expr = true },
                 ['<Tab>']       = { [[pumvisible() ? "<c-n>" : "<tab>"]]          , "Tab"       , expr = true },
-                ['<S-Tab']      = { [[pumvisible() ? "<c-p>" : "<bs>"]]           , "Shift Tab" , expr = true }
+                ['<S-Tab>']     = { [[pumvisible() ? "<c-p>" : "<bs>"]]           , "Shift Tab" , expr = true }
             },
             terminal = {
                 ["<Esc>"]       = { vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, true , true), "Term Normal Mode" }
