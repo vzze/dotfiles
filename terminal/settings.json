@@ -29,6 +29,7 @@
             "keys": "alt+shift+d"
         }
     ],
+    "alwaysShowTabs": true,
     "copyFormatting": "none",
     "copyOnSelect": true,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
@@ -66,23 +67,28 @@
                 "hidden": false,
                 "icon": "C:\\Program Files\\PowerShell\\7\\assets\\Powershell_av_colors.ico",
                 "name": "PowerShell Core",
+                "opacity": 50,
                 "source": "Windows.Terminal.PowershellCore",
-                "tabTitle": "Power"
+                "tabTitle": "Power",
+                "useAcrylic": true
             },
             {
                 "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
                 "hidden": false,
-                "name": "Arch",
-                "source": "Windows.Terminal.Wsl"
+                "icon": "C:\\Users\\edi\\.config\\scoop\\arch.png",
+                "name": "Arch Linux",
+                "source": "Windows.Terminal.Wsl",
+                "startingDirectory": "/mnt/c/users/edi",
+                "tabTitle": "Arch"
             },
             {
-                "guid": "{a25e27ef-8342-5e87-82cd-9adbb2dab24e}",
+                "guid": "{ba9b8caa-3a6b-53e5-b0a7-690d6b44059f}",
                 "hidden": false,
                 "name": "Developer Command Prompt for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{0317f8a4-badf-5ff9-b628-23a846122e68}",
+                "guid": "{568da78a-97fc-5933-b3ba-0206ecd29b8e}",
                 "hidden": false,
                 "name": "Developer PowerShell for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
