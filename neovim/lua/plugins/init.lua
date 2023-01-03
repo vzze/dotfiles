@@ -15,7 +15,7 @@ M.plugins = {
     require("plugins.autopairs"),
     require("plugins.coc-nvim"),
     require("plugins.lualine"),
-    require("plugins.which-key"),
+    require("plugins.whichkey"),
     require("plugins.treesitter"),
     require("plugins.gitsigns"),
     require("plugins.leap"),
@@ -33,7 +33,6 @@ M.plugins = {
 
 M.setup = function(use)
     use(M.plugins)
-    use(_G.V.extra_plugins)
 end
 
 return M

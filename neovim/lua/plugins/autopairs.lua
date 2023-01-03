@@ -2,7 +2,7 @@ return {
     "windwp/nvim-autopairs",
     config = function()
         local np = require("nvim-autopairs")
-        np.setup()
+        np.setup({ map_cr = false })
         local rule = require("nvim-autopairs.rule")
         local cond = require('nvim-autopairs.conds')
 
