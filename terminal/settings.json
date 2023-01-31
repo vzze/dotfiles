@@ -73,15 +73,6 @@
                 "useAcrylic": true
             },
             {
-                "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
-                "hidden": false,
-                "icon": "C:\\Users\\edi\\.config\\scoop\\arch.png",
-                "name": "Arch Linux",
-                "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "/mnt/c/users/edi",
-                "tabTitle": "Arch"
-            },
-            {
                 "guid": "{ba9b8caa-3a6b-53e5-b0a7-690d6b44059f}",
                 "hidden": false,
                 "name": "Developer Command Prompt for VS 2022",
