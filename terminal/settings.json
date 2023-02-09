@@ -33,6 +33,12 @@
     "copyFormatting": "none",
     "copyOnSelect": true,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
         "defaults": 
@@ -45,7 +51,8 @@
             },
             "opacity": 50,
             "suppressApplicationTitle": true,
-            "useAcrylic": true
+            "useAcrylic": true,
+            "useAtlasEngine": true
         },
         "list": 
         [
@@ -62,6 +69,7 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
+                "colorScheme": "FCC0FF",
                 "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe -NoLogo",
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
@@ -142,23 +150,23 @@
         },
         {
             "background": "#1F1C21",
-            "black": "#000000",
+            "black": "#797979",
             "blue": "#00FBFF",
-            "brightBlack": "#797979",
+            "brightBlack": "#939393",
             "brightBlue": "#91FDFF",
             "brightCyan": "#C0E3FF",
             "brightGreen": "#87FFAF",
             "brightPurple": "#EDD5FF",
-            "brightRed": "#F14C4C",
+            "brightRed": "#FF4F5F",
             "brightWhite": "#FFFFFF",
             "brightYellow": "#FCC0FF",
             "cursorColor": "#FFFFFF",
             "cyan": "#8DCCFF",
-            "foreground": "#C2C2C2",
+            "foreground": "#DBDBDB",
             "green": "#54FF8D",
             "name": "FCC0FF",
             "purple": "#D7A2FF",
-            "red": "#CD3131",
+            "red": "#FF3647",
             "selectionBackground": "#FFFFFF",
             "white": "#D3D3D3",
             "yellow": "#FA8DFF"
@@ -349,5 +357,6 @@
         }
     ],
     "startOnUserLogin": true,
+    "themes": [],
     "useAcrylicInTabRow": true
 }
