@@ -81,22 +81,28 @@
                 "useAcrylic": true
             },
             {
-                "guid": "{ba9b8caa-3a6b-53e5-b0a7-690d6b44059f}",
+                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
+                "hidden": true,
+                "name": "Visual Studio Debug Console",
+                "source": "VSDebugConsole"
+            },
+            {
+                "guid": "{909b5a9a-146f-5cc4-bb9a-e8e1fb0eff61}",
                 "hidden": false,
                 "name": "Developer Command Prompt for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{568da78a-97fc-5933-b3ba-0206ecd29b8e}",
+                "guid": "{de0f2ee0-0ca6-55fd-9a39-8de3145bfd9c}",
                 "hidden": false,
                 "name": "Developer PowerShell for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
+                "guid": "{17bf3de4-5353-5709-bcf9-835bd952a95e}",
                 "hidden": true,
-                "name": "Visual Studio Debug Console",
-                "source": "VSDebugConsole"
+                "name": "Ubuntu-22.04",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
@@ -150,9 +156,9 @@
         },
         {
             "background": "#1F1C21",
-            "black": "#797979",
+            "black": "#616161",
             "blue": "#00FBFF",
-            "brightBlack": "#939393",
+            "brightBlack": "#7B7B7B",
             "brightBlue": "#91FDFF",
             "brightCyan": "#C0E3FF",
             "brightGreen": "#87FFAF",
@@ -308,6 +314,29 @@
             "selectionBackground": "#FFFFFF",
             "white": "#D3D7CF",
             "yellow": "#C4A000"
+        },
+        {
+            "background": "#300A24",
+            "black": "#171421",
+            "blue": "#0037DA",
+            "brightBlack": "#767676",
+            "brightBlue": "#08458F",
+            "brightCyan": "#2C9FB3",
+            "brightGreen": "#26A269",
+            "brightPurple": "#A347BA",
+            "brightRed": "#C01C28",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#A2734C",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#3A96DD",
+            "foreground": "#FFFFFF",
+            "green": "#26A269",
+            "name": "Ubuntu-22.04-ColorScheme",
+            "purple": "#881798",
+            "red": "#C21A23",
+            "selectionBackground": "#FFFFFF",
+            "white": "#CCCCCC",
+            "yellow": "#A2734C"
         },
         {
             "background": "#300A24",
