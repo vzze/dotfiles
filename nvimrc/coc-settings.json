@@ -1,0 +1,35 @@
+{
+    "clangd.fallbackFlags": [
+    ],
+
+    "clangd.enabled": true,
+
+    "sumneko-lua.enableNvimLuaDev": true,
+    "sumneko-lua.enable": true,
+    "sumneko-lua.prompt": true,
+
+    "Lua.telemetry.enable": false,
+    "Lua.diagnostics.globals": ["vim"],
+
+    "powershell.integratedConsole.showOnStartup": false,
+
+    "rust-analyzer.enable": true,
+
+    "suggest.virtualText": true,
+
+    "inlayHint.enable": true,
+    "inlayHint.display": true,
+    "inlayHint.subSeparator": " ",
+    "inlayHint.typeSeparator": "ret",
+    "inlayHint.enableParameter": true,
+    "inlayHint.parameterSeparator": "~ ",
+    "inlayHint.refreshOnInsertMode": false,
+
+    "diagnostic.virtualTextCurrentLineOnly": false,
+    "diagnostic.virtualText": true,
+    "diagnostic.hintSign": "h",
+    "diagnostic.errorSign": "!",
+    "diagnostic.warningSign": ">>",
+    "diagnostic.infoSign": "?",
+    "clangd.path": "~\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\15.0.6\\clangd_15.0.6\\bin\\clangd.exe"
+}
