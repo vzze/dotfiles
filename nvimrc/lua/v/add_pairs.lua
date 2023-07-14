@@ -1,5 +1,5 @@
 V.add_pairs = {
     { '#include <', '>' },
-    { '<', '>', before = "%a" },
+    { '<', '>', not_before = "%a%s" },
     { '`', '`' }
 }
