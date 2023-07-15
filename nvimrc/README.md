@@ -1,7 +1,7 @@
 #### This is my unsensible Neovim configuration
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/vzze/nvimrc/master/preview.png">
+    <img src="https://raw.githubusercontent.com/vzze/dotfiles/master/nvimrc/preview.png">
 </p>
 
 #### Configuring
