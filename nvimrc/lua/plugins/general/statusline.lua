@@ -14,7 +14,7 @@ return {
         require('lualine').setup({
             options = {
                 icons_enabled = false,
-                theme = _G.V.lualine.theme,
+                theme = V.lualine.pinky,
                 component_separators = { left = '', right = '' },
                 section_separators = { left = '', right = '' },
                 disabled_filetypes = {

@@ -37,7 +37,7 @@ return {
 
         local dashboard = require("alpha.themes.dashboard")
 
-        if _G.V.splash_screen.info == true then
+        if V.splash_screen.info == true then
             local time = os.date("*t")
 
             local left   = "V1602 "
@@ -72,7 +72,7 @@ return {
                 final = final .. " "
             end
 
-            for _ = 1, _G.V.splash_screen.lines_sep, 1 do
+            for _ = 1, V.splash_screen.lines_sep, 1 do
                 table.insert(art, #art + 1, [[]])
             end
 

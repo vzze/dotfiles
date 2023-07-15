@@ -1,51 +1,51 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
+    "actions":
     [
         {
             "command": "find",
             "keys": "ctrl+shift+f"
         },
         {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+c"
-        },
-        {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
             },
             "keys": "alt+shift+d"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "command":
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+c"
         }
     ],
     "alwaysShowTabs": true,
     "copyFormatting": "none",
     "copyOnSelect": true,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-    "newTabMenu": 
+    "newTabMenu":
     [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": 
+    "profiles":
     {
-        "defaults": 
+        "defaults":
         {
             "colorScheme": "FCC0FF",
             "elevate": true,
-            "font": 
+            "font":
             {
                 "face": "Cartograph CF"
             },
@@ -54,7 +54,7 @@
             "useAcrylic": true,
             "useAtlasEngine": true
         },
-        "list": 
+        "list":
         [
             {
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
@@ -73,7 +73,7 @@
                 "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe -NoLogo",
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
-                "icon": "C:\\Program Files\\PowerShell\\7\\assets\\Powershell_av_colors.ico",
+                "icon": "C:\\\\Program Files\\\\PowerShell\\\\7\\\\assets\\\\Powershell_av_colors.ico",
                 "name": "PowerShell Core",
                 "opacity": 50,
                 "source": "Windows.Terminal.PowershellCore",
@@ -100,13 +100,13 @@
             },
             {
                 "guid": "{17bf3de4-5353-5709-bcf9-835bd952a95e}",
-                "hidden": true,
-                "name": "Ubuntu-22.04",
+                "hidden": false,
+                "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl"
             }
         ]
     },
-    "schemes": 
+    "schemes":
     [
         {
             "background": "#0C0C0C",
@@ -176,6 +176,29 @@
             "selectionBackground": "#FFFFFF",
             "white": "#D3D3D3",
             "yellow": "#FA8DFF"
+        },
+        {
+            "background": "#120D0A",
+            "black": "#565348",
+            "blue": "#3E51B4",
+            "brightBlack": "#726E5F",
+            "brightBlue": "#5E6FC7",
+            "brightCyan": "#84B9D4",
+            "brightGreen": "#B9D484",
+            "brightPurple": "#D484B9",
+            "brightRed": "#BA8184",
+            "brightWhite": "#E9E4D0",
+            "brightYellow": "#E1D8AA",
+            "cursorColor": "#E9E4D0",
+            "cyan": "#5EA3C7",
+            "foreground": "#E9E4D0",
+            "green": "#A3C75E",
+            "name": "Nier",
+            "purple": "#C75EA3",
+            "red": "#A86064",
+            "selectionBackground": "#E9E4D0",
+            "white": "#D9D0AD",
+            "yellow": "#D4C784"
         },
         {
             "background": "#282C34",

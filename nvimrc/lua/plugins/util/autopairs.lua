@@ -9,7 +9,7 @@ return {
         local rule = require("nvim-autopairs.rule")
         local cond = require('nvim-autopairs.conds')
 
-        for _, pair in ipairs(_G.V.add_pairs) do
+        for _, pair in ipairs(V.add_pairs) do
             local r = rule(pair[1], pair[2])
 
             if pair.use_regex  then r:use_regex(true) end

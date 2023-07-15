@@ -42,4 +42,4 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     ]]
 })
 
-vim.api.nvim_command([[colorscheme ]] .. _G.V.colorscheme)
+vim.api.nvim_command([[colorscheme ]] .. V.colorscheme)

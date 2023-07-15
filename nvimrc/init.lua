@@ -1,6 +1,6 @@
 vim.loader.enable();
 
-_G._Internal = {}
+_Internal = {}
 
 require("v")
 require("v.add_pairs")
@@ -17,7 +17,8 @@ require("v.mappings.git")
 require("v.mappings.lsp")
 
 require("v.statusline")
-require("v.statusline.theme")
+require("v.statusline.nier")
+require("v.statusline.pinky")
 
 require("v.lsp")
 require("v.lsp.lua_ls")
