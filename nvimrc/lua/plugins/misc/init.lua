@@ -1,6 +1,4 @@
 return {
-    'lewis6991/impatient.nvim',
-
     "MunifTanjim/nui.nvim",
     'xiyaowong/nvim-cursorword',
 

@@ -1,4 +1,4 @@
-pcall(require, "impatient")
+vim.loader.enable();
 
 _G._Internal = {}
 
