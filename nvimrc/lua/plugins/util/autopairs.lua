@@ -3,7 +3,9 @@ return {
     event = "VeryLazy",
     config = function()
         local np = require("nvim-autopairs")
-        np.setup({ map_cr = false })
+
+        np.setup()
+
         local rule = require("nvim-autopairs.rule")
         local cond = require('nvim-autopairs.conds')
 
@@ -17,14 +19,6 @@ return {
             if pair.not_after  then r:with_pair(cond.not_after_regex(pair.not_after)) end
 
             np.add_rule(r)
-        end
-
-        _Internal.CompletionConfirm = function()
-            if vim.fn["coc#pum#visible"]() ~= 0  then
-                return vim.fn["coc#pum#confirm"]()
-            else
-                return np.autopairs_cr()
-            end
         end
     end
 }

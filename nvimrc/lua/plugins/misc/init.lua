@@ -1,7 +1,11 @@
 return {
     "MunifTanjim/nui.nvim",
-    'xiyaowong/nvim-cursorword',
+    "xiyaowong/nvim-cursorword",
 
-    'nvim-lua/plenary.nvim',
+    "saadparwaiz1/cmp_luasnip",
+    "hrsh7th/cmp-nvim-lsp",
+    "L3MON4D3/LuaSnip",
+
+    "nvim-lua/plenary.nvim",
     require("plugins.misc.leap")
 }

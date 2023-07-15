@@ -10,11 +10,18 @@ require("v.post_setup_callback")
 require("v.providers")
 require("v.colorscheme")
 require("v.vim_settings")
+
 require("v.mappings")
 require("v.mappings.global")
 require("v.mappings.git")
+require("v.mappings.lsp")
+
 require("v.statusline")
 require("v.statusline.theme")
+
+require("v.lsp")
+require("v.lsp.lua_ls")
+require("v.lsp.clangd")
 
 require("config")
 
