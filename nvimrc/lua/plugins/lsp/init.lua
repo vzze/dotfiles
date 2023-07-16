@@ -1,4 +1,5 @@
 return {
+    require("plugins.lsp.trouble"),
     require("plugins.lsp.mason"),
     require("plugins.lsp.mason-lsp"),
     require("plugins.lsp.config"),
