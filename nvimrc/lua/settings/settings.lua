@@ -18,3 +18,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_command([[autocmd BufRead,BufNewFile *.fell set filetype=fell]])
+
+vim.api.nvim_command([[set laststatus=1]])
+
+vim.api.nvim_command([[autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2]])
