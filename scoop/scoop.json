@@ -2,190 +2,232 @@
     "apps": [
         {
             "Source": "main",
-            "Version": "22.01",
+            "Updated": "2023-06-27T12:46:44.0350944+03:00",
+            "Version": "23.01",
             "Info": "",
-            "Name": "7zip",
-            "Updated": "2022-11-10T12:30:21.9994966+02:00"
-        },
-        {
-            "Source": "main",
-            "Version": "1.36.0-1",
-            "Info": "",
-            "Name": "aria2",
-            "Updated": "2022-11-10T12:30:10.454882+02:00"
-        },
-        {
-            "Source": "main",
-            "Version": "1.96.1",
-            "Info": "",
-            "Name": "cloc",
-            "Updated": "2023-01-11T16:38:46.9313659+02:00"
-        },
-        {
-            "Source": "main",
-            "Version": "3.26.3",
-            "Info": "",
-            "Name": "cmake",
-            "Updated": "2023-04-05T16:01:12.8955624+03:00"
-        },
-        {
-            "Source": "main",
-            "Version": "3.11.2",
-            "Info": "",
-            "Name": "dark",
-            "Updated": "2022-11-10T13:06:08.0805162+02:00"
-        },
-        {
-            "Source": "main",
-            "Version": "8.7.0",
-            "Info": "",
-            "Name": "fd",
-            "Updated": "2023-03-01T22:42:44.6690898+02:00"
-        },
-        {
-            "Source": "main",
-            "Version": "6.0",
-            "Info": "",
-            "Name": "ffmpeg",
-            "Updated": "2023-03-01T22:42:56.4811158+02:00"
-        },
-        {
-            "Source": "main",
-            "Version": "0.40.0",
-            "Info": "",
-            "Name": "fzf",
-            "Updated": "2023-05-04T14:27:22.528981+03:00"
-        },
-        {
-            "Source": "main",
-            "Version": "2.29.0",
-            "Info": "",
-            "Name": "gh",
-            "Updated": "2023-05-11T14:29:57.5668733+03:00"
-        },
-        {
-            "Source": "main",
-            "Version": "2.40.1.windows.1",
-            "Info": "",
-            "Name": "git",
-            "Updated": "2023-04-26T20:30:43.7915321+03:00"
-        },
-        {
-            "Source": "main",
-            "Version": "5.4.2",
-            "Info": "",
-            "Name": "lua",
-            "Updated": "2022-12-07T14:51:28.1655371+02:00"
-        },
-        {
-            "Source": "main",
-            "Version": "12.2.0-rt_v10-rev2",
-            "Info": "",
-            "Name": "mingw",
-            "Updated": "2023-03-19T12:32:10.6932998+02:00"
-        },
-        {
-            "Source": "main",
-            "Version": "0.9.0",
-            "Info": "",
-            "Name": "neovim",
-            "Updated": "2023-04-07T16:00:23.0683318+03:00"
-        },
-        {
-            "Source": "main",
-            "Version": "20.1.0",
-            "Info": "",
-            "Name": "nodejs",
-            "Updated": "2023-05-04T14:27:32.1267007+03:00"
-        },
-        {
-            "Source": "main",
-            "Version": "16.4.0",
-            "Info": "",
-            "Name": "oh-my-posh",
-            "Updated": "2023-05-11T14:30:02.211524+03:00"
-        },
-        {
-            "Source": "main",
-            "Version": "3.11.3",
-            "Info": "",
-            "Name": "python",
-            "Updated": "2023-04-05T16:02:29.8997013+03:00"
-        },
-        {
-            "Source": "main",
-            "Version": "13.0.0",
-            "Info": "",
-            "Name": "ripgrep",
-            "Updated": "2022-11-10T13:04:49.0894002+02:00"
-        },
-        {
-            "Source": "main",
-            "Version": "1.26.0",
-            "Info": "",
-            "Name": "rustup",
-            "Updated": "2023-04-26T20:30:51.5162141+03:00"
-        },
-        {
-            "Source": "main",
-            "Version": "11.0.2",
-            "Info": "",
-            "Name": "topgrade",
-            "Updated": "2023-05-07T10:24:24.0636552+03:00"
-        },
-        {
-            "Source": "main",
-            "Version": "0.20.8",
-            "Info": "",
-            "Name": "tree-sitter",
-            "Updated": "2023-04-05T16:02:33.8991031+03:00"
+            "Name": "7zip"
         },
         {
             "Source": "extras",
+            "Updated": "2023-07-06T20:28:29.5722761+03:00",
+            "Version": "22.10.16.0",
+            "Info": "",
+            "Name": "archwsl"
+        },
+        {
+            "Source": "main",
+            "Updated": "2022-11-10T12:30:10.454882+02:00",
+            "Version": "1.36.0-1",
+            "Info": "",
+            "Name": "aria2"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-08-22T15:12:24.1019745+03:00",
+            "Version": "1.98",
+            "Info": "",
+            "Name": "cloc"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-08-24T18:01:59.0635577+03:00",
+            "Version": "3.27.4",
+            "Info": "",
+            "Name": "cmake"
+        },
+        {
+            "Source": "main",
+            "Updated": "2022-11-10T13:06:08.0805162+02:00",
+            "Version": "3.11.2",
+            "Info": "",
+            "Name": "dark"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-03-01T22:42:44.6690898+02:00",
+            "Version": "8.7.0",
+            "Info": "",
+            "Name": "fd"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-03-01T22:42:56.4811158+02:00",
+            "Version": "6.0",
+            "Info": "",
+            "Name": "ffmpeg"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-06-14T23:31:09.2820181+03:00",
+            "Version": "0.42.0",
+            "Info": "",
+            "Name": "fzf"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-08-22T15:12:30.2246641+03:00",
+            "Version": "2.33.0",
+            "Info": "",
+            "Name": "gh"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-08-31T17:55:02.7632776+03:00",
+            "Version": "2.42.0.2",
+            "Info": "",
+            "Name": "git"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-07-18T19:43:34.4003568+03:00",
+            "Version": "3.11",
+            "Info": "",
+            "Name": "grep"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-05-29T12:49:03.117289+03:00",
+            "Version": "r30",
+            "Info": "",
+            "Name": "lf"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-07-07T14:37:40.855713+03:00",
+            "Version": "16.0.6",
+            "Info": "",
+            "Name": "llvm"
+        },
+        {
+            "Source": "main",
+            "Updated": "2022-12-07T14:51:28.1655371+02:00",
+            "Version": "5.4.2",
+            "Info": "",
+            "Name": "lua"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-05-29T13:17:29.6885037+03:00",
+            "Version": "13.1.0-rt_v11-rev1",
+            "Info": "",
+            "Name": "mingw"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-05-29T19:01:59.3215807+03:00",
+            "Version": "0.9.1",
+            "Info": "",
+            "Name": "neovim"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-08-10T16:13:30.72951+03:00",
+            "Version": "20.5.1",
+            "Info": "",
+            "Name": "nodejs"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-08-31T17:55:08.2839439+03:00",
+            "Version": "18.6.1",
+            "Info": "",
+            "Name": "oh-my-posh"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-08-26T20:39:42.339756+03:00",
+            "Version": "3.11.5",
+            "Info": "",
+            "Name": "python"
+        },
+        {
+            "Source": "main",
+            "Updated": "2022-11-10T13:04:49.0894002+02:00",
+            "Version": "13.0.0",
+            "Info": "",
+            "Name": "ripgrep"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-04-26T20:30:51.5162141+03:00",
+            "Version": "1.26.0",
+            "Info": "",
+            "Name": "rustup"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-08-02T15:52:45.0588384+03:00",
+            "Version": "12.0.2",
+            "Info": "",
+            "Name": "topgrade"
+        },
+        {
+            "Source": "main",
+            "Updated": "2023-04-05T16:02:33.8991031+03:00",
+            "Version": "0.20.8",
+            "Info": "",
+            "Name": "tree-sitter"
+        },
+        {
+            "Source": "extras",
+            "Updated": "2023-08-27T21:01:54.938741+03:00",
+            "Version": "116.0.5845.111-1.1",
+            "Info": "",
+            "Name": "ungoogled-chromium"
+        },
+        {
+            "Source": "extras",
+            "Updated": "2022-12-07T14:52:51.9686514+02:00",
             "Version": "2020-10-11",
             "Info": "",
-            "Name": "universal-ctags",
-            "Updated": "2022-12-07T14:52:51.9686514+02:00"
+            "Name": "universal-ctags"
         },
         {
             "Source": "main",
-            "Version": "2.5.0",
+            "Updated": "2023-07-09T13:04:26.1001755+03:00",
+            "Version": "2.20",
             "Info": "",
-            "Name": "winfetch",
-            "Updated": "2023-02-01T20:28:35.1571728+02:00"
+            "Name": "which"
         },
         {
             "Source": "main",
+            "Updated": "2023-08-27T21:01:57.0544402+03:00",
+            "Version": "2.5.1",
+            "Info": "",
+            "Name": "winfetch"
+        },
+        {
+            "Source": "main",
+            "Updated": "2022-12-07T14:52:59.5084798+02:00",
             "Version": "2021.12.17",
             "Info": "",
-            "Name": "youtube-dl",
-            "Updated": "2022-12-07T14:52:59.5084798+02:00"
+            "Name": "youtube-dl"
         }
     ],
     "buckets": [
         {
             "Name": "extras",
             "Source": "https://github.com/ScoopInstaller/Extras",
-            "Updated": "2023-05-13T11:24:58+03:00",
-            "Manifests": 1865
+            "Updated": "2023-08-31T15:37:08+03:00",
+            "Manifests": 1891
         },
         {
             "Name": "java",
             "Source": "https://github.com/ScoopInstaller/Java",
-            "Updated": "2023-05-13T07:16:28+03:00",
+            "Updated": "2023-08-30T23:14:54+03:00",
             "Manifests": 253
         },
         {
             "Name": "main",
             "Source": "https://github.com/ScoopInstaller/Main",
-            "Updated": "2023-05-13T07:25:32+03:00",
-            "Manifests": 1197
+            "Updated": "2023-08-31T15:41:00+03:00",
+            "Manifests": 1226
         },
         {
             "Name": "versions",
             "Source": "https://github.com/ScoopInstaller/Versions",
-            "Updated": "2023-05-13T11:31:25+03:00",
-            "Manifests": 424
+            "Updated": "2023-08-31T15:45:52+03:00",
+            "Manifests": 428
         }
     ]
 }
