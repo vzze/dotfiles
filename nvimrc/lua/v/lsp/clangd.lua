@@ -17,4 +17,3 @@ V.lsp["clangd"] = {
         client.server_capabilities.semanticTokensProvider = nil
     end
 }
-

@@ -1,7 +1,6 @@
 local wrap = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true , true)
 end
-
 V.mappings.global = {
     normal = {
         ["t"]           = { name = "Tabs"                                                            },
@@ -36,12 +35,14 @@ V.mappings.global = {
         ["<leader>h"]   = { "<cmd>TSToggle highlight<CR>"                   , "Toggle TS Highlight"  },
         ["<leader>s"]   = { "<Plug>(leap-forward-to)"                       , "Leap Forward"         },
         ["<leader>S"]   = { "<Plug>(leap-backward-to)"                      , "Leap Backward"        },
+        ["<leader>r"]   = { "<cmd>lua require(\"persistence\").load()<cr>"  , "Restore Session"      },
         ["<leader>z"]   = { "<cmd>ZenMode<CR>"                              , "Toggle Zen Mode"      },
         ["<leader>p"]   = { "<cmd>Lazy<CR>"                                 , "Open Plugin Manager"  },
 
         ["<leader>u"]   = { name = "Update"                                                          },
         ["<leader>up"]  = { "<cmd>Lazy sync<CR>"                            , "Plugins"              },
         ["<leader>ut"]  = { "<cmd>TSUpdate all<CR>"                         , "Treesitter"           },
+        ["<leader>um"]  = { "<cmd>MasonUpdate<CR>"                          , "Mason"                },
 
         ["<leader>t"]   = { name = "Telescope"                                                       },
         ["<leader>tt"]  = { "<cmd>Telescope builtin<CR>"                    , "Open Telescope"       },

@@ -2,36 +2,36 @@ return {
     'goolord/alpha-nvim',
     config = function()
         local art = {
-            [[    `-'`                                ~;    ]],
-            [[     ~~~-`                           'x#@x    ]],
-            [[$####x~~~~;&###########W###########8NW@@#&###$]],
-            [[%%<ua8x"~~~~;a88888888$#&88888888NN#@@@$a8&a&%]],
-            [[%@+~~"*au"~~~~oN888888$W8888888&o%@@@$NNN8%W&%]],
-            [[%@&*~~~~:uo:~"<~+N8888$W88888&N%*$@8aa8#@@Wo@%]],
-            [[%#&8u"~~~~~+x<+~~~<N88$W888&N%@@*aaN$@@@@%a&@%]],
-            [[%x~:<**;~~~~*<x+~~~~<N$W8&N%@@#&ax*@@@@8aa&8&x]],
-            [[%@u~~~~:++:~+~~;o*"~~~+8o$@@%&a&#Nx@$No8#@@%8%]],
-            [[%#NN;~~~~~+u*<~~~:ou";a$+W$Na&W@@ooxa$@@@@&a@%]],
-            [[%#~;*u*;~~~+~+*;~~~+&#@&uNa&W@W8xNN*#@@$&x&&o%]],
-            [[%@o"~~~:<;;:<~~:++o#@@$Nao8@#&o8#@oa$ax8$@@8$%]],
-            [[%@NN;~~~~~*;*<~~~<#@%aa8W*Naa$@@#xuuxW@@@WNa@%]],
-            [[%W88$&+~~~:<~~<+;*WN&8W@NNa%@W8aN$Wo8@@#&&##@%]],
-            [[%W;~~";**+:<:~~~"uaN#@$aau&%Nx8W@@ax%8aa&$%$x%]],
-            [[%@&o"~~~~~<oo+"~~a8@%aa%%uox%@@@%&xoa$W@@@$x@%]],
-            [[%@&88o<~~~~*~"+u*x#Nx%@8o&uN@$&xN8&uW@@W$N&&@%]],
-            [[%@&+"";<<<<;<~~~"uo8@8x8#N*&x&8W@Woa$NxN88&u@%]],
-            [[%@&8x:~~~~~ouu+:~oW%xN##&axNW@@%8aox$W@@@8N&@%]],
-            [[%@&888x<~~~:<~:+ooNx%$NN&Nu%8&xN8$o&@@#8N88&@%]],
-            [[%@&8x"~:<<<;+<~~~u8$xN$@8axa&$W@Wxu8axN8$xN&@%]],
-            [[%@&888u"~~~~<*;;+uo&#$$NNuo@@%$Nxxa%@@@$N88&@%]],
-            [[%@&8888xou*;"+"~<o8&x&8#a*Nxx&$W8u%$8&aa888&@%]],
-            [[%@&8888&<~~:++a+uo&$%$&xoN%@W$$NaoN8$$a&888&@%]],
-            [[&@#%88888a*:~~;<o8NxN$8xu8axa88*a@@$&N8888$#@&]],
-            [[ `:o$W#$8xuuu*<ua$%$8axN&$W@%8x*xxxNNN$#W$x;' ]],
-            [[     ':o$W8u~~<o&xN8$8uxNaaNx*&@@@#$$$x;'     ]],
-            [[         ';x$&N8%#$8&NxN&88NoxxxxNu;'         ]],
-            [[            -ox*N#%$88$W&8$%W%*..-'           ]],
-            [[          `.'    .<a%WW@W#a<.      ```        ]],
+            [[  ";~~~~~~~~:~~~~~~~~~~~~::"~~~~~~~~~~~~:~~~~~~~~o   ]],
+            [[  "-       :N"           +a'           *a.       *   ]],
+            [[  "-     .oNuau.     -.`'<o-''~      "xxaN+`     *   ]],
+            [[  "-    `xaauaao`    <+:;+;+;+u     -aNoxNa*     *   ]],
+            [[  "-   "*<a<<<a<*"       <x        +<*x<<*a;u.   *   ]],
+            [[  "-   ~:"-   -":-      `::'       :~:'   "~<'   *   ]],
+            [[  "NNNNNNNNNNNNNNNNNNNNNNxuNNNNNNNNNNNNNNNNNNNNNNN   ]],
+            [[  "888888Nxa8xN+<"o888NxN. uax8Nxa8xN<;~x88888888&   ]],
+            [[  "888888o-~xx+:'.<:"<o*'   :x8o-~xx+:'.+::<N8888&   ]],
+            [[  "88888o*a;.'' `'u:*x88<   88xuN;.'` `'o:ua88888N   ]],
+            [[  -8888&u+<:<*o:'x8*'~&8<   8&u<<:;*u:.a8<':88888x   ]],
+            [[  `8888888a+&"-~ `oa<:88<   8888a<a".- 'xx:<88888+   ]],
+            [[   o88888ax+**a8+~~88N88<   8888N*ouNx'~&88u88888-   ]],
+            [[   ~88888~~uxxxx*:<xxxxx:   xxxxxxxxx+;uxu"-8888a    ]],
+            [[    u8&"`                                   `"&8-    ]],
+            [[    `N88N~.<*+**********"   **+**********+.-N88<     ]],
+            [[     'N88u8N"-aoo:.`*8&&<   8o~"&uu~' a8&88u88*      ]],
+            [[   `:"<&8888N~-;~.''+.<<<   88a~~:-.''+.<+888o:""    ]],
+            [[ ~:"uo-;&8N"-:'`~''<a~+N<   a"-"`.~'.uo-*&88x-;o<::. ]],
+            [[o`  :u. 'a88&x+N.- *8*-&<   88&&8<".`u&::88+  :u.  -a]],
+            [[~:"";.   `xx8o<+ua`'oa*8<   888<:;*o`:N8No;    ":"";`]],
+            [[     <'.` '<"a8888x-N888<   888&&88a:*8*'*  '':-     ]],
+            [[    `;<N8*"+  :a88888888<   888888888*. '+:x8o+~     ]],
+            [[   <~   ;N:     ~o8888a;'  `-*&888N<'    `ua~  `:"   ]],
+            [[   +'    `::'     ';x88N8~ x&&8&*~      -;~     -;   ]],
+            [[    ~;.   '.~"".     ':uN8N8x+-     `~":.~    ~:.    ]],
+            [[      -:"`';".--""""~~.''-"''.-~~"""~~`-;:..::'      ]],
+            [[        `""~-'~~;' :''--""~~~-'-'-""~--.~"".         ]],
+            [[            .~~~".''~"':;;-~:~ "---~"""~`            ]],
+            [[                 ."::::::"":::::::~`                 ]],
         }
 
         local dashboard = require("alpha.themes.dashboard")
@@ -59,7 +59,7 @@ return {
             if time.sec < 10 then middle = middle .. "0" .. time.sec
             else middle = middle .. time.sec end
 
-            final = middle .. final
+            final = middle .. " " .. final
 
             for _ = 1, (#art[1] - #middle) / 2 - #left, 1 do
                 final = " " .. final
@@ -79,13 +79,19 @@ return {
         end
 
         math.randomseed(os.time())
+
         dashboard.section.header.val = art
 
         dashboard.section.buttons.val = {
-            dashboard.button("r  ", "  Restore", "<cmd>lua require(\"persistence\").load()<cr>"),
-            dashboard.button("SPC t f  ", "  Files"),
-            dashboard.button("SPC t g  ", "  Grep Time"),
+            dashboard.button("SPC r"  , "Restore"),
+            dashboard.button("SPC t f", "Files"),
+            dashboard.button("SPC t g", "Grep Time"),
         }
+
+        for _, button in ipairs(dashboard.section.buttons.val) do
+            button.opts.cursor = 0
+            button.opts.width = #art[1]
+        end
 
         dashboard.section.header.opts.hl = "LineNr"
 
