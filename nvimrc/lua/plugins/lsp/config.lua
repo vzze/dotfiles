@@ -22,10 +22,18 @@ return {
                     capabilities = capabilities
                 }
 
-                if V.lsp[server] then
-                    for key, value in pairs(V.lsp[server]) do
-                        config[key] = value
+                local function copyObj(cfg, obj)
+                    for key, value in pairs(obj) do
+                        if type(value) == "table" and type(cfg[key]) == "table" then
+                            copyObj(cfg[key], value)
+                        else
+                            cfg[key] = value
+                        end
                     end
+                end
+
+                if V.lsp[server] then
+                    copyObj(config, V.lsp[server])
                 end
 
                 lspconfig[server].setup(config)

@@ -33,11 +33,12 @@ V.mappings.global = {
 
         ["<leader>"]    = { name = "V1602"                                                           },
         ["<leader>h"]   = { "<cmd>TSToggle highlight<CR>"                   , "Toggle TS Highlight"  },
-        ["<leader>s"]   = { "<Plug>(leap-forward-to)"                       , "Leap Forward"         },
-        ["<leader>S"]   = { "<Plug>(leap-backward-to)"                      , "Leap Backward"        },
+        ["m"]           = { "<Plug>(leap-forward-to)"                       , "Leap Forward"         },
+        ["M"]           = { "<Plug>(leap-backward-to)"                      , "Leap Backward"        },
         ["<leader>r"]   = { "<cmd>lua require(\"persistence\").load()<cr>"  , "Restore Session"      },
         ["<leader>z"]   = { "<cmd>ZenMode<CR>"                              , "Toggle Zen Mode"      },
         ["<leader>p"]   = { "<cmd>Lazy<CR>"                                 , "Open Plugin Manager"  },
+        ["<leader>m"]   = { "<cmd>Mason<CR>"                                , "Open Mason"           },
 
         ["<leader>u"]   = { name = "Update"                                                          },
         ["<leader>up"]  = { "<cmd>Lazy sync<CR>"                            , "Plugins"              },
@@ -60,8 +61,8 @@ V.mappings.global = {
     visual = {
         ["gc"]          = { ":CommentToggle<CR>"                            , "Comment Block"        },
 
-        ["<leader>s"]   = { "<Plug>(leap-forward-till)"                     , "Leap Forward"         },
-        ["<leader>S"]   = { "<Plug>(leap-backward-till)"                    , "Leap Backward"        }
+        ["m"]           = { "<Plug>(leap-forward-till)"                     , "Leap Forward"         },
+        ["M"]           = { "<Plug>(leap-backward-till)"                    , "Leap Backward"        }
     },
     terminal = {
         ["<Esc>"]       = { wrap("<C-\\><C-n>"), "Terminal Escape" }

@@ -13,6 +13,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         hi SignColumn ctermbg=NONE guibg=NONE                                             |
         hi Normal guibg=NONE ctermbg=NONE ctermfg=13 guifg=13                             |
         hi EndOfBuffer guibg=NONE ctermbg=NONE ctermfg=NONE guifg=NONE                    |
+        hi Cursor ctermfg=0 ctermbg=11                                                    |
         hi CursorWord cterm=underline gui=underline                                       |
         hi CursorLineNr cterm=NONE gui=NONE                                               |
         hi CursorLine cterm=none gui=none ctermbg=none ctermfg=none guibg=none guifg=none |
