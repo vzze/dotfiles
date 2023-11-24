@@ -2,36 +2,34 @@ return {
     'goolord/alpha-nvim',
     config = function()
         local art = {
-            [[  ";~~~~~~~~:~~~~~~~~~~~~::"~~~~~~~~~~~~:~~~~~~~~o   ]],
-            [[  "-       :N"           +a'           *a.       *   ]],
-            [[  "-     .oNuau.     -.`'<o-''~      "xxaN+`     *   ]],
-            [[  "-    `xaauaao`    <+:;+;+;+u     -aNoxNa*     *   ]],
-            [[  "-   "*<a<<<a<*"       <x        +<*x<<*a;u.   *   ]],
-            [[  "-   ~:"-   -":-      `::'       :~:'   "~<'   *   ]],
-            [[  "NNNNNNNNNNNNNNNNNNNNNNxuNNNNNNNNNNNNNNNNNNNNNNN   ]],
-            [[  "888888Nxa8xN+<"o888NxN. uax8Nxa8xN<;~x88888888&   ]],
-            [[  "888888o-~xx+:'.<:"<o*'   :x8o-~xx+:'.+::<N8888&   ]],
-            [[  "88888o*a;.'' `'u:*x88<   88xuN;.'` `'o:ua88888N   ]],
-            [[  -8888&u+<:<*o:'x8*'~&8<   8&u<<:;*u:.a8<':88888x   ]],
-            [[  `8888888a+&"-~ `oa<:88<   8888a<a".- 'xx:<88888+   ]],
-            [[   o88888ax+**a8+~~88N88<   8888N*ouNx'~&88u88888-   ]],
-            [[   ~88888~~uxxxx*:<xxxxx:   xxxxxxxxx+;uxu"-8888a    ]],
-            [[    u8&"`                                   `"&8-    ]],
-            [[    `N88N~.<*+**********"   **+**********+.-N88<     ]],
-            [[     'N88u8N"-aoo:.`*8&&<   8o~"&uu~' a8&88u88*      ]],
-            [[   `:"<&8888N~-;~.''+.<<<   88a~~:-.''+.<+888o:""    ]],
-            [[ ~:"uo-;&8N"-:'`~''<a~+N<   a"-"`.~'.uo-*&88x-;o<::. ]],
-            [[o`  :u. 'a88&x+N.- *8*-&<   88&&8<".`u&::88+  :u.  -a]],
-            [[~:"";.   `xx8o<+ua`'oa*8<   888<:;*o`:N8No;    ":"";`]],
-            [[     <'.` '<"a8888x-N888<   888&&88a:*8*'*  '':-     ]],
-            [[    `;<N8*"+  :a88888888<   888888888*. '+:x8o+~     ]],
-            [[   <~   ;N:     ~o8888a;'  `-*&888N<'    `ua~  `:"   ]],
-            [[   +'    `::'     ';x88N8~ x&&8&*~      -;~     -;   ]],
-            [[    ~;.   '.~"".     ':uN8N8x+-     `~":.~    ~:.    ]],
-            [[      -:"`';".--""""~~.''-"''.-~~"""~~`-;:..::'      ]],
-            [[        `""~-'~~;' :''--""~~~-'-'-""~--.~"".         ]],
-            [[            .~~~".''~"':;;-~:~ "---~"""~`            ]],
-            [[                 ."::::::"":::::::~`                 ]],
+            [[                                               aN$8Nx                                       ]],
+            [[                                             o%%$%$%%$o                                     ]],
+            [[                                            *N&N$8o&%%x                                     ]],
+            [[                                            *$ao#WNN%$u                                     ]],
+            [[                                            o8aW%##N&&*                                     ]],
+            [[                                           *oou*u##+NN*                                     ]],
+            [[                                         *+*uu++o#%++*++*                                   ]],
+            [[                         oox           *++u+u*u*8@@u*uu**+                           ox&&   ]],
+            [[                    ***uo8W%$o*       ++uuuu++<oxuu+++*uuu<*            ,,       a&8%#W@@@o*]],
+            [[         x8a  *++++++<<**oa&8uu***  *+*uuu+****W@@x+*+<uuuu+*          N$#$o  &$#$W@@@@@@@@N]],
+            [[       x%@@W%$o*+   "+ + +   ***uuuu++uu*+<uuu8@@@*uuu<+*uuu*+    ****<#W%$%@W#@W8@@@@@@%8ao]],
+            [[     x$@@@@@%WWo*< +  *  <      ++*uuu*+ <*uuN@@@8uuu*+ *+uuu++**uuuuu*< a%$###@@#%@%&x     ]],
+            [[   x%@@@@@@@@$W$*$8N$&a  <         *++*  *++%@@@@%&a+<u   +*u*uuu** *$ $%a#$$Nauuou*        ]],
+            [[*a%@@@@@@@@@@WWW%8$%W%@N*+                ,u@@@@@@@W+*      *****  o&@8@@@$@@$x             ]],
+            [[ $@@@@@@@@@#@@@@#8%#$W@@8$               +;::<*oN$W$               a#@%W@@%W@%W#a*          ]],
+            [[  $@@@@@@%%@@@@$%#@@$W%%@@              "...'''...::"                &@@W#@W#$W@@#a         ]],
+            [[   #@@@%%@@@WN 8@@@@8@@@@@o            <'..::.''....-                 o#@@@@@@#%@@@#x       ]],
+            [[    W##@@@WN   oW@@@8@@@@@&            *&%W@@@#&o"..-                   $@@@@@@@$W@@@       ]],
+            [[    oN#@@&      o@@@$@@@@@%*           *@@@@@@@@@@$--                    *oa&%W@@%#@a       ]],
+            [[      "No        x@@@@@@@@@o            &@@%8$%$W@@8*                         *oNNao        ]],
+            [[                  x@@@@@@@@$*           *+uaNNx-xN%&                                        ]],
+            [[                   o$%8Naxo              x@@@@@&#8x"                                        ]],
+            [[                                          ox*++xW@%*                                        ]],
+            [[                                          *xW@@oo*<                                         ]],
+            [[                                           u@@@8@&u                                         ]],
+            [[                                           +a8$N%*                                          ]],
+            [[                                           '...'~+                                          ]],
+            [[                                           .'''''                                           ]],
         }
 
         local dashboard = require("alpha.themes.dashboard")
@@ -59,7 +57,7 @@ return {
             if time.sec < 10 then middle = middle .. "0" .. time.sec
             else middle = middle .. time.sec end
 
-            final = middle .. " " .. final
+            final = middle .. final
 
             for _ = 1, (#art[1] - #middle) / 2 - #left, 1 do
                 final = " " .. final
@@ -82,10 +80,20 @@ return {
 
         dashboard.section.header.val = art
 
+        local custom_button = dashboard.button("vVv", "vVv")
+
+        custom_button.on_press = function()
+            print("V1602 by edi with much love")
+        end
+
         dashboard.section.buttons.val = {
+            dashboard.button("CR"  , "New File", "<cmd>ene<CR>"),
             dashboard.button("SPC r"  , "Restore"),
             dashboard.button("SPC t f", "Files"),
             dashboard.button("SPC t g", "Grep Time"),
+            dashboard.button("SPC p", "Plugins"),
+            dashboard.button("SPC m", "Mason"),
+            custom_button
         }
 
         for _, button in ipairs(dashboard.section.buttons.val) do
