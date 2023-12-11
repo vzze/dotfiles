@@ -1,21 +1,8 @@
 Import-Module PSColor
 
-oh-my-posh init pwsh --config ~/.config/posh/ys.omp.json | Invoke-Expression
+oh-my-posh init pwsh --config ~/Documents/PowerShell/ys.omp.json | Invoke-Expression
 
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
-
-function touch {
-    param(
-        [Parameter(Mandatory=$true)]
-        [String]$path
-    )
-
-    if (Test-Path -LiteralPath $path) {
-        (Get-Item -Path $path).LastWriteTime = Get-Date
-    } else {
-        New-Item -Force -Type File -Path $path
-    }
-}
 
 function video_get_chunk {
     param(

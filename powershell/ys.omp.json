@@ -3,6 +3,21 @@
     "blocks": [
         {
             "alignment": "left",
+            "segments": [
+                {
+                    "foreground": "white",
+                    "properties": {
+                        "fetch_version": false
+                    },
+                    "style": "plain",
+                    "template": "({{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }})",
+                    "type": "python"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
             "newline": true,
             "segments": [
                 {
@@ -11,30 +26,34 @@
                     "type": "session"
                 },
                 {
-                    "foreground": "lightCyan",
+                    "foreground": "lightYellow",
                     "style": "plain",
                     "properties": {
                         "style": "folder"
                     },
+                    "style": "plain",
                     "template": "<darkGray>: </>{{ .Path }} ",
                     "type": "path"
                 },
                 {
                     "style": "plain",
-                    "template": "<white>git:</>{{ .HEAD }} ",
-                    "type": "git"
-                },
-                {
-                    "foreground": "red",
-                    "style": "plain",
-                    "template": " C:{{ if gt .Code 0 }}{{ .Code }}{{ end }} ",
-                    "type": "exit"
+                    "template": "<white></>{{ .HEAD }} ",
+                    "type": "git",
+                    "properties": {
+                        "fetch_status": true
+                    }
                 },
                 {
                     "foreground": "darkGray",
                     "style": "plain",
                     "template": "{{ .CurrentDate | date .Format }}",
                     "type": "time"
+                },
+                {
+                    "foreground": "red",
+                    "style": "plain",
+                    "template": " C:{{ if gt .Code 0 }}{{ .Code }}{{ end }} ",
+                    "type": "status"
                 }
             ],
             "type": "prompt"
