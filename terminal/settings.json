@@ -1,8 +1,24 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
-    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "$schema": "https://aka.ms/terminal-profiles-schema-preview",
     "actions": 
     [
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+c"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
         {
             "command": 
             {
@@ -11,25 +27,8 @@
                 "splitMode": "duplicate"
             },
             "keys": "alt+shift+d"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+c"
         }
     ],
-    "alwaysShowTabs": true,
     "copyFormatting": "none",
     "copyOnSelect": true,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
@@ -43,6 +42,7 @@
     {
         "defaults": 
         {
+            "adjustIndistinguishableColors": "always",
             "colorScheme": "FCC0FF",
             "elevate": true,
             "font": 
@@ -51,8 +51,7 @@
             },
             "opacity": 50,
             "suppressApplicationTitle": true,
-            "useAcrylic": true,
-            "useAtlasEngine": true
+            "useAcrylic": true
         },
         "list": 
         [
@@ -69,40 +68,42 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "colorScheme": "FCC0FF",
-                "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe -NoLogo",
+                "commandline": "C:\\Users\\edi\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.PowerShellPreview_8wekyb3d8bbwe\\pwsh.exe -NoLogo",
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
-                "icon": "C:\\\\Program Files\\\\PowerShell\\\\7\\\\assets\\\\Powershell_av_colors.ico",
-                "name": "PowerShell Core",
-                "opacity": 50,
+                "name": "PowerShell",
                 "source": "Windows.Terminal.PowershellCore",
-                "tabTitle": "Power",
-                "useAcrylic": true
+                "tabTitle": "Power"
             },
             {
-                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
-                "hidden": true,
-                "name": "Visual Studio Debug Console",
-                "source": "VSDebugConsole"
-            },
-            {
-                "guid": "{17bf3de4-5353-5709-bcf9-835bd952a95e}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{61038ebf-39d6-5908-9007-a8ea3daf8e8c}",
+                "guid": "{9d6d077a-c6a6-5ac1-a3d4-bacb73c7911a}",
                 "hidden": false,
                 "name": "Developer Command Prompt for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{c2004377-6b36-5c26-967b-5e8e834186d7}",
+                "guid": "{c13ca8c0-6272-571a-9188-cb5776bb664e}",
                 "hidden": false,
                 "name": "Developer PowerShell for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
+            },
+            {
+                "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
+                "hidden": false,
+                "name": "Arch",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "hidden": true,
+                "name": "Ubuntu",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
@@ -178,29 +179,6 @@
             "yellow": "#FA8DFF"
         },
         {
-            "background": "#120D0A",
-            "black": "#565348",
-            "blue": "#3E51B4",
-            "brightBlack": "#726E5F",
-            "brightBlue": "#5E6FC7",
-            "brightCyan": "#84B9D4",
-            "brightGreen": "#B9D484",
-            "brightPurple": "#D484B9",
-            "brightRed": "#BA8184",
-            "brightWhite": "#E9E4D0",
-            "brightYellow": "#E1D8AA",
-            "cursorColor": "#E9E4D0",
-            "cyan": "#5EA3C7",
-            "foreground": "#E9E4D0",
-            "green": "#A3C75E",
-            "name": "Nier",
-            "purple": "#C75EA3",
-            "red": "#A86064",
-            "selectionBackground": "#E9E4D0",
-            "white": "#D9D0AD",
-            "yellow": "#D4C784"
-        },
-        {
             "background": "#282C34",
             "black": "#282C34",
             "blue": "#61AFEF",
@@ -242,7 +220,7 @@
             "name": "One Half Light",
             "purple": "#A626A4",
             "red": "#E45649",
-            "selectionBackground": "#FFFFFF",
+            "selectionBackground": "#4F525D",
             "white": "#FAFAFA",
             "yellow": "#C18301"
         },
@@ -288,7 +266,7 @@
             "name": "Solarized Light",
             "purple": "#D33682",
             "red": "#DC322F",
-            "selectionBackground": "#FFFFFF",
+            "selectionBackground": "#073642",
             "white": "#EEE8D5",
             "yellow": "#B58900"
         },
@@ -334,32 +312,9 @@
             "name": "Tango Light",
             "purple": "#75507B",
             "red": "#CC0000",
-            "selectionBackground": "#FFFFFF",
+            "selectionBackground": "#555753",
             "white": "#D3D7CF",
             "yellow": "#C4A000"
-        },
-        {
-            "background": "#300A24",
-            "black": "#171421",
-            "blue": "#0037DA",
-            "brightBlack": "#767676",
-            "brightBlue": "#08458F",
-            "brightCyan": "#2C9FB3",
-            "brightGreen": "#26A269",
-            "brightPurple": "#A347BA",
-            "brightRed": "#C01C28",
-            "brightWhite": "#F2F2F2",
-            "brightYellow": "#A2734C",
-            "cursorColor": "#FFFFFF",
-            "cyan": "#3A96DD",
-            "foreground": "#FFFFFF",
-            "green": "#26A269",
-            "name": "Ubuntu-22.04-ColorScheme",
-            "purple": "#881798",
-            "red": "#C21A23",
-            "selectionBackground": "#FFFFFF",
-            "white": "#CCCCCC",
-            "yellow": "#A2734C"
         },
         {
             "background": "#300A24",
@@ -408,7 +363,6 @@
             "yellow": "#808000"
         }
     ],
-    "startOnUserLogin": true,
     "themes": [],
     "useAcrylicInTabRow": true
 }
