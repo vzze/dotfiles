@@ -1,7 +1,5 @@
 vim.loader.enable();
 
-_Internal = {}
-
 require("v")
 require("v.add_pairs")
 require("v.splash_screen")

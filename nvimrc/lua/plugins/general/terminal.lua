@@ -1,11 +1,17 @@
 return {
-    'numToStr/FTerm.nvim',
+    "numToStr/FTerm.nvim",
     lazy = true,
     config = function()
-        if vim.fn.has("unix") == 1 then
-            require("FTerm").setup({ cmd = V.terminal.unix })
-        elseif vim.fn.has("win32") == 1 then
-            require("FTerm").setup({ cmd = V.terminal.windows })
+        local osShell = function()
+            if vim.fn.has("win32") == 1 then
+                return V.terminal.windows
+            else
+                return V.terminal.unix
+            end
         end
+
+        require("FTerm").setup({
+            cmd = osShell()
+        })
     end
 }

@@ -1,6 +1,3 @@
-vim.api.nvim_set_var("cursorword_disable_at_startup" , false)
-vim.api.nvim_set_var("cursorword_min_width"          , 2    )
-
 for key, value in pairs(V.providers) do
     if value == true then
         vim.api.nvim_set_var("loaded_" .. key .. "_provider", 1)
