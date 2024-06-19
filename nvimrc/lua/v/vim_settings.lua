@@ -31,5 +31,6 @@ V.vim_settings = {
     foldlevelstart = -1,
     foldcolumn = "1",
     laststatus = 1,
-    hidden = false
+    hidden = false,
+    termguicolors = false
 }

@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd("ColorScheme", {
     command = [[
-        hi Pmenu guibg=NONE ctermbg=NONE ctermfg=3 guifg=3                                |
-        hi PmenuSel guibg=NONE ctermbg=NONE ctermfg=10 guifg=10                           |
+        hi Pmenu cterm=NONE guibg=NONE ctermbg=NONE ctermfg=3 guifg=3                     |
+        hi PmenuSel cterm=NONE guibg=NONE ctermbg=NONE ctermfg=10 guifg=10                |
         hi PmenuSbar guibg=NONE ctermbg=NONE ctermfg=NONE guifg=NONE                      |
         hi PmenuThumb guibg=5 ctermbg=5 ctermfg=5 guifg=5                                 |
         hi Conceal guibg=NONE ctermbg=NONE ctermfg=1 guifg=1                              |
