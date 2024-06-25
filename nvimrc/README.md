@@ -8,10 +8,6 @@
 
 You can edit some of the features through the `lua/config.lua` file.
 ```lua
-V.terminal.unix = "bash"
-V.terminal.windows = "pwsh.exe"
-
-V.add_pairs = {
-    { "<", ">", before="%a" }
-}
+V.terminal.linux = "zsh"
+V.terminal.win32 = "pwsh.exe"
 ```
