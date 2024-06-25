@@ -1,0 +1,35 @@
+[window]
+opacity = 0.8
+padding = { x = 4, y = 4 }
+
+[font]
+normal = { family = "Cartograph CF", style="Regular" }
+italic = { family = "Cartograph CF", style="Italic" }
+
+[colors.primary]
+background = '#1f1c21'
+foreground = '#dbdbdb'
+
+[colors.cursor]
+text = '#ffffff'
+cursor = '#ffffff'
+
+[colors.normal]
+black   = '#7b7b7b'
+red     = '#ff4f5f'
+green   = '#87ffaf'
+yellow  = '#fcc0ff'
+blue    = '#c0e3ff'
+magenta = '#edd5ff'
+cyan    = '#91fdff'
+white   = '#ffffff'
+
+[colors.bright]
+black   = '#616161'
+red     = '#ff1c31'
+green   = '#54ff8d'
+yellow  = '#fa8dff'
+blue    = '#8dccff'
+magenta = '#d7a2ff'
+cyan    = '#5efcff'
+white   = '#e6e6e6'

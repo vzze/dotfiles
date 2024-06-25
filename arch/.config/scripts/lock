@@ -1,0 +1,35 @@
+#!/bin/sh
+
+BLANK='#00000000'
+TEXT='#fcc0ff'
+
+i3lock \
+--insidever-color=$BLANK     \
+--ringver-color=$BLANK       \
+\
+--insidewrong-color=$BLANK   \
+--ringwrong-color=$BLANK     \
+\
+--inside-color=$BLANK        \
+--ring-color=$BLANK          \
+--line-color=$BLANK          \
+--separator-color=$BLANK     \
+\
+--verif-color=$BLANK         \
+--wrong-color=$TEXT          \
+--time-color=$TEXT           \
+--date-color=$TEXT           \
+--layout-color=$TEXT         \
+--keyhl-color=$BLANK         \
+--bshl-color=$BLANK          \
+\
+--screen 1                   \
+--blur 9                     \
+--clock                      \
+\
+--time-font=Cartograph\ CF    \
+--date-font=Cartograph\ CF    \
+--layout-font=Cartograph\ CF  \
+--verif-font=Cartograph\ CF   \
+--wrong-font=Cartograph\ CF   \
+--greeter-font=Cartograph\ CF \
