@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-fill '/home/edi/.config/feh/wallpaper2.jpg' 
