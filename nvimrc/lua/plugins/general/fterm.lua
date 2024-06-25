@@ -4,9 +4,9 @@ return {
     config = function()
         local osShell = function()
             if vim.fn.has("win32") == 1 then
-                return V.terminal.windows
+                return V.terminal.win32
             else
-                return V.terminal.unix
+                return V.terminal.linux
             end
         end
 

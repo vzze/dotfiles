@@ -2,19 +2,23 @@ return {
     'nvim-lualine/lualine.nvim',
     config = function()
         local git_status = function()
+            vim.api.nvim_command([[set laststatus=1]])
+
             if vim.b.gitsigns_status ~= '' then
                 return vim.b.gitsigns_head .. ': ' .. vim.b.gitsigns_status
             end
+
             if vim.b.gitsigns_head then
                 return vim.b.gitsigns_head
             end
+
             return ''
         end
 
         require('lualine').setup({
             options = {
                 icons_enabled = false,
-                theme = V.lualine.pinky,
+                theme = V.statusline.monokai,
                 component_separators = { left = '', right = '' },
                 section_separators = { left = '', right = '' },
                 disabled_filetypes = {

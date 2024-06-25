@@ -1,4 +1,4 @@
-V.lualine.pinky = {
+V.statusline.fcc0ff = {
     ["normal"] = {
         ["a"] = { ["fg"] = "#1f1c21", ["bg"] = "#fcc0ff" },
         ["b"] = { ["fg"] = "#fcc0ff", ["bg"] = ""        },

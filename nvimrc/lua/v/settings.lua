@@ -1,4 +1,4 @@
-V.vim_settings = {
+V.settings = {
     number = true,
     relativenumber = true,
     expandtab = true,
@@ -32,5 +32,5 @@ V.vim_settings = {
     foldcolumn = "1",
     laststatus = 1,
     hidden = false,
-    termguicolors = false
+    termguicolors = true
 }

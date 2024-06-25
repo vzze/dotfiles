@@ -1,6 +1,6 @@
 return {
     require("plugins.general.neotree"),
-    require("plugins.general.statusline"),
-    require("plugins.general.terminal"),
-    require("plugins.general.which-key")
+    require("plugins.general.lualine"),
+    require("plugins.general.fterm"),
+    require("plugins.general.whichkey")
 }

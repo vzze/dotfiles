@@ -1,1 +1,0 @@
-V.colorscheme = "default"

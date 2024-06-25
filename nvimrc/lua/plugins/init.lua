@@ -4,5 +4,5 @@ return {
     require("plugins.general"),
     require("plugins.git"),
     require("plugins.view"),
-    require("plugins.lsp"),
+    require("plugins.lsp")
 }

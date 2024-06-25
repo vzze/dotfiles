@@ -1,4 +1,4 @@
-V.lualine.nier = {
+V.statusline.nier = {
     ["normal"] = {
         ["a"] = { ["fg"] = "#120d0a", ["bg"] = "#e1d8aa" },
         ["b"] = { ["fg"] = "#e1d8aa", ["bg"] = ""        },
