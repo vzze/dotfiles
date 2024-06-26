@@ -1,5 +1,6 @@
 return {
     'goolord/alpha-nvim',
+    priority = 40,
     config = function()
         local art = {
             [[                                               aN$8Nx                                       ]],
@@ -102,6 +103,9 @@ return {
         end
 
         dashboard.section.header.opts.hl = "LineNr"
+
+        vim.api.nvim_command([[autocmd User AlphaReady  set showtabline=0]])
+        vim.api.nvim_command([[autocmd User AlphaClosed set showtabline=2]])
 
         require("alpha").setup(dashboard.config)
     end
