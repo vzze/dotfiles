@@ -1,6 +1,5 @@
 return {
     'goolord/alpha-nvim',
-    priority = 40,
     config = function()
         local art = {
             [[                                               aN$8Nx                                       ]],
