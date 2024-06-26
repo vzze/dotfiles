@@ -177,7 +177,7 @@ default_floating_border none
 gaps inner 10
 gaps outer 10
 
-bindsym Print exec ksnip -r
+bindsym Print exec --no-startup-id ~/.config/scripts/screenshot.sh
 
 set $bgcolor    #1F1C21
 set $in-text    #FCC0FF
@@ -187,7 +187,7 @@ set $indicator  #FCC0FF
 
 set $u-text     #FF4F5F
 
-#                       border          background      text            indicator (a line which shows where the next window will be placed)     
+#                       border          background      text            indicator (a line which shows where the next window will be placed)
 client.focused          $bgcolor        $bgcolor        $in-text        $indicator
 client.unfocused        $bgcolor        $bgcolor        $text           $bgcolor
 client.focused_inactive $bgcolor        $bgcolor        $text           $bgcolor
