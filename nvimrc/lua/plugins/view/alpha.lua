@@ -87,12 +87,12 @@ return {
         end
 
         dashboard.section.buttons.val = {
-            dashboard.button("CR"  , "New File", "<cmd>ene<CR>"),
-            dashboard.button("SPC r"  , "Restore"),
-            dashboard.button("SPC t f", "Files"),
-            dashboard.button("SPC t g", "Grep Time"),
-            dashboard.button("SPC p", "Plugins"),
-            dashboard.button("SPC m", "Mason"),
+            dashboard.button("CR"    , "New File", "<cmd>ene<CR>"),
+            dashboard.button("\\ r"  , "Restore"),
+            dashboard.button("\\ t f", "Files"),
+            dashboard.button("\\ t g", "Grep Time"),
+            dashboard.button("\\ p"  , "Plugins"),
+            dashboard.button("\\ m"  , "Mason"),
             custom_button
         }
 
