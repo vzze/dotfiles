@@ -3,12 +3,12 @@ return {
     event = "VeryLazy",
     config = function()
         require('gitsigns').setup({
-            on_attach = function(bufnr)
+            -- same explanation as in plugins.lsp.config
+            -- as to why i cant use bufnr for jack
+            on_attach = function(_ --[[bufnr]])
                 local wk = require("which-key")
-                wk.register(V.mappings.git.normal  , { mode = "n", prefix = "", buffer = bufnr, silent = true, noremap = true, nowait = false })
-                wk.register(V.mappings.git.visual  , { mode = "v", prefix = "", buffer = bufnr, silent = true, noremap = true, nowait = false })
-                wk.register(V.mappings.git.insert  , { mode = "i", prefix = "", buffer = bufnr, silent = true, noremap = true, nowait = false })
-                wk.register(V.mappings.git.terminal, { mode = "t", prefix = "", buffer = bufnr, silent = true, noremap = true, nowait = false })
+
+                wk.add(V.mappings.git)
             end
         })
     end
