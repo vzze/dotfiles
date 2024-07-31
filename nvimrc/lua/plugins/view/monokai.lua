@@ -53,34 +53,35 @@ return {
 	V.statusline.monokai = {
             normal = {
                 a = { fg = colors.base.black                , bg = colors.base.yellow },
-                b = { fg = colors.base.yellow               , bg = ""                 },
-                c = { fg = colors.statusBar.activeForeground, bg = ""                 },
+                b = { fg = colors.statusBar.white           , bg = ""                 },
+                c = { fg = colors.statusBar.white           , bg = ""                 },
                 x = { fg = colors.statusBar.activeForeground, bg = ""                 }
             },
 
             insert = {
                 a = { bg = colors.base.green  , fg = colors.base.black   },
-                b = { bg = ""                 , fg = colors.base.green   },
+                b = { bg = ""                 , fg = colors.base.green   }
             },
 
             command = {
-                a = { bg = colors.base.yellow , fg = colors.base.black   },
-                b = { bg = ""                 , fg = colors.base.yellow  },
+                a = { bg = colors.base.red    , fg = colors.base.black   },
+                b = { bg = ""                 , fg = colors.base.red     }
             },
 
             visual = {
                 a = { bg = colors.base.magenta, fg = colors.base.black   },
-                b = { bg = ""                 , fg = colors.base.magenta },
+                b = { bg = ""                 , fg = colors.base.magenta }
             },
 
             replace = {
-                a = { bg = colors.base.red    , fg = colors.base.black   },
-                b = { bg = ""                 , fg = colors.base.red     },
+                a = { bg = colors.base.cyan   , fg = colors.base.black   },
+                b = { bg = ""                 , fg = colors.base.cyan    }
             },
 
             inactive = {
-                a = { fg = colors.base.yellow, bg = "" },
-                b = { fg = colors.base.black , bg = "" },
+                a = { fg = colors.base.yellow               , bg = "" },
+                b = { fg = colors.statusBar.activeForeground, bg = "" },
+                c = { fg = colors.statusBar.activeForeground, bg = "" }
             }
 	}
     end
