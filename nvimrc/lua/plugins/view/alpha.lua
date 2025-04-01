@@ -20,11 +20,11 @@ return {
 
             local final  = ""
 
-            if time.hour < 10 then middle = middle .. "0" .. time.hour .. ':'
-            else middle = middle .. time.hour .. ':' end
+            if time.hour < 10 then middle = middle .. "0" .. time.hour .. ":"
+            else middle = middle .. time.hour .. ":" end
 
-            if time.min < 10 then middle = middle .. "0" .. time.min .. ':'
-            else middle = middle .. time.min .. ':' end
+            if time.min < 10 then middle = middle .. "0" .. time.min .. ":"
+            else middle = middle .. time.min .. ":" end
 
             if time.sec < 10 then middle = middle .. "0" .. time.sec
             else middle = middle .. time.sec end
@@ -61,8 +61,8 @@ return {
         dashboard.section.buttons.val = {
             dashboard.button("CR"     , "New File", "<cmd>ene<CR>"),
             dashboard.button("spc r"  , "Restore"),
-            dashboard.button("spc t f", "Files"),
-            dashboard.button("spc t g", "Grep Time"),
+            dashboard.button("spc s f", "Files"),
+            dashboard.button("spc s g", "Grep Time"),
             dashboard.button("spc p"  , "Plugins"),
             dashboard.button("spc m"  , "Mason"),
             custom_button
