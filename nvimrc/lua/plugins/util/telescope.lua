@@ -1,5 +1,4 @@
 return {
-    'nvim-telescope/telescope.nvim',
-    lazy = true,
+    "nvim-telescope/telescope.nvim",
     cmd = "Telescope"
 }

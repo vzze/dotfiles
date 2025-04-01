@@ -1,40 +1,11 @@
 return {
-    'goolord/alpha-nvim',
+    "goolord/alpha-nvim",
     config = function()
-        local art = {
-            [[                                               aN$8Nx                                       ]],
-            [[                                             o%%$%$%%$o                                     ]],
-            [[                                            *N&N$8o&%%x                                     ]],
-            [[                                            *$ao#WNN%$u                                     ]],
-            [[                                            o8aW%##N&&*                                     ]],
-            [[                                           *oou*u##+NN*                                     ]],
-            [[                                         *+*uu++o#%++*++*                                   ]],
-            [[                         oox           *++u+u*u*8@@u*uu**+                           ox&&   ]],
-            [[                    ***uo8W%$o*       ++uuuu++<oxuu+++*uuu<*            ,,       a&8%#W@@@o*]],
-            [[         x8a  *++++++<<**oa&8uu***  *+*uuu+****W@@x+*+<uuuu+*          N$#$o  &$#$W@@@@@@@@N]],
-            [[       x%@@W%$o*+   "+ + +   ***uuuu++uu*+<uuu8@@@*uuu<+*uuu*+    ****<#W%$%@W#@W8@@@@@@%8ao]],
-            [[     x$@@@@@%WWo*< +  *  <      ++*uuu*+ <*uuN@@@8uuu*+ *+uuu++**uuuuu*< a%$###@@#%@%&x     ]],
-            [[   x%@@@@@@@@$W$*$8N$&a  <         *++*  *++%@@@@%&a+<u   +*u*uuu** *$ $%a#$$Nauuou*        ]],
-            [[*a%@@@@@@@@@@WWW%8$%W%@N*+                ,u@@@@@@@W+*      *****  o&@8@@@$@@$x             ]],
-            [[ $@@@@@@@@@#@@@@#8%#$W@@8$               +;::<*oN$W$               a#@%W@@%W@%W#a*          ]],
-            [[  $@@@@@@%%@@@@$%#@@$W%%@@              "...'''...::"                &@@W#@W#$W@@#a         ]],
-            [[   #@@@%%@@@WN 8@@@@8@@@@@o            <'..::.''....-                 o#@@@@@@#%@@@#x       ]],
-            [[    W##@@@WN   oW@@@8@@@@@&            *&%W@@@#&o"..-                   $@@@@@@@$W@@@       ]],
-            [[    oN#@@&      o@@@$@@@@@%*           *@@@@@@@@@@$--                    *oa&%W@@%#@a       ]],
-            [[      "No        x@@@@@@@@@o            &@@%8$%$W@@8*                         *oNNao        ]],
-            [[                  x@@@@@@@@$*           *+uaNNx-xN%&                                        ]],
-            [[                   o$%8Naxo              x@@@@@&#8x"                                        ]],
-            [[                                          ox*++xW@%*                                        ]],
-            [[                                          *xW@@oo*<                                         ]],
-            [[                                           u@@@8@&u                                         ]],
-            [[                                           +a8$N%*                                          ]],
-            [[                                           '...'~+                                          ]],
-            [[                                           .'''''                                           ]],
-        }
-
         local dashboard = require("alpha.themes.dashboard")
 
-        if V.greeter.info == true then
+        local art = V.art.power
+
+        if V.art.greeter.info then
             local time = os.date("*t")
 
             local left   = "V1602 "
@@ -42,8 +13,9 @@ return {
             local right
 
             right = "Plugins: " .. tostring(
-                #require("plugins.misc") + #require("plugins.util") + #require("plugins.general") +
+                #require("plugins.util") + #require("plugins.general") +
                 #require("plugins.git") + #require("plugins.view") + #require("plugins.lsp")
+                + 1 -- to account for lazy.nvim
             )
 
             local final  = ""
@@ -69,7 +41,7 @@ return {
                 final = final .. " "
             end
 
-            for _ = 1, V.greeter.separator, 1 do
+            for _ = 1, V.art.greeter.separator, 1 do
                 table.insert(art, #art + 1, [[]])
             end
 
@@ -87,12 +59,12 @@ return {
         end
 
         dashboard.section.buttons.val = {
-            dashboard.button("CR"    , "New File", "<cmd>ene<CR>"),
-            dashboard.button("\\ r"  , "Restore"),
-            dashboard.button("\\ t f", "Files"),
-            dashboard.button("\\ t g", "Grep Time"),
-            dashboard.button("\\ p"  , "Plugins"),
-            dashboard.button("\\ m"  , "Mason"),
+            dashboard.button("CR"     , "New File", "<cmd>ene<CR>"),
+            dashboard.button("spc r"  , "Restore"),
+            dashboard.button("spc t f", "Files"),
+            dashboard.button("spc t g", "Grep Time"),
+            dashboard.button("spc p"  , "Plugins"),
+            dashboard.button("spc m"  , "Mason"),
             custom_button
         }
 
@@ -103,9 +75,20 @@ return {
 
         dashboard.section.header.opts.hl = "LineNr"
 
-        vim.api.nvim_command([[autocmd User AlphaReady  set showtabline=0]])
-        vim.api.nvim_command([[autocmd User AlphaClosed set showtabline=2]])
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "AlphaReady",
+            callback = function()
+                vim.opt.showtabline = 0
+            end
+        })
+
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "AlphaClosed",
+            callback = function()
+                vim.opt.showtabline = 2
+            end
+        })
 
         require("alpha").setup(dashboard.config)
     end
-};
+}

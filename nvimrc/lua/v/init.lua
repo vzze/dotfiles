@@ -1,51 +1,39 @@
 V = {}
 
-require("v.settings")
-require("v.providers")
 require("v.bootstrap")
-require("v.statusline")
 require("v.mappings")
-require("v.lsp")
+require("v.settings")
+require("v.terminal")
 require("v.lazy")
+require("v.lsp")
+require("v.art")
 
-V.colorscheme = "monokai-pro"
-
-V.terminal = {
-    win32 = "pwsh.exe",
-    linux = "zsh"
-}
-
-V.greeter = {
-    info = true,
-    separator = 1
-}
+require("config")
 
 V.init = function()
+    vim.diagnostic.config(V.lsp.diagnostics)
+
     for key, value in pairs(V.providers) do
-        if value == true then
-            vim.api.nvim_set_var("loaded_" .. key .. "_provider", 1)
-        else
-            vim.api.nvim_set_var("loaded_" .. key .. "_provider", 0)
-        end
+        vim.g["loaded_" .. key .. "_provider"] = value
     end
 
-    for key, value in pairs(V.settings) do
+    for key, value in pairs(V.opts) do
         vim.opt[key] = value
+    end
+
+    for key, value in pairs(V.g) do
+        vim.g[key] = value
     end
 
     vim.api.nvim_create_autocmd("FileType", {
         command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o"
     })
-
-    vim.api.nvim_command([[autocmd BufRead,BufNewFile *.fell set filetype=fell]])
-    vim.api.nvim_command([[set laststatus=1]])
-
-    vim.api.nvim_command([[colorscheme ]] .. V.colorscheme)
 end
 
 V.setup = function()
-    require("config")
     V.bootstrap()
-    V.lazy()
     V.init()
+    V.lazy()
+
+    vim.api.nvim_command([[colorscheme ]] .. V.colorscheme)
 end

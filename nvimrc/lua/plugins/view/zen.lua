@@ -1,5 +1,5 @@
 return {
-    'folke/zen-mode.nvim',
+    "folke/zen-mode.nvim",
     lazy = true,
     cmd = "ZenMode",
     config = function()
