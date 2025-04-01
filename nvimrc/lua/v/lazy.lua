@@ -34,6 +34,10 @@ V.lazy = function()
 
         checker = {
             enabled = true
+        },
+
+        dev = {
+            path = "~/cb/lua"
         }
     })
 end
