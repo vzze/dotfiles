@@ -1,7 +1,7 @@
 return {
     "vzze/cmdline.nvim",
     config = function()
-        require("cmdline")({
+        require("cmdline").setup({
             hl = {
                 default   = "Pmenu",
                 selection = "Keyword",
