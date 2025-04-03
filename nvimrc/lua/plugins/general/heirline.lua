@@ -61,11 +61,7 @@ return {
                     }
                 }),
 
-                heircomps.component.tabline_tabpages({
-                    condition = function()
-                        return #vim.api.nvim_list_tabpages() >= 1
-                    end
-                }),
+                heircomps.component.tabline_tabpages(),
 
                 heircomps.component.tabline_buffers({
                     file_icon = false,
@@ -108,6 +104,16 @@ return {
                 }),
 
                 heircomps.component.treesitter({ update = false }),
+
+                heircomps.component.cmd_info({
+                    macro_recording = {
+                        update = {
+                            "RecordingEnter",
+                            "RecordingLeave",
+                            callback = update_custom_tabline
+                        },
+                    },
+                }),
 
                 heircomps.component.nav({ update = false })
             },

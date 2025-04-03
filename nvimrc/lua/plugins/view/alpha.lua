@@ -5,6 +5,20 @@ return {
 
         local art = V.art.power
 
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "AlphaReady",
+            callback = function()
+                vim.opt.showtabline = 0
+            end
+        })
+
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "AlphaClosed",
+            callback = function()
+                vim.opt.showtabline = 2
+            end
+        })
+
         if V.art.greeter.info then
             local time = os.date("*t")
 
@@ -12,11 +26,7 @@ return {
             local middle = ""
             local right
 
-            right = "Plugins: " .. tostring(
-                #require("plugins.util") + #require("plugins.general") +
-                #require("plugins.git") + #require("plugins.view") + #require("plugins.lsp")
-                + 1 -- to account for lazy.nvim
-            )
+            right = "Plugins: " .. tostring(require("lazy").stats().count)
 
             local final  = ""
 
@@ -48,8 +58,6 @@ return {
             table.insert(art, #art + 1, final .. right)
         end
 
-        math.randomseed(os.time())
-
         dashboard.section.header.val = art
 
         local custom_button = dashboard.button("vVv", "vVv")
@@ -74,20 +82,6 @@ return {
         end
 
         dashboard.section.header.opts.hl = "LineNr"
-
-        vim.api.nvim_create_autocmd("User", {
-            pattern = "AlphaReady",
-            callback = function()
-                vim.opt.showtabline = 0
-            end
-        })
-
-        vim.api.nvim_create_autocmd("User", {
-            pattern = "AlphaClosed",
-            callback = function()
-                vim.opt.showtabline = 2
-            end
-        })
 
         require("alpha").setup(dashboard.config)
     end
