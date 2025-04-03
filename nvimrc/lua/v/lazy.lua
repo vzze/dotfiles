@@ -33,7 +33,7 @@ V.lazy = function()
         },
 
         checker = {
-            enabled = true
+            enabled = false
         },
 
         dev = {
