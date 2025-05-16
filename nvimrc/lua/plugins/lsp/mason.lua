@@ -1,5 +1,5 @@
 return {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
 
     build = function()
         pcall(vim.api.nvim_command, [[MasonUpdate]])
