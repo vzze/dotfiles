@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill '/home/edi/.config/feh/wallpaper2.jpg' 
+feh --no-fehbg --bg-fill --bg-scale --no-xinerama '/home/edi/.config/feh/wallpaper3.jpg'

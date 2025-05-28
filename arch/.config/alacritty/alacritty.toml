@@ -33,3 +33,6 @@ blue    = '#8dccff'
 magenta = '#d7a2ff'
 cyan    = '#5efcff'
 white   = '#e6e6e6'
+
+[mouse]
+hide_when_typing = true
