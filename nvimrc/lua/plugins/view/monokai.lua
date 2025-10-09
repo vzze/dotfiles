@@ -49,7 +49,27 @@ return {
                     context_highlight = "default", -- default | pro
                     context_start_underline = false
                 }
-            }
+            },
+
+            overridePalette = function(filter)
+                return {
+                    dark2 = "#1c1c21",
+                    dark1 = "#211c20",
+                    background = "#1f1c21",
+                    text = "#ffffff",
+                    accent1 = "#fcc0ff",
+                    accent2 = "#c0e3ff",
+                    accent3 = "#ff4f5f",
+                    accent4 = "#87ffaf",
+                    accent5 = "#91fdff",
+                    accent6 = "#c16fff",
+                    dimmed1 = "#edd5ff",
+                    dimmed2 = "#edd5ff",
+                    dimmed3 = "#877a91",
+                    dimmed4 = "#877a91",
+                    dimmed5 = "#2a262d"
+                }
+            end
         })
     end
 }

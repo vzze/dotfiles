@@ -6,5 +6,6 @@ return {
     require("plugins.util.autopairs"),
     require("plugins.util.tidy"),
     require("plugins.util.aligner"),
-    require("plugins.util.calculator")
+    require("plugins.util.calculator"),
+    require("plugins.util.colorizer")
 }

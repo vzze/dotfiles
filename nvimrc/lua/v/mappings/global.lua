@@ -10,20 +10,11 @@ V.mappings.global = {
 
     { "<Leader>t" , group = "Tabs" },
 
-    { "<Leader>tq", "<cmd>tabclose<CR>"      , desc = "Close Tab"          },
-    { "<Leader>tf", "<cmd>Neotree toggle<CR>", desc = "Toggle File Editor" },
-    { "<Leader>th", "<cmd>tabprevious<CR>"   , desc = "Previous Tab"       },
-    { "<Leader>tl", "<cmd>tabnext<CR>"       , desc = "Next Tab"           },
-    { "<Leader>tn", "<cmd>tabnew<CR>"        , desc = "New Tab"            },
-
-
-    { "<Leader>c" , group = "Terminals" },
-
-    { "<Leader>c1", "<cmd>lua V.terminal.manager.toggle(1)<CR>", desc = "T1 (Float)"     },
-    { "<Leader>c2", "<cmd>lua V.terminal.manager.toggle(2)<CR>", desc = "T2 (Bottom)"    },
-    { "<Leader>c3", "<cmd>lua V.terminal.manager.toggle(3)<CR>", desc = "T3 (Right)"     },
-    { "<Leader>c4", "<cmd>lua V.terminal.manager.toggle(4)<CR>", desc = "T4 (Top Right)" },
-    { "<Leader>c5", "<cmd>lua V.terminal.manager.toggle(5)<CR>", desc = "T5 (Full)"      },
+    { "<Leader>tq", "<cmd>tabclose<CR>"          , desc = "Close Tab"          },
+    { "<Leader>tf", "<cmd>Neotree toggle top<CR>", desc = "Toggle File Editor" },
+    { "<Leader>th", "<cmd>tabprevious<CR>"       , desc = "Previous Tab"       },
+    { "<Leader>tl", "<cmd>tabnext<CR>"           , desc = "Next Tab"           },
+    { "<Leader>tn", "<cmd>tabnew<CR>"            , desc = "New Tab"            },
 
     { "<Leader>w" , group = "Windows" },
 
