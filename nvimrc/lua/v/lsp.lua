@@ -1,7 +1,5 @@
 V.lsp = {}
 
-V.lsp.capabilities = nil
-
 V.lsp.apply_custom_config = function(cfg, obj)
     for key, value in pairs(obj) do
         if type(value) == "table" and type(cfg[key]) == "table" then
@@ -14,8 +12,8 @@ end
 
 V.lsp.setup_server = function(server, capabilities, bind_manager)
     local cfg = {
-        on_attach = function(client, buf)
-            bind_manager.add(V.mappings.lsp(buf))
+        on_attach = function(_ --[[client]] , bufnr)
+            bind_manager.add(V.mappings.lsp(bufnr))
 
             -- client.server_capabilities.semanticTokensProvider = nil
         end,

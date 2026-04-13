@@ -34,7 +34,6 @@ V.opts = {
         "blank", "buffers", "curdir", "folds", "help", "tabpages", "winsize", "winpos", "terminal"
     },
     foldmethod = "expr",
-    foldexpr = "nvim_treesitter#foldexpr()",
     foldlevelstart = -1,
     foldcolumn = "1",
     showtabline = 2,

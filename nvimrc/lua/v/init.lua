@@ -25,7 +25,15 @@ V.init = function()
     end
 
     vim.api.nvim_create_autocmd("FileType", {
-        command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o"
+        pattern = { "*" },
+        callback = function()
+            if pcall(vim.treesitter.start) then
+                vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+                vim.wo[0][0].foldmethod = 'expr'
+            end
+
+            vim.api.nvim_command([[setlocal formatoptions-=c formatoptions-=r formatoptions-=o]])
+        end,
     })
 end
 

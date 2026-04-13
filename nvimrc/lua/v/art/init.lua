@@ -7,3 +7,4 @@ V.art.greeter = {
 
 require("v.art.historia")
 require("v.art.power")
+require("v.art.reze")

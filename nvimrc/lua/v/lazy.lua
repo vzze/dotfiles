@@ -29,7 +29,7 @@ V.lazy = function()
         },
 
         install = {
-            colorscheme = { "monokai-pro" }
+            colorscheme = { V.colorscheme }
         },
 
         checker = {

@@ -1,9 +1,10 @@
 return {
     "goolord/alpha-nvim",
+
     config = function()
         local dashboard = require("alpha.themes.dashboard")
 
-        local art = V.art.power
+        local art = V.art.reze
 
         vim.api.nvim_create_autocmd("User", {
             pattern = "AlphaReady",

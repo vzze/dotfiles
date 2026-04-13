@@ -1,6 +1,7 @@
 return {
     "loctvl842/monokai-pro.nvim",
-    priority = 100,
+    priority = 0,
+
     config = function()
         require("monokai-pro").setup({
             transparent_background = true,
@@ -51,7 +52,7 @@ return {
                 }
             },
 
-            overridePalette = function(filter)
+            override_palette = function(_ --[[filter]])
                 return {
                     dark2 = "#1c1c21",
                     dark1 = "#211c20",
@@ -69,7 +70,7 @@ return {
                     dimmed4 = "#877a91",
                     dimmed5 = "#2a262d"
                 }
-            end
+            end,
         })
     end
 }

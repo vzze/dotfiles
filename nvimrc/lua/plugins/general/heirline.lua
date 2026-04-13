@@ -7,6 +7,10 @@ return {
 
         heircomps.init.subscribe_to_events()
 
+        local update_custom_tabline = vim.schedule_wrap(function()
+            vim.cmd.redrawtabline()
+        end)
+
         local set_2_none = {
             winbarnc_bg = "NONE",
             winbar_bg = "NONE",
@@ -32,10 +36,6 @@ return {
             buffer_active_bg = "NONE",
             buffer_bg = "NONE",
         }
-
-        local update_custom_tabline = vim.schedule_wrap(function()
-            vim.cmd.redrawtabline()
-        end)
 
         vim.api.nvim_create_augroup("Heirline", { clear = true })
 

@@ -2,11 +2,9 @@ V.mappings.global = {
     { "<LocalLeader>", group = "V1602" },
     { "<Leader>"     , group = "V1602" },
 
-    { "<Leader>h" , "<cmd>TSToggle highlight<CR>"                 , desc = "Toggle Highlight"    },
     { "<Leader>m" , "<cmd>Mason<CR>"                              , desc = "Open Mason"          },
     { "<Leader>p" , "<cmd>Lazy<CR>"                               , desc = "Open Plugin Manager" },
     { "<Leader>r" , "<cmd>lua require(\"persistence\").load()<cr>", desc = "Restore Session"     },
-    { "<Leader>z" , "<cmd>ZenMode<CR>"                            , desc = "Toggle Zen Mode"     },
 
     { "<Leader>t" , group = "Tabs" },
 
@@ -51,10 +49,9 @@ V.mappings.global = {
 
     { "<Leader>um", "<cmd>MasonUpdate<CR>" , desc = "Mason"      },
     { "<Leader>up", "<cmd>Lazy sync<CR>"   , desc = "Plugins"    },
-    { "<Leader>ut", "<cmd>TSUpdate all<CR>", desc = "Treesitter" },
 
-    { "q"    , "<Plug>(leap-forward-to)" , desc = "Leap Forward"  },
-    { "Q"    , "<Plug>(leap-backward-to)", desc = "Leap Backward" },
+    { "q"    , "<Plug>(leap-forward)" , desc = "Leap Forward"  },
+    { "Q"    , "<Plug>(leap-backward)", desc = "Leap Backward" },
 
     { "<Esc>", "\28\14", desc = "Terminal Escape", mode = "t" }
 }
