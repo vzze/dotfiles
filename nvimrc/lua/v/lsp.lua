@@ -29,6 +29,7 @@ V.lsp.setup_server = function(server, capabilities, bind_manager)
     end
 
     vim.lsp.config(server, cfg)
+    vim.lsp.enable(server)
 end
 
 V.lsp.diagnostics = {

@@ -3,6 +3,7 @@ V = {}
 require("v.bootstrap")
 require("v.mappings")
 require("v.settings")
+require("v.terminal")
 require("v.lazy")
 require("v.lsp")
 require("v.art")
